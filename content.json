@@ -1,0 +1,74 @@
+{
+ "address": "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a",
+ "address_index": 98439863,
+ "background-color": "#FFF",
+ "clone_root": "template-new",
+ "cloned_from": "1HeLLo4uzjaLetFx6NH3PMwFP3qbRbTf3D",
+ "description": "Lists the most important zites by category.",
+ "files": {
+  "about.html": {
+   "sha512": "151f733722a2f09f14ba26cc5ed2f54a757d553f8134e804cfff73de6c2e847b",
+   "size": 4692
+  },
+  "css/bulma.css": {
+   "sha512": "65bcef3adc230e45c18b650a15936704eb5c23fcdb7c304a3db675e9ca81918b",
+   "size": 134222
+  },
+  "css/bulma.css.map": {
+   "sha512": "00758d2a9b4f7e7d85628e91e951f93b9d0ff46a9add33001d9d400b7d59d130",
+   "size": 53969
+  },
+  "css/main.css": {
+   "sha512": "5af08a6cebfefb1320377552dc26b6af6498a5395ace9afd7897966dd184c425",
+   "size": 41
+  },
+  "dbschema.json": {
+   "sha512": "22e231f11ac3b86a20ee6091358f2adc900627078d308ba5999221995e35f181",
+   "size": 828
+  },
+  "index.html": {
+   "sha512": "3da421cacb20202a7bdb50ff58f80ac80711553dd0d9d8fbdb70b960903203fb",
+   "size": 20428
+  },
+  "js/ZeroFrame.js": {
+   "sha512": "090a43d18dcd1aa836b0d160631fe958f9fabd761af712e8eed6f7e010c0dd76",
+   "size": 2409
+  },
+  "js/jquery-3.2.1.min.js": {
+   "sha512": "dcff2b5c2b8625d3593a7531ff4ddcd633939cc9f7acfeb79c18a9e6038fdaa9",
+   "size": 86659
+  },
+  "js/navToggle.js": {
+   "sha512": "f80335e8934871d82aed51de1a314c458d304893327957bec9c925a8872437bd",
+   "size": 2889
+  },
+  "request.html": {
+   "sha512": "ca392b1d8a497d65c5440e80f7b93a37719ec68aad875752ddac6f05e90906dc",
+   "size": 8175
+  }
+ },
+ "ignore": "data/.*",
+ "includes": {
+  "data/users/content.json": {
+   "signers": [],
+   "signers_required": 1
+  }
+ },
+ "inner_path": "content.json",
+ "modified": 1492118858,
+ "postmessage_nonce_security": true,
+ "sign": [
+  41606475170859222230951797627530273866419574378200721565703644089945906834868,
+  83898293649340863662277034681376936858942377962371664076056976305852723137220
+ ],
+ "signers_sign": "G0Tvd8VL673RLDVNDGAfnJ60lSfxFCSWmX7nupzAFQp7I6vtoqWYKtaX5yJe4xQ0fFB+LomkGFGHTDJ6wEBqXhs=",
+ "signs": {
+  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "HK3bEVAUX1YPq586/1Lsf6uIXmgF0gH0E4b7OaqgoxVzPr3vIciPFZVp27i80V+PgJBYGfNGLJlAceRrsW/nkzg="
+ },
+ "signs_required": 1,
+ "title": "Important Zites",
+ "translate": [
+  "js/all.js"
+ ],
+ "zeronet_version": "0.5.3"
+}
