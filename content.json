@@ -7,8 +7,8 @@
  "description": "Lists the most important zites by category.",
  "files": {
   "about.html": {
-   "sha512": "af8604a5e577db2a033991a4b071df603286c71fbe54f9c7fd69640eb7966cfe",
-   "size": 5011
+   "sha512": "97be68d0c3abe6dbed47dd973fea1e65915643655a042ca00911b73e8fe76355",
+   "size": 5110
   },
   "css/bulma.css": {
    "sha512": "65bcef3adc230e45c18b650a15936704eb5c23fcdb7c304a3db675e9ca81918b",
@@ -47,11 +47,11 @@
    "size": 44794
   },
   "request.html": {
-   "sha512": "68a2258d917cf7844b7a36c4f39cc3c5c96efed77979892016eba5493b981a5d",
-   "size": 9792
+   "sha512": "d51fbef877578e3aa372599aee9bd0e922f2f4da483f68318f6675de019bc355",
+   "size": 10025
   }
  },
- "ignore": "(data/.*|admin/.*|.git)",
+ "ignore": "(data/.*|admin|.git)",
  "includes": {
   "data/users/content.json": {
    "signers": [],
@@ -59,15 +59,15 @@
   }
  },
  "inner_path": "content.json",
- "modified": 1492179396,
+ "modified": 1492180117,
  "postmessage_nonce_security": true,
  "sign": [
-  76290653407979083481364771280360516248185115422215051918224780180641247125912,
-  31972532916250928179485825871985910459167776011730090592704063894129345588364
+  74376593618660873011851237678032898834834483092503381213573726016076791640899,
+  67130407251833182783092395135539487373923962062300048327049188858754236592168
  ],
  "signers_sign": "G0Tvd8VL673RLDVNDGAfnJ60lSfxFCSWmX7nupzAFQp7I6vtoqWYKtaX5yJe4xQ0fFB+LomkGFGHTDJ6wEBqXhs=",
  "signs": {
-  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "HOW+PjGVMbqnjw/oy/8iAykTamifqSKk7KOu1NyIHYWBVQz/19VDe+Ai6xAGM47iStl4ixBe1X9iE3XGlkGKy58="
+  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "HK+ruig53hkSCQoE7mByJIbVLzPVSL0XPDpBlmkGusy1CwQbwT4Ho0fHzWkP1C2YPaGBL+HBXTsRycuoFbRZNNk="
  },
  "signs_required": 1,
  "title": "Important Zites",

@@ -102,10 +102,12 @@
 		class ZeroChat extends ZeroFrame {
 		    addMessage (username, message, isByCurrentUser) {
 		        var message_escaped = message.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;");  // Escape html tags in the message
+		        var message_url = message.replace(/http:\/\/127\.0\.0\.1:43110/, "").replace(/127\.0\.0\.1:43110/, "").replace(/http:\/\/localhost:43110/, "").replace(/localhost:43110/, "");
+		        //console.log(message_url);
 		        if (isByCurrentUser == true) {
-		        	this.currentUserMessages.innerHTML += "<li><b>" + username + ":</b> <em><a href='" + message + "'>" + message_escaped + "</a></em></li>"
+		        	this.currentUserMessages.innerHTML += "<li><b>" + username + ":</b> <em><a href='" + message_url + "'>" + message_escaped + "</a></em></li>"
 		        } else {
-		        	this.messages.innerHTML += "<li><b>" + username + ":</b> <em><a href='" + message + "'>" + message_escaped + "</a></em></li>"
+		        	this.messages.innerHTML += "<li><b>" + username + ":</b> <em><a href='" + message_url + "'>" + message_escaped + "</a></em></li>"
 		        }
 		        //var html = "<li><b>" + username + ":</b> <em><a href='" + message + "'>" + message_escaped + "</a></em></li>";
 		        //$(html).hide().appendTo("#messages").fadeIn();
