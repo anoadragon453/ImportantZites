@@ -20,6 +20,12 @@
  	#messages li > b {
  		margin-right: 2px;
  	}
+ 	#current_user_messages li {
+ 		margin-bottom: 5px;
+ 	}
+ 	#current_user_messages li > b {
+ 		margin-right: 2px;
+ 	}
  </style>
 </head>
 <body>
@@ -53,8 +59,7 @@
 		<div class="columns">
 			<div class="column is-8 is-offset-2">
 				<p>To request a zite be added, submit the link in the form below. Or you can send me a request by emailing me the link to the zite on ZeroMail via <a href="http://127.0.0.1:43110/Mail.ZeroNetwork.bit/?to=krixano">this link</a>. <em>Once a zite has been added, it will be removed from this requests list.</em></p>
-				<br>
-				<h2 class="title is-4">Requests</h2>
+				<h2 class="title is-4" style="margin-top: 20px;">Requests</h2>
 				<div class="columns">
 					<div class="column is-6">
 						<div class="field">
@@ -67,6 +72,10 @@
 						</div>
 					</div>
 				</div>
+				<h3 class="title is-6" style="margin-bottom: 5px; font-style: bold;">Your Requests</h3>
+				<ul id="current_user_messages">
+				</ul>
+				<h3 class="title is-6" style="margin-bottom: 5px; margin-top: 15px;">Others' Requests</h3>
 				<ul id="messages">
 				</ul>
 			</div>
@@ -89,15 +98,20 @@
 
 	<script>
 		class ZeroChat extends ZeroFrame {
-		    addMessage (username, message) {
+		    addMessage (username, message, isByCurrentUser) {
 		        var message_escaped = message.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;");  // Escape html tags in the message
-		        this.messages.innerHTML += "<li><b>" + username + ":</b> <em><a href='" + message + "'>" + message_escaped + "</a></em></li>"
+		        if (isByCurrentUser == true) {
+		        	this.currentUserMessages.innerHTML += "<li><b>" + username + ":</b> <em><a href='" + message + "'>" + message_escaped + "</a></em></li>"
+		        } else {
+		        	this.messages.innerHTML += "<li><b>" + username + ":</b> <em><a href='" + message + "'>" + message_escaped + "</a></em></li>"
+		        }
 		        //var html = "<li><b>" + username + ":</b> <em><a href='" + message + "'>" + message_escaped + "</a></em></li>";
 		        //$(html).hide().appendTo("#messages").fadeIn();
 		    }
 
 		    onOpenWebsocket () {
 		        this.messages = document.getElementById("messages");
+		        this.currentUserMessages = document.getElementById("current_user_messages");
 		        //this.addMessage("System", "Ready to call ZeroFrame API!");
 		        this.cmd("siteInfo", {}, (site_info) => {
 		            if (site_info.cert_user_id)
@@ -108,16 +122,19 @@
 		    }
 
 		    selectUser () {
-	            this.cmd("certSelect", {accepted_domains: ["zeroid.bit"]})
+	            this.cmd("certSelect", {accepted_domains: ["zeroid.bit", "kaffie.bit"]})
 	            return false
 	        }
 
 	        onRequest (cmd, message) {
 		        if (cmd == "setSiteInfo") {
-		            if (message.params.cert_user_id)
+		            if (message.params.cert_user_id) {
 		                document.getElementById("select_user").innerHTML = message.params.cert_user_id
-		            else
+		                this.loadMessages();
+		            } else {
 		                document.getElementById("select_user").innerHTML = "Select user"
+		                this.loadMessages();
+		            }
 		            this.site_info = message.params  // Save site info data to allow access it later
 
 		            if (message.params.event[0] == "file_done")
@@ -175,15 +192,23 @@
 
 		    loadMessages() {
 	    		$("#messages").hide();
+	    		$("#current_user_messages").hide();
 		    	this.cmd("dbQuery", ["SELECT * FROM message LEFT JOIN json USING (json_id) ORDER BY date_added DESC"], (messages) => {
 		    		document.getElementById("messages").innerHTML = ""; // Always star with empty messages
+		    		document.getElementById("current_user_messages").innerHTML = "";
 		    		for (var i = 0; i < messages.length; i++) {
-		    			//if (messages[i].cert_user_id == this.site_info.cert_user_id) {
-	    				this.addMessage(messages[i].cert_user_id, messages[i].body);
-		    			//}
+		    			if (messages[i].cert_user_id == this.site_info.cert_user_id) {
+		    				this.addMessage(messages[i].cert_user_id, messages[i].body, true);
+		    			} else {
+	    					this.addMessage(messages[i].cert_user_id, messages[i].body, false);
+		    			}
 		    		}
+		    		if (!this.site_info.cert_user_id) {
+		        		this.currentUserMessages.innerHTML = "<li id='default'><em>Please <a href='#Select+user' onclick='return page.selectUser()'>Select User</a> to see your requests.</em></li>";
+		        	}
 		    	});
 	    		$("#messages").velocity("fadeIn", { duration: 500 });
+	    		$("#current_user_messages").velocity("fadeIn", { duration: 500 });
 		    }
 		}
 

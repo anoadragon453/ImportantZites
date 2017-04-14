@@ -49,8 +49,8 @@
 				<ul>
 					<li><s>Tabs to filter out zites by category</s></li>
 					<li><s>Request zites to be added</s></li>
-					<li>Use Velocity.js instead of jQuery for animations</li>
-					<li>Rating system?</li>
+					<li><s>Use Velocity.js instead of jQuery for animations</s></li>
+					<li>Voting/Rating system?</li>
 					<li>Search</li>
 					<li><em>&nbsp;&nbsp;&nbsp; - Search by address (with or without <code>127.0.0.1:43110</code>)</em></li>
 					<li><em>&nbsp;&nbsp;&nbsp; - Search by keywords and tags</em></li>
@@ -83,7 +83,7 @@
 		    }
 
 		    selectUser () {
-	            this.cmd("certSelect", {accepted_domains: ["zeroid.bit"]})
+	            this.cmd("certSelect", {accepted_domains: ["zeroid.bit", "kaffie.bit"]})
 	            return false
 	        }
 

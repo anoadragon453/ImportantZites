@@ -7,8 +7,8 @@
  "description": "Lists the most important zites by category.",
  "files": {
   ".git/COMMIT_EDITMSG": {
-   "sha512": "fb334d527204e4c85c3a4826e7e3f0e70019b63043c09325348edca8b37ece4b",
-   "size": 44
+   "sha512": "9ee4a91f0fa11104249566912db9760ff115bc09df870756df380bd15c93c7bf",
+   "size": 56
   },
   ".git/HEAD": {
    "sha512": "76b199f1bffdc6d21547895431b0f85f3857df400225cbd1ae55e7ded09786a8",
@@ -63,24 +63,24 @@
    "size": 3610
   },
   ".git/index": {
-   "sha512": "8540e6a3206dc934f206b6ca1bc470d62a82e34db7dc05bdb40e3043a71ccd3c",
-   "size": 1089
+   "sha512": "c0d31a9d13b5225a8dcdd867cb6bb7c4cb86908999d9c8889c316123f9816975",
+   "size": 1177
   },
   ".git/info/exclude": {
    "sha512": "9828c6ecdf91bf117416e17f4ee9caee2e1e37b6fb00b9ff04035ace17a3089b",
    "size": 240
   },
   ".git/logs/HEAD": {
-   "sha512": "107bf1303ab84e168a2b16e6b60dacafa799eae2491366d275a9db0795ecc093",
-   "size": 356
+   "sha512": "5b96210afc6deccbf8f7062c4dde8edd66b85c4cdb2b4d05c40aef79a289a6c6",
+   "size": 559
   },
   ".git/logs/refs/heads/master": {
-   "sha512": "107bf1303ab84e168a2b16e6b60dacafa799eae2491366d275a9db0795ecc093",
-   "size": 356
+   "sha512": "5b96210afc6deccbf8f7062c4dde8edd66b85c4cdb2b4d05c40aef79a289a6c6",
+   "size": 559
   },
   ".git/logs/refs/remotes/origin/master": {
-   "sha512": "4bf0f766245215fd935edf7ce3b20cd23eb6d42e3d365fec89be33fbd56d887a",
-   "size": 308
+   "sha512": "c4b95c9492b0d07a450435d9ad43b86dd44e1571cbf516a953408a4478a70cd3",
+   "size": 462
   },
   ".git/objects/04/aa77758adf32f5b2839dde22202232e6f90cda": {
    "sha512": "2c16c09c4bb6441c03b7e7f74a257a1933abeb649e1cfe37a147630bd66e36d4",
@@ -102,6 +102,10 @@
    "sha512": "4545886161aede1e7a29b053fe13e1ffb8d94f269a56e21a8170e67c8b20783d",
    "size": 141
   },
+  ".git/objects/40/30f2b9b8f2929311b390d2746fe05e1570705c": {
+   "sha512": "9aa0fd35b6b853de31c6338490bdb79fa1a1d51e0708bbaa9c30b126e7c3a043",
+   "size": 4369
+  },
   ".git/objects/4b/825dc642cb6eb9a060e54bf8d69288fbee4904": {
    "sha512": "20f2df3641c9830fce6af6af53f9f0ef89a59c3eb224feda882f1aa0aa79c852",
    "size": 15
@@ -122,6 +126,10 @@
    "sha512": "a6df61fbaf481432d0bec83658a6b5cc66c5c6129c21fd55a9e3478a9d824a54",
    "size": 35123
   },
+  ".git/objects/6a/bc1300b8b0986ab54e5f02f1988a18910016c7": {
+   "sha512": "25b99cc286c54a4d77dd62eda1baaf3a7ccfb98d7b51421a39dbdfb167f8018f",
+   "size": 194
+  },
   ".git/objects/7f/0077f2b1ec0b73a8fde8a869330b686974efba": {
    "sha512": "101841c065aca59ce5b837662266c280770fdc2fafa1e59e9612ab728fcc881a",
    "size": 1661
@@ -133,6 +141,10 @@
   ".git/objects/90/883e409c78bc5aa9f87c44b4d39d9b7e3fec2b": {
    "sha512": "567e525206053b2e25aa17ebc85da94e257207e5e4d4df62b3c87bf02dd71c76",
    "size": 1988
+  },
+  ".git/objects/9e/d9477aecc596c3c6e980c223b0fd955bca701a": {
+   "sha512": "73f9d9859797bdc912b24f7ce29dc21d56e4fec143ec5169226cc05bc0612ce7",
+   "size": 165
   },
   ".git/objects/a0/365f3299de2482826e447c33fee607810b2493": {
    "sha512": "7d119658570099729fb9dac0c641cc1141c98f9962e004aefb96f111fcb3cca3",
@@ -154,6 +166,14 @@
    "sha512": "2e75e16fb607b857bb0c8168a12a34d8ea6c56cda6013c72813db0ab9bb0423d",
    "size": 3260
   },
+  ".git/objects/c9/3c539a04fe8f7884dce6b3dbdc30fc2fba0dc1": {
+   "sha512": "3fb73f4b6eef47f322aea560f24475419f7b174204fe8d3610f1cd2c13dc9e15",
+   "size": 3319
+  },
+  ".git/objects/d0/2467673f181b71378a1317be81ede802ff4cc0": {
+   "sha512": "3d61752dbff9b616155e8cbea55edee85129e0c6fb80cabb4b61e96737cf1fb3",
+   "size": 17985
+  },
   ".git/objects/da/960bcd29b13af62f1767167d0ab7419d6dc047": {
    "sha512": "3b45b30d5b2fb32922892be5285f2bc67732d2c70ffd1c6aeeff2b124a08298c",
    "size": 94
@@ -165,6 +185,10 @@
   ".git/objects/e4/23e407dee424826aa199b201435db15487ffba": {
    "sha512": "0ed083ef533667cccd08f266eb92a1ef497d340ba0c15995702cd59b7ed650b4",
    "size": 132
+  },
+  ".git/objects/ee/39a4290f79ea222cf26439343d41999849e6da": {
+   "sha512": "4316bd242a1d3303a90f5234204b9f14d762eba7f57e47ead782fdc0648d86bd",
+   "size": 277
   },
   ".git/objects/f1/6961e28c21ef330e8f93ba158aa51391c98ed3": {
    "sha512": "038479a2bec3cb7fb7cf55bbbb88c0ff1570eb68939e981b777a87fb89f51e64",
@@ -178,21 +202,25 @@
    "sha512": "70d1d06a6a68c14836daa92ead3e10a3a8b5c7e706eaddeeb535d4a4b0319ecb",
    "size": 112
   },
+  ".git/objects/f7/6b847e25908be23c2be7b1d8c59c81ba9b0629": {
+   "sha512": "16231fec1eb8d0c6c4afee04f43ea69179536e40a1e9d5d086747761ecc626fe",
+   "size": 5712
+  },
   ".git/objects/fa/ce5c5f2b3e3e19d59b07ee077893e7e3e5b209": {
    "sha512": "edb889bc2d288b939b2dd01b9fb33da1b47a121fd61d0764916afe9f874cf7ec",
    "size": 191
   },
   ".git/refs/heads/master": {
-   "sha512": "e09e90aae05f90d4cd50285161f46d007f97ffe166a0f143b313817a6e696655",
+   "sha512": "e8211170d3de1c96f9076e20a2e8bc09ef2a10f911ba1cafb6ed7148b864b376",
    "size": 41
   },
   ".git/refs/remotes/origin/master": {
-   "sha512": "e09e90aae05f90d4cd50285161f46d007f97ffe166a0f143b313817a6e696655",
+   "sha512": "e8211170d3de1c96f9076e20a2e8bc09ef2a10f911ba1cafb6ed7148b864b376",
    "size": 41
   },
   "about.html": {
-   "sha512": "cb7e434d69163f183b8805bb2092ab40a361822304dacedfdbd8d839fc02700b",
-   "size": 4830
+   "sha512": "8cd71860fcf88daae1604b7d34f962ae202c4196d8fd70bd7455f6a19ded022b",
+   "size": 4858
   },
   "css/bulma.css": {
    "sha512": "65bcef3adc230e45c18b650a15936704eb5c23fcdb7c304a3db675e9ca81918b",
@@ -211,8 +239,8 @@
    "size": 828
   },
   "index.html": {
-   "sha512": "9c433c4115e700681ba86b178c6bbe6d788eeb3f0d84fc8f31b7bacde7443ef8",
-   "size": 21238
+   "sha512": "81d94202435c8fbc6af699720270937b7627f899d975f888c059a03a7f920ce1",
+   "size": 21320
   },
   "js/ZeroFrame.js": {
    "sha512": "090a43d18dcd1aa836b0d160631fe958f9fabd761af712e8eed6f7e010c0dd76",
@@ -231,8 +259,8 @@
    "size": 44794
   },
   "request.html": {
-   "sha512": "73bae1af902946e2dedb026bb0d037c163f0bf325e9639a356ca89c32ebd9aef",
-   "size": 8346
+   "sha512": "26c1d33bc507cb6ce38cb6409f5b24a6d5e3d024f1406288ac75b231f5f1069d",
+   "size": 9709
   }
  },
  "ignore": "data/.*",
@@ -243,15 +271,15 @@
   }
  },
  "inner_path": "content.json",
- "modified": 1492133740,
+ "modified": 1492168815,
  "postmessage_nonce_security": true,
  "sign": [
-  9104260371687512302354649631742755309900504346355165110662586389269537436842,
-  92770969763243052759745064701712377705045087528864529837751488665090639507017
+  95236505206909038580913947751769378486772653210132331338998418553918265183459,
+  113550085450204968420195334691722073745782911525498018208634041795019856857661
  ],
  "signers_sign": "G0Tvd8VL673RLDVNDGAfnJ60lSfxFCSWmX7nupzAFQp7I6vtoqWYKtaX5yJe4xQ0fFB+LomkGFGHTDJ6wEBqXhs=",
  "signs": {
-  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "G/aOq7GvU9vg5nToLvW5bKeyXrQYDcmMA6fGDuS+uiEOBopWwHZ/SgfzofvWVUoLwIeIS4twU9yV1BGunAMRuRc="
+  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "G282NmBC95eA3TA2ED7+MhLhxaeNDLG9MY2ETBb+1PLlRYQdmJV7TX/Az09aveFmJ8DZBoYwYh7lH8IcU+qDdb8="
  },
  "signs_required": 1,
  "title": "Important Zites",
