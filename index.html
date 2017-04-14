@@ -88,11 +88,11 @@
 
  		previousId = id;
 
- 		toggleClass(tabElem.parentElement, "is-active");
+ 		toggleClass(tabElem, "is-active");
 
  		toggleClass(previousActiveTab, "is-active");
 
- 		previousActiveTab = tabElem.parentElement;
+ 		previousActiveTab = tabElem;
  		return false;
  	}
  </script>
@@ -134,26 +134,31 @@
 	</nav>
 
 	<section class="section">
-		<div class="tabs is-centered">
-		  <ul>
-		    <li id="allTab" class="is-active"><a onclick="tabClick('all', this); return false;">All</a></li>
-		    <li><a onclick="tabClick('info', this); return false;">Info</a></li>
-		    <li><a onclick="tabClick('social', this); return false;">Social</a></li>
-		    <li><a onclick="tabClick('videos', this); return false;">Videos</a></li>
-		    <li><a onclick="tabClick('music', this); return false;">Music</a></li>
-		    <li><a onclick="tabClick('games', this); return false;">Games</a></li>
-		    <li><a onclick="tabClick('books', this); return false;">Books</a></li>
-		    <li><a onclick="tabClick('search', this); return false;">Search</a></li>
-		    <li><a onclick="tabClick('blog', this); return false;">Blog</a></li>
-		    <!--<li><a>News</a></li>-->
-		    <li><a onclick="tabClick('programming', this); return false;">Programming</a></li>
-		    <li><a onclick="tabClick('other', this); return false;">Other</a></li>
-		  </ul>
-		</div>
+		<!--<div class="tabs is-centered">
+		</div>-->
 
 		<div class="columns">
-			<div class="column is-8 is-offset-2">
-				<table class="table is-narrow is-striped">
+			<div class="column is-2 is-offset-1">
+				<aside class="menu">
+					<p class="menu-label">Categories</p>
+					<ul class="menu-list">
+						<li><a id="allTab" class="is-active" onclick="tabClick('all', this); return false;">All</a></li>
+						<li><a onclick="tabClick('info', this); return false;">Info</a></li>
+						<li><a onclick="tabClick('social', this); return false;">Social</a></li>
+						<li><a onclick="tabClick('videos', this); return false;">Videos</a></li>
+						<li><a onclick="tabClick('music', this); return false;">Music</a></li>
+						<li><a onclick="tabClick('games', this); return false;">Games</a></li>
+						<li><a onclick="tabClick('books', this); return false;">Books</a></li>
+						<li><a onclick="tabClick('search', this); return false;">Search</a></li>
+						<li><a onclick="tabClick('blog', this); return false;">Blog</a></li>
+						<!--<li><a>News</a></li>-->
+						<li><a onclick="tabClick('programming', this); return false;">Programming</a></li>
+						<li><a onclick="tabClick('other', this); return false;">Other</a></li>
+					</ul>
+				</aside>
+			</div>
+			<div class="column is-8">
+				<table class="table is-narrow is-striped" style="margin-left: 10px; margin-right: 10px;">
 					<thead>
 						<tr>
 							<th>Name</th>
