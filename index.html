@@ -17,71 +17,71 @@
  		if (id == "all") {
  			// Show all divs except the previousId (because that one is already shown)
  			if (previousId != "info") {
- 				$(".info").fadeIn();
+ 				$(".info").velocity("fadeIn", { duration: 500 });
  			}
  			if (previousId != "social") {
- 				$(".social").fadeIn();
+ 				$(".social").velocity("fadeIn", { duration: 500 });
  			}
  			if (previousId != "videos") {
- 				$(".videos").fadeIn();
+ 				$(".videos").velocity("fadeIn", { duration: 500 });
  			}
  			if (previousId != "music") {
- 				$(".music").fadeIn();
+ 				$(".music").velocity("fadeIn", { duration: 500 });
  			}
  			if (previousId != "games") {
- 				$(".games").fadeIn();
+ 				$(".games").velocity("fadeIn", { duration: 500 });
  			}
  			if (previousId != "books") {
- 				$(".books").fadeIn();
+ 				$(".books").velocity("fadeIn", { duration: 500 });
  			}
  			if (previousId != "search") {
- 				$(".search").fadeIn();
+ 				$(".search").velocity("fadeIn", { duration: 500 });
  			}
  			if (previousId != "blog") {
- 				$(".blog").fadeIn();
+ 				$(".blog").velocity("fadeIn", { duration: 500 });
  			}
  			if (previousId != "programming") {
- 				$(".programming").fadeIn();
+ 				$(".programming").velocity("fadeIn", { duration: 500 });
  			}
  			if (previousId != "other") {
- 				$(".other").fadeIn().delay(1000);
+ 				$(".other").velocity("fadeIn", { delay: 1000, duration: 500 });
  			}
- 			$(".category").fadeIn();
+ 			$(".category").velocity("fadeIn", { duration: 500 });
  		} else {
 	 		if (id != "info") {
-	 			$(".info").fadeOut();
+	 			$(".info").velocity("fadeOut", { duration: 500 });
 	 		}
 	 		if (id != "social") {
-	 			$(".social").fadeOut();
+	 			$(".social").velocity("fadeOut", { duration: 500 });
 	 		}
 	 		if (id != "videos") {
-	 			$(".videos").fadeOut();
+	 			$(".videos").velocity("fadeOut", { duration: 500 });
 	 		}
 	 		if (id != "music") {
-	 			$(".music").fadeOut();
+	 			$(".music").velocity("fadeOut", { duration: 500 });
 	 		}
 	 		if (id != "games") {
-	 			$(".games").fadeOut();
+	 			$(".games").velocity("fadeOut", { duration: 500 });
 	 		}
 	 		if (id != "books") {
-	 			$(".books").fadeOut();
+	 			$(".books").velocity("fadeOut", { duration: 500 });
 	 		}
 	 		if (id != "search") {
-	 			$(".search").fadeOut();
+	 			$(".search").velocity("fadeOut", { duration: 500 });
 	 		}
 	 		if (id != "blog") {
-	 			$(".blog").fadeOut();
+	 			$(".blog").velocity("fadeOut", { duration: 500 });
 	 		}
 	 		if (id != "programming") {
-	 			$(".programming").fadeOut();
+	 			$(".programming").velocity("fadeOut", { duration: 500 });
 	 		}
 	 		if (id != "other") {
-	 			$(".other").fadeOut();
+	 			$(".other").velocity("fadeOut", { duration: 500 });
 	 		}
 	 		if (previousId != id && previousId != "all") {
-	 			$("." + id).delay(650).fadeIn();
+	 			$("." + id).velocity("fadeIn", { delay: 650, duration: 500 });
 	 		}
-	 		$(".category").fadeOut();
+	 		$(".category").velocity("fadeOut", { duration: 500 });
 	 	}
 
  		previousId = id;
@@ -393,6 +393,7 @@
 
 	<script type="text/javascript" src="js/ZeroFrame.js"></script>
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/velocity.min.js"></script>
 
 	<script>
 		class ZeroChat extends ZeroFrame {

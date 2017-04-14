@@ -85,6 +85,7 @@
 
 	<script type="text/javascript" src="js/ZeroFrame.js"></script>
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/velocity.min.js"></script>
 
 	<script>
 		class ZeroChat extends ZeroFrame {
@@ -182,7 +183,7 @@
 		    			//}
 		    		}
 		    	});
-	    		$("#messages").fadeIn();
+	    		$("#messages").velocity("fadeIn", { duration: 500 });
 		    }
 		}
 
