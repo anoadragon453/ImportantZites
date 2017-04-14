@@ -64,10 +64,15 @@
 				<h2 class="title is-4" style="margin-top: 20px;">Requests</h2>
 				<div class="columns">
 					<div class="column is-6">
-						<form>
+						<form onsubmit="return page.sendMessage()">
 							<div class="field">
 				  				<p class="control">
 									<input type="url" id="message" name="message" class="input" onkeypress="if (event.keyCode == 13) page.sendMessage()" placeholder="Zite Link" required>
+								</p>
+							</div>
+							<div class="field">
+				  				<p class="control">
+									<input type="text" id="removal_reason" name="removal_reason" class="input" onkeypress="if (event.keyCode == 13) page.sendMessage()" placeholder="Reason For Removal" style="display: none;">
 								</p>
 							</div>
 							<div class="field">
@@ -83,12 +88,7 @@
 								</p>
 							</div>
 							<div class="field">
-				  				<p class="control">
-									<input type="text" id="removal_reason" name="removal_reason" class="input" onkeypress="if (event.keyCode == 13) page.sendMessage()" placeholder="Reason For Removal" style="display: none;">
-								</p>
-							</div>
-							<div class="field">
-								<button id="send" class="button is-success" onclick="return page.sendMessage()">Submit!</button>
+								<button class="button is-success">Submit!</button>
 							</div>
 						</form>
 					</div>
@@ -223,6 +223,7 @@
 		    			if (res == "ok") {
 		    				// Reset the message input
 		    				document.getElementById("message").value = "";
+		    				document.getElementById("removal_reason").value = "";
 		    				// Sign the changed file in our user's directory
 		    				this.cmd("siteSign", {"inner_path": content_inner_path}, (res) => {
 		    					this.loadMessages(); // Reload Messages
