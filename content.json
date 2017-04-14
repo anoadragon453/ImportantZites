@@ -7,8 +7,8 @@
  "description": "Lists the most important zites by category.",
  "files": {
   "about.html": {
-   "sha512": "dd78f427757f98aed40b4fd04904ffbfa12367c05c95ad993d77263b0485fe32",
-   "size": 4906
+   "sha512": "7bbceac0c976b7a9a9c67981c3a216a39f2b8b633423bc44e09f0a7600ea3799",
+   "size": 5032
   },
   "css/bulma.css": {
    "sha512": "65bcef3adc230e45c18b650a15936704eb5c23fcdb7c304a3db675e9ca81918b",
@@ -27,8 +27,8 @@
    "size": 828
   },
   "index.html": {
-   "sha512": "81d94202435c8fbc6af699720270937b7627f899d975f888c059a03a7f920ce1",
-   "size": 21320
+   "sha512": "ef199b3cdccbd939c26a108af3ee373a95029d5bcfff0393bf0b5ba3e6749a37",
+   "size": 21444
   },
   "js/ZeroFrame.js": {
    "sha512": "090a43d18dcd1aa836b0d160631fe958f9fabd761af712e8eed6f7e010c0dd76",
@@ -47,8 +47,8 @@
    "size": 44794
   },
   "request.html": {
-   "sha512": "26c1d33bc507cb6ce38cb6409f5b24a6d5e3d024f1406288ac75b231f5f1069d",
-   "size": 9709
+   "sha512": "9fe9cc079fe0d0c1bbfefe1d7b65fa0ba860ba0ede52dfb1d978936d92f6ecf4",
+   "size": 9836
   }
  },
  "ignore": "(data/.*|admin/.*|.git)",
@@ -59,20 +59,21 @@
   }
  },
  "inner_path": "content.json",
- "modified": 1492172303,
+ "modified": 1492174273,
  "postmessage_nonce_security": true,
  "sign": [
-  112651505397826728857361781593423417724846956529517951170054329740756258358909,
-  9148682338842250993404322942260906747234375199986316699885094138724501165419
+  89783557544029384063051992161133808565355892218610215926073183974244138101875,
+  24613654170887985154176893777753647050323653571225336216715361639643546707287
  ],
  "signers_sign": "G0Tvd8VL673RLDVNDGAfnJ60lSfxFCSWmX7nupzAFQp7I6vtoqWYKtaX5yJe4xQ0fFB+LomkGFGHTDJ6wEBqXhs=",
  "signs": {
-  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "G1D/gyBynkfpqPrL9jChlAjFNGto691YrP++RW/rDf2MSNJd4uSWYybDGYCuiWDy/gImtU2BQ4iMEVyTolcA0Sg="
+  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "G/iowMRvH25n1llaLmwfkIR3g+RCFY7fGIVOrUJ9gVTvY/0bvbZK4+7gwbM+CxcuGfK4euSGjwQ0C8POtC4mGH8="
  },
  "signs_required": 1,
  "title": "Important Zites",
  "translate": [
   "js/all.js"
  ],
+ "viewport": "width=device-width, initial-scale=1.0, shrink-to-fit=no",
  "zeronet_version": "0.5.4"
 }
