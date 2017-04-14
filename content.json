@@ -6,9 +6,161 @@
  "cloned_from": "1HeLLo4uzjaLetFx6NH3PMwFP3qbRbTf3D",
  "description": "Lists the most important zites by category.",
  "files": {
+  ".git/COMMIT_EDITMSG": {
+   "sha512": "8f0c5241341953a8a82c661ca2354e3410446d631f511127223fa00112e50be5",
+   "size": 8
+  },
+  ".git/HEAD": {
+   "sha512": "76b199f1bffdc6d21547895431b0f85f3857df400225cbd1ae55e7ded09786a8",
+   "size": 23
+  },
+  ".git/config": {
+   "sha512": "223b79899044186f402e53cfdc4ed6f4718de35398f692dccdb90b5cd57d8668",
+   "size": 304
+  },
+  ".git/description": {
+   "sha512": "f7e152f75b124c3e1c5d12f00427729d9eec4e2c1bf70d7606440a6600d00336",
+   "size": 73
+  },
+  ".git/hooks/applypatch-msg.sample": {
+   "sha512": "536cce804d84e25813993efdd240537b52d00ce9cdcecf1982f85096d56a5212",
+   "size": 478
+  },
+  ".git/hooks/commit-msg.sample": {
+   "sha512": "d6bb7fa747f4625adf1877f546565cbe812ca7dd4168f7e9068e6732555d8737",
+   "size": 896
+  },
+  ".git/hooks/post-update.sample": {
+   "sha512": "473ad124642571656276bf83b9ff63ab1804d3c23a5bdae52391c6f70a894849",
+   "size": 189
+  },
+  ".git/hooks/pre-applypatch.sample": {
+   "sha512": "cb78aa7e9b9c146e5db65d86dd83f04e2b6942a06fab50c704a0fd900683f3b6",
+   "size": 424
+  },
+  ".git/hooks/pre-commit.sample": {
+   "sha512": "4a7ac2ed2ffe50d2a997c3477b5855c3d19423c295a82f7d660be3418217a183",
+   "size": 1642
+  },
+  ".git/hooks/pre-push.sample": {
+   "sha512": "37cd20a090494acb16c2255fe93dadeb409f2553afddc409dad5b5e99c9f5612",
+   "size": 1348
+  },
+  ".git/hooks/pre-rebase.sample": {
+   "sha512": "de9bdf513f383b3215e467c025ca851a0f2661b91811bfd441486b678e4d45e4",
+   "size": 4951
+  },
+  ".git/hooks/pre-receive.sample": {
+   "sha512": "ee08c11fab7e896b2e09c241954ba7640338b12c75cd8040daf053c31b2f2223",
+   "size": 544
+  },
+  ".git/hooks/prepare-commit-msg.sample": {
+   "sha512": "fbf15f12136a413dd590e57392e6122714d67456beed50d9ef285e40076a138a",
+   "size": 1239
+  },
+  ".git/hooks/update.sample": {
+   "sha512": "759abd33e5d1dda9b3e3d3116c47b23f616320d70cd66d567b1c4eeefeb6d785",
+   "size": 3610
+  },
+  ".git/index": {
+   "sha512": "5b3b8ed1140235f3795be248ace109af28f7229ffaf0f2f0c7fae10b6ce71923",
+   "size": 1089
+  },
+  ".git/info/exclude": {
+   "sha512": "9828c6ecdf91bf117416e17f4ee9caee2e1e37b6fb00b9ff04035ace17a3089b",
+   "size": 240
+  },
+  ".git/logs/HEAD": {
+   "sha512": "0c43dd56718f58ef0b120cf29f73699f164c151ae8c4a5f6b93119fbeb4582fe",
+   "size": 165
+  },
+  ".git/logs/refs/heads/master": {
+   "sha512": "0c43dd56718f58ef0b120cf29f73699f164c151ae8c4a5f6b93119fbeb4582fe",
+   "size": 165
+  },
+  ".git/logs/refs/remotes/origin/master": {
+   "sha512": "22d05dcbc1158224e21109a4637f399489b2e2a25376e83e0c7983e425c785d7",
+   "size": 154
+  },
+  ".git/objects/0e/ab7d64b117e8e27c8ebb3a540f5d7700cfdc8a": {
+   "sha512": "b1a7f4fcbc13d1ec90074f0587ec87538fac3b8abb63024647536a9adba530f5",
+   "size": 57
+  },
+  ".git/objects/2b/98087e84726f7f1e52456c801f8ca20dcc7fbf": {
+   "sha512": "3cbbf62695fc6f2ce4429e5f2e1e46790bdbbfddc9311d64666179087cc36999",
+   "size": 21165
+  },
+  ".git/objects/3b/87571d5199a37be6a01f7357eaa124d722af29": {
+   "sha512": "74d350a7f2d0b07587d81199f56168e0ea83dbde6a7664b756173af841c56ff4",
+   "size": 5642
+  },
+  ".git/objects/3f/1f3be0a24622b1b5f557925d6a7bcf0d8170d6": {
+   "sha512": "4545886161aede1e7a29b053fe13e1ffb8d94f269a56e21a8170e67c8b20783d",
+   "size": 141
+  },
+  ".git/objects/4b/825dc642cb6eb9a060e54bf8d69288fbee4904": {
+   "sha512": "20f2df3641c9830fce6af6af53f9f0ef89a59c3eb224feda882f1aa0aa79c852",
+   "size": 15
+  },
+  ".git/objects/4b/f74a8257c8c4ce8e2894b5d2778856055ca663": {
+   "sha512": "e9e7b49d81f2980b3385b93f4e2342898079af70c533df27741e4195145949d6",
+   "size": 134
+  },
+  ".git/objects/57/716243be11d0f1ba968757cd2bdc820fe6ce2d": {
+   "sha512": "8faeb056ed5fa86742f547a379d1100e4e57be08514dd16dc712acf1eaeb2d8a",
+   "size": 393
+  },
+  ".git/objects/64/4d35e274fd64ddaf6d12af813e820c424176a9": {
+   "sha512": "a6df61fbaf481432d0bec83658a6b5cc66c5c6129c21fd55a9e3478a9d824a54",
+   "size": 35123
+  },
+  ".git/objects/7f/0077f2b1ec0b73a8fde8a869330b686974efba": {
+   "sha512": "101841c065aca59ce5b837662266c280770fdc2fafa1e59e9612ab728fcc881a",
+   "size": 1661
+  },
+  ".git/objects/90/883e409c78bc5aa9f87c44b4d39d9b7e3fec2b": {
+   "sha512": "567e525206053b2e25aa17ebc85da94e257207e5e4d4df62b3c87bf02dd71c76",
+   "size": 1988
+  },
+  ".git/objects/a0/365f3299de2482826e447c33fee607810b2493": {
+   "sha512": "7d119658570099729fb9dac0c641cc1141c98f9962e004aefb96f111fcb3cca3",
+   "size": 111
+  },
+  ".git/objects/b2/92f8d7c5c08900a3da4141a2d73d47a7055e62": {
+   "sha512": "622dfd2ed2b43bd91b362cf8094c2babacb2c7ade374642da1e09038c82c5673",
+   "size": 1295
+  },
+  ".git/objects/ba/d049321635c78762ef9ad18a0cceafd62e225f": {
+   "sha512": "5eb716d1caa5b5474e11301048a76884d33f1eef5ae0f4ae221975d0197413eb",
+   "size": 15482
+  },
+  ".git/objects/c7/d4a5aae7a873a8fd42caca1854a6d1d3b4c42f": {
+   "sha512": "2e75e16fb607b857bb0c8168a12a34d8ea6c56cda6013c72813db0ab9bb0423d",
+   "size": 3260
+  },
+  ".git/objects/dc/97c13eeec12b06d0837cb7600b5986bc053683": {
+   "sha512": "1009f5186327733d98c260b54ce427095a141e06d222a4cdf5ca7ec1eeff7c5e",
+   "size": 278
+  },
+  ".git/objects/e4/23e407dee424826aa199b201435db15487ffba": {
+   "sha512": "0ed083ef533667cccd08f266eb92a1ef497d340ba0c15995702cd59b7ed650b4",
+   "size": 132
+  },
+  ".git/objects/f3/e2214b3a6ab23ccbca412800db8444c089a8eb": {
+   "sha512": "b053a022847541e7cdcdac145e8d8b84840398c7d186e5aa000436734e345cb5",
+   "size": 855
+  },
+  ".git/refs/heads/master": {
+   "sha512": "fe2c6753cbac77bd4686eae7b68820bda97545736b6c52fb60537f90c1f0a4a7",
+   "size": 41
+  },
+  ".git/refs/remotes/origin/master": {
+   "sha512": "fe2c6753cbac77bd4686eae7b68820bda97545736b6c52fb60537f90c1f0a4a7",
+   "size": 41
+  },
   "about.html": {
-   "sha512": "151f733722a2f09f14ba26cc5ed2f54a757d553f8134e804cfff73de6c2e847b",
-   "size": 4692
+   "sha512": "cb7e434d69163f183b8805bb2092ab40a361822304dacedfdbd8d839fc02700b",
+   "size": 4830
   },
   "css/bulma.css": {
    "sha512": "65bcef3adc230e45c18b650a15936704eb5c23fcdb7c304a3db675e9ca81918b",
@@ -19,16 +171,16 @@
    "size": 53969
   },
   "css/main.css": {
-   "sha512": "5af08a6cebfefb1320377552dc26b6af6498a5395ace9afd7897966dd184c425",
-   "size": 41
+   "sha512": "1b9e2e8a2a6fa27644eb1e86c97788656a338cd4a39d9083e5cf62760d50cd7e",
+   "size": 112
   },
   "dbschema.json": {
    "sha512": "22e231f11ac3b86a20ee6091358f2adc900627078d308ba5999221995e35f181",
    "size": 828
   },
   "index.html": {
-   "sha512": "3da421cacb20202a7bdb50ff58f80ac80711553dd0d9d8fbdb70b960903203fb",
-   "size": 20428
+   "sha512": "659eb3feca3cb060a95fff55715101ea1597bf799691c6956f252085f7b68de4",
+   "size": 20502
   },
   "js/ZeroFrame.js": {
    "sha512": "090a43d18dcd1aa836b0d160631fe958f9fabd761af712e8eed6f7e010c0dd76",
@@ -43,8 +195,8 @@
    "size": 2889
   },
   "request.html": {
-   "sha512": "ca392b1d8a497d65c5440e80f7b93a37719ec68aad875752ddac6f05e90906dc",
-   "size": 8175
+   "sha512": "d98f5371ba5a95a491d2a44b024e935d9b6214b0aad6952873a1aec23cec832e",
+   "size": 8249
   }
  },
  "ignore": "data/.*",
@@ -55,20 +207,20 @@
   }
  },
  "inner_path": "content.json",
- "modified": 1492118858,
+ "modified": 1492132164,
  "postmessage_nonce_security": true,
  "sign": [
-  41606475170859222230951797627530273866419574378200721565703644089945906834868,
-  83898293649340863662277034681376936858942377962371664076056976305852723137220
+  48400440086573324817197975054345601098345664425997705744707503398952915798765,
+  29321322005552782625440139287425901606111272669741510900544862145770978340341
  ],
  "signers_sign": "G0Tvd8VL673RLDVNDGAfnJ60lSfxFCSWmX7nupzAFQp7I6vtoqWYKtaX5yJe4xQ0fFB+LomkGFGHTDJ6wEBqXhs=",
  "signs": {
-  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "HK3bEVAUX1YPq586/1Lsf6uIXmgF0gH0E4b7OaqgoxVzPr3vIciPFZVp27i80V+PgJBYGfNGLJlAceRrsW/nkzg="
+  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "HBkr4eQMPUbx+kMwehNoJAhzONpmdfCJbx+Q2P+UsCFkN76j5VTLgzy1YuOsp37USgRI+GuRUYkhQziRHY5otaM="
  },
  "signs_required": 1,
  "title": "Important Zites",
  "translate": [
   "js/all.js"
  ],
- "zeronet_version": "0.5.3"
+ "zeronet_version": "0.5.4"
 }

@@ -1,3 +1,5 @@
 html {
-	text-rendering:optimizespeed;
+	text-rendering: optimizespeed;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
 }
