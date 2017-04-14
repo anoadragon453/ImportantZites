@@ -64,14 +64,33 @@
 				<h2 class="title is-4" style="margin-top: 20px;">Requests</h2>
 				<div class="columns">
 					<div class="column is-6">
-						<div class="field">
-			  				<p class="control">
-								<input type="text" id="message" class="input" onkeypress="if (event.keyCode == 13) page.sendMessage()" placeholder="Zite Link">
-							</p>
-						</div>
-						<div class="field">
-							<input type="button" id="send" class="button is-success" value="Submit!" onclick="return page.sendMessage()"/>
-						</div>
+						<form>
+							<div class="field">
+				  				<p class="control">
+									<input type="url" id="message" name="message" class="input" onkeypress="if (event.keyCode == 13) page.sendMessage()" placeholder="Zite Link" required>
+								</p>
+							</div>
+							<div class="field">
+								<p class="control">
+									<label class="radio">
+									  <input type="radio" name="request_type" value="a" checked onclick="page.hideRemovalReasonTextbox()">
+									  Add
+									</label>
+									<label class="radio">
+									  <input type="radio" name="request_type" value="r" onclick="page.showRemovalReasonTextbox()">
+									  Remove
+									</label>
+								</p>
+							</div>
+							<div class="field">
+				  				<p class="control">
+									<input type="text" id="removal_reason" name="removal_reason" class="input" onkeypress="if (event.keyCode == 13) page.sendMessage()" placeholder="Reason For Removal" style="display: none;">
+								</p>
+							</div>
+							<div class="field">
+								<button id="send" class="button is-success" onclick="return page.sendMessage()">Submit!</button>
+							</div>
+						</form>
 					</div>
 				</div>
 				<h3 class="title is-6" style="margin-bottom: 5px; font-style: bold;">Your Requests</h3>
@@ -100,14 +119,30 @@
 
 	<script>
 		class ZeroChat extends ZeroFrame {
-		    addMessage (username, message, isByCurrentUser) {
+		    addMessage (username, message, request_type, removal_reason, isByCurrentUser) {
 		        var message_escaped = message.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;");  // Escape html tags in the message
 		        var message_url = message.replace(/http:\/\/127\.0\.0\.1:43110/, "").replace(/127\.0\.0\.1:43110/, "").replace(/http:\/\/localhost:43110/, "").replace(/localhost:43110/, "");
-		        //console.log(message_url);
-		        if (isByCurrentUser == true) {
-		        	this.currentUserMessages.innerHTML += "<li><b>" + username + ":</b> <em><a href='" + message_url + "'>" + message_escaped + "</a></em></li>"
+		        
+		        var request_type_text = "";
+		        if (request_type) {
+		        	if (request_type == 'a') {
+		        		request_type_text = "Add";
+		        	} else if (request_type == 'r') {
+		        		request_type_text = "Remove";
+		        	}
 		        } else {
-		        	this.messages.innerHTML += "<li><b>" + username + ":</b> <em><a href='" + message_url + "'>" + message_escaped + "</a></em></li>"
+		        	request_type_text = "Add";
+		        }
+
+		        var removal_reason_text = "";
+		        if (removal_reason) {
+		        	removal_reason_text = "(" + removal_reason + ")";
+		        }
+
+		        if (isByCurrentUser == true) {
+		        	this.currentUserMessages.innerHTML += "<li><b>" + username + ":</b> <em>" + request_type_text + " <a href='" + message_url + "'>" + message_escaped + "</a> " + removal_reason_text + "</em></li>"
+		        } else {
+		        	this.messages.innerHTML += "<li><b>" + username + ":</b> <em>" + request_type_text +" <a href='" + message_url + "'>" + message_escaped + "</a> " + removal_reason_text + "</em></li>"
 		        }
 		        //var html = "<li><b>" + username + ":</b> <em><a href='" + message + "'>" + message_escaped + "</a></em></li>";
 		        //$(html).hide().appendTo("#messages").fadeIn();
@@ -165,9 +200,18 @@
 		    		else
 		    			data = { "message": [] }
 
+		    		// Get info for data
+		    		var request_type = 'a';
+		    		var querySelector = document.querySelector('input[name="request_type"]:checked');
+		    		if (querySelector) {
+		    			request_type = querySelector.value;
+		    		}
+
 		    		// Add the new message to data
 		    		data.message.push({
 		    			"body": document.getElementById("message").value,
+		    			"request_type": request_type,
+		    			"removal_reason": request_type == 'r' ? document.getElementById("removal_reason").value : "",
 		    			"date_added": Date.now()
 		    		});
 
@@ -202,9 +246,9 @@
 		    		document.getElementById("current_user_messages").innerHTML = "";
 		    		for (var i = 0; i < messages.length; i++) {
 		    			if (messages[i].cert_user_id == this.site_info.cert_user_id) {
-		    				this.addMessage(messages[i].cert_user_id, messages[i].body, true);
+		    				this.addMessage(messages[i].cert_user_id, messages[i].body, messages[i].request_type, messages[i].removal_reason, true);
 		    			} else {
-	    					this.addMessage(messages[i].cert_user_id, messages[i].body, false);
+	    					this.addMessage(messages[i].cert_user_id, messages[i].body, messages[i].request_type, messages[i].removal_reason, false);
 		    			}
 		    		}
 		    		if (!this.site_info.cert_user_id) {
@@ -214,6 +258,13 @@
 	    		$("#messages").velocity("fadeIn", { duration: 500 });
 	    		$("#current_user_messages").velocity("fadeIn", { duration: 500 });
 		    }
+
+		    hideRemovalReasonTextbox() {
+		 		$("#removal_reason").hide();
+		 	}
+		 	showRemovalReasonTextbox() {
+		 		$("#removal_reason").show();
+ 			}
 		}
 
 		page = new ZeroChat()

@@ -25,11 +25,13 @@
 		"message": {
 			"cols": [
 				["body", "TEXT"],
+				["request_type", "CHAR"],
+				["removal_reason", "TEXT"],
 				["date_added", "INTEGER"],
 				["json_id", "INTEGER REFERENCES json (json_id)"]
 			],
 			"indexes": ["CREATE UNIQUE INDEX message_key ON message(json_id, date_added)"],
-			"schema_changed": 10
+			"schema_changed": 11
 		}
 	}
 }
