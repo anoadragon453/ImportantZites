@@ -8,10 +8,10 @@
  <base href="" target="_top" id="base">
  <script>base.href = document.location.href.replace("/media", "").replace("index.html", "").replace(/[&?]wrapper=False/, "").replace(/[&?]wrapper_nonce=[A-Za-z0-9]+/, "")</script>
 
- <link rel="stylesheet" href="css/bulma.css" />
- <link rel="stylesheet" href="css/main.css" />
+ <link rel="stylesheet" href="../css/bulma.css" />
+ <link rel="stylesheet" href="../css/main.css" />
 
- <script src="js/navToggle.js"></script>
+ <script src="../js/navToggle.js"></script>
 </head>
 <body>
 	<nav class="nav has-shadow">
@@ -43,20 +43,8 @@
 	<section class="section">
 		<div class="columns">
 			<div class="column is-8 is-offset-2">
-				<p>This is my very first zite. It lists many important zites with small descriptions. It will, in the future, allow you to filter out the different types of zites by category, and also request that a zite be added.</p>
-				<br>
-				<strong>Future Ideas / Todo</strong>
-				<ul>
-					<li><s>Tabs to filter out zites by category</s></li>
-					<li><s>Request zites to be added</s></li>
-					<li><s>Use Velocity.js instead of jQuery for animations</s></li>
-					<li><s>Add kaffie.bit ID support</s></li>
-					<li>Voting/Rating system?</li>
-					<li>Search</li>
-					<li><em>&nbsp;&nbsp;&nbsp; - Search by address (with or without <code>127.0.0.1:43110</code>)</em></li>
-					<li><em>&nbsp;&nbsp;&nbsp; - Search by keywords and tags</em></li>
-					<li><em>&nbsp;&nbsp;&nbsp; - Search by title/name</em></li>
-				</ul>
+				<h1 class="title is-4">Zite Admin</h1>
+				
 			</div>
 		</div>
 	</section>
@@ -71,7 +59,7 @@
 		</div>
 	</footer>
 
-	<script type="text/javascript" src="js/ZeroFrame.js"></script>
+	<script type="text/javascript" src="../js/ZeroFrame.js"></script>
 
 	<script>
 		class ZeroChat extends ZeroFrame {
