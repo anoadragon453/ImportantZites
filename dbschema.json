@@ -48,14 +48,15 @@
 		},
 		"zites": {
 			"cols": [
-				["address", "TEXT PRIMARY KEY"],
+				["zite_id", "INTEGER PRIMARY KEY AUTOINCREMENT"],
+				["address", "TEXT UNIQUE"],
 				["title", "TEXT"],
 				["description", "TEXT"],
 				["category", "TEXT"],
 				["json_id", "INTEGER REFERENCES json (json_id)"]
 			],
-			"indexes": ["CREATE UNIQUE INDEX zite_key ON zites(json_id, address)"],
-			"schema_changed": 15
+			"indexes": ["CREATE UNIQUE INDEX zite_key ON zites(json_id, address)", "CREATE INDEX zite_address ON zites(address)", "CREATE INDEX zite_title ON zites(title)"],
+			"schema_changed": 16
 		},
 		"categories": {
 			"cols": [
@@ -63,8 +64,8 @@
 				["name", "TEXT UNIQUE"],
 				["json_id", "INTEGER REFERENCES json (json_id)"]
 			],
-			"indexes": ["CREATE UNIQUE INDEX category_key ON categories(json_id, category_id)"],
-			"schema_changed": 10
+			"indexes": ["CREATE UNIQUE INDEX category_key ON categories(json_id, category_id)", "CREATE INDEX category_name ON categories(name)"],
+			"schema_changed": 11
 		}
 	}
 }

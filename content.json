@@ -27,8 +27,8 @@
    "size": 8486
   },
   "dbschema.json": {
-   "sha512": "4eb109402478c09aae5fc3ccece54e02476a0b90361502564d80d387910d5977",
-   "size": 1747
+   "sha512": "5718d3e6b1ce4987b1f5c61b196d4b3828ccbfdf0f504c0420ccb20b2a95c523",
+   "size": 1937
   },
   "index.html": {
    "sha512": "c1831972cdfbb2bf9af75e6bcaca07dfe3589df68fc1a99916abfe2eca9efcde",
@@ -51,8 +51,8 @@
    "size": 44794
   },
   "request.html": {
-   "sha512": "7fb687e523333cb5896e19d9d3554393661a0dd00e69a3cbf0c18f6027509353",
-   "size": 12195
+   "sha512": "80f6bf49cccdd4a6819721faaed16be7542514f5907f26b5671d7d02e66a3722",
+   "size": 12562
   }
  },
  "ignore": "(data/.*db|data/users/.*/.*|admin|.git)",
@@ -63,15 +63,15 @@
   }
  },
  "inner_path": "content.json",
- "modified": 1492228724,
+ "modified": 1492231376,
  "postmessage_nonce_security": true,
  "sign": [
-  47574466617721016009062970536120776454912637998993850815162507821827125599452,
-  69013895599206820873902067964037136471474153023764717183836078222643773387253
+  70556189196074391876899596134236002531538962051316638888430034234509705109288,
+  44612407608050965439397569813312909702505082347216945211185413493122998078350
  ],
  "signers_sign": "G0Tvd8VL673RLDVNDGAfnJ60lSfxFCSWmX7nupzAFQp7I6vtoqWYKtaX5yJe4xQ0fFB+LomkGFGHTDJ6wEBqXhs=",
  "signs": {
-  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "G3DdLt574orilGpw9FHuSmDdgxfRtpEklJlV+J8AVU4xHZ+pESQcUTGRieDA053FBi3K8LLEcqHiq8iKlN3IFqo="
+  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "HDwoQKCjs/z6Y7LyAJDHDPFOX/kiCCOhIwoLGDax1/+nB1vFZRqTunHVCo5R4tCbxuvPaeuKwI65zx+tpM9fuDk="
  },
  "signs_required": 1,
  "title": "Important Zites",

@@ -35,6 +35,7 @@
 		<div class="container">
 		  <div class="nav-left">
 		    <a href="./" class="nav-item" style="font-weight: bold;">Important Zites</a>
+		    <span class="nav-item"><code id="zite_num" class="tag is-light">0</code></span>
 		  </div>
 
 		  <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
@@ -158,6 +159,7 @@
 		                document.getElementById("select_user").innerText = site_info.cert_user_id;
 		            this.site_info = site_info;
 		        	this.loadMessages();
+		        	this.loadZiteIndicator();
 		        });
 		    }
 
@@ -177,6 +179,7 @@
 		                this.loadMessages();
 		            } else if (message.params.event && message.params.event[0] == "file_done") {
 		            	this.loadMessages();
+		            	this.loadZiteIndicator();
 		            }
 		        }
 		    }
@@ -258,6 +261,12 @@
 		    	});
 	    		$("#messages").velocity("fadeIn", { duration: 500 });
 	    		$("#current_user_messages").velocity("fadeIn", { duration: 500 });
+		    }
+
+		    loadZiteIndicator() {
+		    	this.cmd("dbQuery", ["SELECT address FROM zites"], (zites) => {
+		    		document.getElementById('zite_num').innerHTML = zites.length + " zites";
+		    	});
 		    }
 
 		    hideRemovalReasonTextbox() {
