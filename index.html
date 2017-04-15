@@ -182,8 +182,13 @@
                 this.cmd("dbQuery", ["SELECT * FROM zites"], (zites) => {
                     zite_indicator.innerHTML = zites.length + " zites";
 
-                    for (var i = 0; i < zites.length; i++) {
-                        zites_list.innerHTML += "<tr class='cat-" + zites[i].category + "'><th><a href='/" + zites[i].address + "'>" + zites[i].title + "</a></th><td>" + zites[i].description + " <code class='category' style='font-style: italic;'>" + zites[i].category.toUpperCase() + "</code></td></tr>";
+                    for (var x in zites) {
+                        var zite = zites[x]
+                        zites_list.innerHTML +=
+                            "<tr class='cat-" + zite.category + "'><th><a href='/" + zite.address + "'>" +
+                            zite.title + "</a></th><td>" + zite.description +
+                            " <code class='category' style='font-style: italic;'>" +
+                            zite.category.toUpperCase() + "</code></td></tr>";
                     }
 
                     TweenLite.to(zites_table, 3, {
