@@ -35,7 +35,7 @@
 		<div class="container">
 		  <div class="nav-left">
 		    <a href="./" class="nav-item" style="font-weight: bold;">Important Zites</a>
-		    <span class="nav-item"><code id="zite_num" class="tag is-light">0</code></span>
+		    <span class="nav-item"><code id="zite_num" class="tag is-light" style="display: none;">0</code></span>
 		  </div>
 
 		  <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
@@ -116,7 +116,7 @@
 	</footer>
 
 	<script type="text/javascript" src="js/ZeroFrame.js"></script>
-	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<!--<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>-->
 	<script type="text/javascript" src="js/velocity.min.js"></script>
 
 	<script>
@@ -144,19 +144,20 @@
 		        if (isByCurrentUser == true) {
 		        	this.currentUserMessages.innerHTML += "<li><b>" + username + ":</b> <em>" + request_type_text + " <a href='" + message_url + "'>" + message_escaped + "</a> " + removal_reason_text + "</em></li>"
 		        } else {
-		        	this.messages.innerHTML += "<li><b>" + username + ":</b> <em>" + request_type_text +" <a href='" + message_url + "'>" + message_escaped + "</a> " + removal_reason_text + "</em></li>"
+		        	this.messages_container.innerHTML += "<li><b>" + username + ":</b> <em>" + request_type_text +" <a href='" + message_url + "'>" + message_escaped + "</a> " + removal_reason_text + "</em></li>"
 		        }
 		        //var html = "<li><b>" + username + ":</b> <em><a href='" + message + "'>" + message_escaped + "</a></em></li>";
 		        //$(html).hide().appendTo("#messages").fadeIn();
 		    }
 
 		    onOpenWebsocket () {
-		        this.messages = document.getElementById("messages");
+		        this.messages_container = document.getElementById("messages");
 		        this.currentUserMessages = document.getElementById("current_user_messages");
 		        //this.addMessage("System", "Ready to call ZeroFrame API!");
 		        this.cmd("siteInfo", {}, (site_info) => {
-		            if (site_info.cert_user_id)
+		            if (site_info.cert_user_id) {
 		                document.getElementById("select_user").innerText = site_info.cert_user_id;
+		            }
 		            this.site_info = site_info;
 		        	this.loadMessages();
 		        	this.loadZiteIndicator();
@@ -243,11 +244,13 @@
 		    }
 
 		    loadMessages() {
-	    		$("#messages").hide();
-	    		$("#current_user_messages").hide();
+	    		this.messages_container.style.display = "none";
+	    		this.currentUserMessages.style.display = "none";
+
 		    	this.cmd("dbQuery", ["SELECT * FROM message LEFT JOIN json USING (json_id) ORDER BY date_added DESC"], (messages) => {
-		    		document.getElementById("messages").innerHTML = ""; // Always star with empty messages
-		    		document.getElementById("current_user_messages").innerHTML = "";
+		    		this.messages_container.innerHTML = ""; // Always star with empty messages
+		    		this.currentUserMessages.innerHTML = "";
+
 		    		for (var i = 0; i < messages.length; i++) {
 		    			if (messages[i].cert_user_id == this.site_info.cert_user_id) {
 		    				this.addMessage(messages[i].cert_user_id, messages[i].body, messages[i].request_type, messages[i].removal_reason, true);
@@ -258,15 +261,21 @@
 		    		if (!this.site_info.cert_user_id) {
 		        		this.currentUserMessages.innerHTML = "<li id='default'><em>Please <a href='#Select+user' onclick='return page.selectUser()'>Select User</a> to see your requests.</em></li>";
 		        	}
+
+		    		Velocity(this.messages_container, "fadeIn", { duration: 500 });
+		    		Velocity(this.currentUserMessages, "fadeIn", { duration: 500 });
 		    	});
-	    		$("#messages").velocity("fadeIn", { duration: 500 });
-	    		$("#current_user_messages").velocity("fadeIn", { duration: 500 });
 		    }
 
 		    loadZiteIndicator() {
+		    	var zite_indicator = document.getElementById('zite_num');
+		    	zite_indicator.style.display = "none";
+
 		    	this.cmd("dbQuery", ["SELECT address FROM zites"], (zites) => {
-		    		document.getElementById('zite_num').innerHTML = zites.length + " zites";
+		    		zite_indicator.innerHTML = zites.length + " zites";
 		    	});
+
+		    	Velocity(zite_indicator, "fadeIn", { duration: 500 });
 		    }
 
 		    hideRemovalReasonTextbox() {

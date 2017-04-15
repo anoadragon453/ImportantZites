@@ -19,77 +19,99 @@
  		if (id == "all") {
  			// Show all divs except the previousId (because that one is already shown)
  			if (previousId != "info") {
- 				$(".info").velocity("fadeIn", { duration: 500 });
+ 				var e_info = document.querySelectorAll('.info');
+ 				Velocity(e_info, "fadeIn", { duration: 500 });
  			}
  			if (previousId != "social") {
- 				$(".social").velocity("fadeIn", { duration: 500 });
+ 				var e_social = document.querySelectorAll('.social');
+ 				Velocity(e_social, "fadeIn", { duration: 500 });
  			}
  			if (previousId != "videos") {
- 				$(".videos").velocity("fadeIn", { duration: 500 });
+ 				var e_videos = document.querySelectorAll('.videos');
+ 				Velocity(e_videos, "fadeIn", { duration: 500 });
  			}
  			if (previousId != "music") {
- 				$(".music").velocity("fadeIn", { duration: 500 });
+ 				var e_music = document.querySelectorAll('.music');
+ 				Velocity(e_music, "fadeIn", { duration: 500 });
  			}
  			if (previousId != "games") {
- 				$(".games").velocity("fadeIn", { duration: 500 });
+ 				var e_games = document.querySelectorAll('.games');
+ 				Velocity(e_games, "fadeIn", { duration: 500 });
  			}
  			if (previousId != "books") {
- 				$(".books").velocity("fadeIn", { duration: 500 });
+ 				var e_books = document.querySelectorAll('.books');
+ 				Velocity(e_books, "fadeIn", { duration: 500 });
  			}
  			if (previousId != "search") {
- 				$(".search").velocity("fadeIn", { duration: 500 });
+ 				var e_search = document.querySelectorAll('.search');
+ 				Velocity(e_search, "fadeIn", { duration: 500 });
  			}
  			if (previousId != "blog") {
- 				$(".blog").velocity("fadeIn", { duration: 500 });
+ 				var e_blog = document.querySelectorAll('.blog');
+ 				Velocity(e_blog, "fadeIn", { duration: 500 });
  			}
  			if (previousId != "programming") {
- 				$(".programming").velocity("fadeIn", { duration: 500 });
+ 				var e_programming = document.querySelectorAll('.programming');
+ 				Velocity(e_programming, "fadeIn", { duration: 500 });
  			}
  			if (previousId != "other") {
- 				$(".other").velocity("fadeIn", { delay: 1000, duration: 500 });
+ 				var e_other = document.querySelectorAll('.other');
+ 				Velocity(e_other, "fadeIn", { delay: 1000, duration: 500 });
  			}
- 			$(".category").velocity("fadeIn", { duration: 500 });
+ 			var e_category = document.querySelectorAll('.category');
+ 			Velocity(e_category, "fadeIn", { duration: 500 });
  		} else {
 	 		if (id != "info") {
-	 			$(".info").velocity("fadeOut", { duration: 500 });
-	 		}
-	 		if (id != "social") {
-	 			$(".social").velocity("fadeOut", { duration: 500 });
-	 		}
-	 		if (id != "videos") {
-	 			$(".videos").velocity("fadeOut", { duration: 500 });
-	 		}
-	 		if (id != "music") {
-	 			$(".music").velocity("fadeOut", { duration: 500 });
-	 		}
-	 		if (id != "games") {
-	 			$(".games").velocity("fadeOut", { duration: 500 });
-	 		}
-	 		if (id != "books") {
-	 			$(".books").velocity("fadeOut", { duration: 500 });
-	 		}
-	 		if (id != "search") {
-	 			$(".search").velocity("fadeOut", { duration: 500 });
-	 		}
-	 		if (id != "blog") {
-	 			$(".blog").velocity("fadeOut", { duration: 500 });
-	 		}
-	 		if (id != "programming") {
-	 			$(".programming").velocity("fadeOut", { duration: 500 });
-	 		}
-	 		if (id != "other") {
-	 			$(".other").velocity("fadeOut", { duration: 500 });
-	 		}
+ 				var e_info = document.querySelectorAll('.info');
+ 				Velocity(e_info, "fadeOut", { duration: 500 });
+ 			}
+ 			if (id != "social") {
+ 				var e_social = document.querySelectorAll('.social');
+ 				Velocity(e_social, "fadeOut", { duration: 500 });
+ 			}
+ 			if (id != "videos") {
+ 				var e_videos = document.querySelectorAll('.videos');
+ 				Velocity(e_videos, "fadeOut", { duration: 500 });
+ 			}
+ 			if (id != "music") {
+ 				var e_music = document.querySelectorAll('.music');
+ 				Velocity(e_music, "fadeOut", { duration: 500 });
+ 			}
+ 			if (id != "games") {
+ 				var e_games = document.querySelectorAll('.games');
+ 				Velocity(e_games, "fadeOut", { duration: 500 });
+ 			}
+ 			if (id != "books") {
+ 				var e_books = document.querySelectorAll('.books');
+ 				Velocity(e_books, "fadeOut", { duration: 500 });
+ 			}
+ 			if (id != "search") {
+ 				var e_search = document.querySelectorAll('.search');
+ 				Velocity(e_search, "fadeOut", { duration: 500 });
+ 			}
+ 			if (id != "blog") {
+ 				var e_blog = document.querySelectorAll('.blog');
+ 				Velocity(e_blog, "fadeOut", { duration: 500 });
+ 			}
+ 			if (id != "programming") {
+ 				var e_programming = document.querySelectorAll('.programming');
+ 				Velocity(e_programming, "fadeOut", { duration: 500 });
+ 			}
+ 			if (id != "other") {
+ 				var e_other = document.querySelectorAll('.other');
+ 				Velocity(e_other, "fadeOut", { duration: 500 });
+ 			}
 	 		if (previousId != id && previousId != "all") {
-	 			$("." + id).velocity("fadeIn", { delay: 650, duration: 500 });
+	 			var selector = document.querySelectorAll('.' + id);
+	 			Velocity(selector, "fadeIn", { delay: 650, duration: 500 });
 	 		}
-	 		$(".category").velocity("fadeOut", { duration: 500 });
+	 		var e_category = document.querySelectorAll('.category');
+	 		Velocity(e_category, "fadeOut", { duration: 500 });
 	 	}
 
  		previousId = id;
 
  		toggleClass(tabElem, "is-active");
-
  		toggleClass(previousActiveTab, "is-active");
 
  		previousActiveTab = tabElem;
@@ -111,7 +133,7 @@
 		<div class="container">
 		  <div class="nav-left">
 		    <a href="./" class="nav-item" style="font-weight: bold;">Important Zites</a>
-		    <span class="nav-item"><code id="zite_num" class="tag is-light">0</code></span>
+		    <span class="nav-item"><code id="zite_num" class="tag is-light" style="display: none;">0</code></span>
 		  </div>
 
 		  <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
@@ -203,7 +225,6 @@
 	</footer>
 
 	<script type="text/javascript" src="js/ZeroFrame.js"></script>
-	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/velocity.min.js"></script>
 
 	<script>
@@ -232,7 +253,7 @@
 	        onRequest(cmd, message) {
 		        if (cmd == "setSiteInfo") {
 		            this.site_info = message.params;  // Save site info data to allow access it later
-		            //console.log(message.params);
+		            console.log(message.params);
 		            if (message.params.cert_user_id)
 		                document.getElementById("select_user").innerHTML = message.params.cert_user_id
 		            else if (!message.params.cert_user_id) {
@@ -246,18 +267,21 @@
 
 		    loadZites() {
 		    	var zites_list = document.getElementById("zites_list");
-		    	var zites_list_jquery = $("#zites_list");
-		    	zites_list_jquery.velocity("fadeOut", { duration: 500 });
+		    	var zite_indicator = document.getElementById('zite_num');
+		    	//zites_list_jquery.velocity("fadeOut", { duration: 500 });
+		    	zites_list.style.display = "none";
 		    	zites_list.innerHTML = "";
+		    	zite_indicator.style.display = "none";
 		    	this.cmd("dbQuery", ["SELECT * FROM zites"], (zites) => {
 		    		//console.log(zites.length);
-		    		document.getElementById('zite_num').innerHTML = zites.length + " zites";
+		    		zite_indicator.innerHTML = zites.length + " zites";
 		    		for (var i = 0; i < zites.length; i++) {
 		    			//console.log(zites[i].title);
 		    			zites_list.innerHTML += "<tr class='" + zites[i].category + "'><th><a href='/"+ zites[i].address + "'>" + zites[i].title + "</a></th><td>" + zites[i].description + " <code class='category' style='font-style: italic;'>" + zites[i].category.toUpperCase() + "</code></td></tr>";
 		    		}
+			    	Velocity(zites_list, "fadeIn", { duration: 500 });
+			    	Velocity(zite_indicator, "fadeIn", { duration: 500 });
 		    	});
-		    	zites_list_jquery.velocity("fadeIn", { duration: 500 });
 		    }
 		}
 

@@ -7,8 +7,8 @@
  "description": "Lists the most important zites by category.",
  "files": {
   "about.html": {
-   "sha512": "546621f0d8ef40a3c062ee968d0f5b6e4918f044bc083f8f38ac85e3c95a44bd",
-   "size": 5359
+   "sha512": "61f8ba0943d02b2d1ebc45c9dbc1ffc5ef2af3090f9efa4c7a2cb634a7512d09",
+   "size": 6185
   },
   "css/bulma.css": {
    "sha512": "65bcef3adc230e45c18b650a15936704eb5c23fcdb7c304a3db675e9ca81918b",
@@ -23,16 +23,16 @@
    "size": 112
   },
   "data/data.json": {
-   "sha512": "38ed9fbfd9b0a38e615b13188c89cf76ac2ce60f0bb319c342559121cdc35130",
-   "size": 8486
+   "sha512": "768cad6e1ba0502998c87cdbf0cf31ffc59323d1cfdc9685b5d2ae9ad8d069f0",
+   "size": 9423
   },
   "dbschema.json": {
-   "sha512": "c3d1d34bad44fa724c9da2ead63e419cff84d963a97d7a86d4e1976d766f9c93",
-   "size": 2070
+   "sha512": "374d25754e7f7c4a38e90dfa109351cb73032c3f95632754a1a61f9aa3eb9b91",
+   "size": 2088
   },
   "index.html": {
-   "sha512": "512d08d802fa5da865d3bde7d970374c135834b5a57b65b0be54f13474882645",
-   "size": 10891
+   "sha512": "974009acf0538c67518c79e710bf71be4a949ab904f145e462453525e699d35d",
+   "size": 11084
   },
   "js/ZeroFrame.js": {
    "sha512": "090a43d18dcd1aa836b0d160631fe958f9fabd761af712e8eed6f7e010c0dd76",
@@ -51,8 +51,8 @@
    "size": 44794
   },
   "request.html": {
-   "sha512": "00944b33368695f4a889cee7917d89e688c68dd6b0e6f12efc4934756df0ee58",
-   "size": 12568
+   "sha512": "e21b32a45e4b97bdfaacce25a235a1c7e9825c5656bff1fd375103b13661a4b0",
+   "size": 12744
   }
  },
  "ignore": "(data/.*db|data/users/.*/.*|admin|.git)",
@@ -63,15 +63,15 @@
   }
  },
  "inner_path": "content.json",
- "modified": 1492235054,
+ "modified": 1492268616,
  "postmessage_nonce_security": true,
  "sign": [
-  1006887978500085264959487727604399570840008715061230700921977873614269991771,
-  12013718980392930872171403512819134965920116773228052895192108418115310711632
+  4581970721099816203620015101403135349783243626187124691372188120383311291261,
+  47309424118106287062377491118554485758645288757246637499288737916537322875570
  ],
  "signers_sign": "G0Tvd8VL673RLDVNDGAfnJ60lSfxFCSWmX7nupzAFQp7I6vtoqWYKtaX5yJe4xQ0fFB+LomkGFGHTDJ6wEBqXhs=",
  "signs": {
-  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "HOXm8VxHPK2x5uV71f+dOLrMqQxzGjL8x4COHItJTZbQDurtcM8+cyGeuOLgH2jKww5IVbUfsqtlV/BWO1aXwac="
+  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "G1hYkxpfAEpSlKSBV7bnhxBTsKOEEPN1GNNnKc9Z/AsrB915sTal3dlUq7H/dsMGu4uDKqo9bG/+LEnYxBChKlg="
  },
  "signs_required": 1,
  "title": "Important Zites",
