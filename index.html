@@ -168,6 +168,8 @@
 		    	var zites_list = document.getElementById("zites_list");
 		    	var zites_table = document.getElementById("zites_table");
 		    	var zite_indicator = document.getElementById('zite_num');
+		    	TweenLite.set(zites_table, {autoAlpha: 0});
+	    		TweenLite.set(zite_indicator, {autoAlpha: 0});
 
 		    	zites_list.innerHTML = "";
 		    	
@@ -330,7 +332,7 @@
  				}
 		 	}
 
-		 	TweenLite.to(document.getElementById('zites_table'), 3, {autoAlpha: 2});
+		 	TweenLite.to(document.getElementById('zites_table'), 1.0, {autoAlpha: 2});
 
 	 		previousId = id;
 
