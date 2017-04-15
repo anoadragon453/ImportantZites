@@ -37,26 +37,26 @@
 		"message": {
 			"cols": [
 				["message_id", "INTEGER PRIMARY KEY AUTOINCREMENT"],
-				["body", "TEXT"],
+				["body", "TEXT NOT NULL"],
 				["request_type", "CHAR"],
 				["removal_reason", "TEXT"],
-				["date_added", "INTEGER"],
+				["date_added", "INTEGER NOT NULL"],
 				["json_id", "INTEGER REFERENCES json (json_id)"]
 			],
-			"indexes": ["CREATE UNIQUE INDEX message_key ON message(json_id, message_id)"],
-			"schema_changed": 12
+			"indexes": ["CREATE UNIQUE INDEX message_key ON message(json_id, message_id)", "CREATE INDEX midx1 ON message(request_type)"],
+			"schema_changed": 14
 		},
 		"zites": {
 			"cols": [
 				["zite_id", "INTEGER PRIMARY KEY AUTOINCREMENT"],
 				["address", "TEXT UNIQUE"],
-				["title", "TEXT"],
+				["title", "TEXT NOT NULL"],
 				["description", "TEXT"],
-				["category", "TEXT"],
+				["category", "TEXT NOT NULL"],
 				["json_id", "INTEGER REFERENCES json (json_id)"]
 			],
-			"indexes": ["CREATE UNIQUE INDEX zite_key ON zites(json_id, address)", "CREATE INDEX zite_address ON zites(address)", "CREATE INDEX zite_title ON zites(title)"],
-			"schema_changed": 16
+			"indexes": ["CREATE UNIQUE INDEX zite_key ON zites(json_id, address)", "CREATE INDEX zidx1 ON zites(category, address)", "CREATE INDEX zite_address ON zites(address)", "CREATE INDEX zite_title ON zites(title)"],
+			"schema_changed": 18
 		},
 		"categories": {
 			"cols": [
