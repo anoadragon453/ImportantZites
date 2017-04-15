@@ -20,6 +20,7 @@
 		<div class="container">
 		  <div class="nav-left">
 		    <a href="./" class="nav-item" style="font-weight: bold;">Important Zites</a>
+		    <span class="nav-item"><code id="zite_num" class="tag is-light">0</code></span>
 		  </div>
 
 		  <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
@@ -88,6 +89,7 @@
 		            if (site_info.cert_user_id)
 		                document.getElementById("select_user").innerText = site_info.cert_user_id
 		            this.site_info = site_info
+		            this.loadZiteIndicator();
 		        })
 		    }
 
@@ -98,12 +100,21 @@
 
 	        onRequest (cmd, message) {
 		        if (cmd == "setSiteInfo") {
-		            if (message.params.cert_user_id)
-		                document.getElementById("select_user").innerHTML = message.params.cert_user_id
-		            else
-		                document.getElementById("select_user").innerHTML = "Select user"
 		            this.site_info = message.params  // Save site info data to allow access it later
+		            if (message.params.cert_user_id){
+		                document.getElementById("select_user").innerHTML = message.params.cert_user_id
+		            } else if (!message.params.cert_user_id) {
+		                document.getElementById("select_user").innerHTML = "Select user"
+		            } else if (message.params.event && message.params.event[0] == "file_done") {
+		            	this.loadZiteIndicator();
+		            }
 		        }
+		    }
+
+		    loadZiteIndicator() {
+		    	this.cmd("dbQuery", ["SELECT address FROM zites"], (zites) => {
+		    		document.getElementById('zite_num').innerHTML = zites.length + " zites";
+		    	});
 		    }
 		}
 
