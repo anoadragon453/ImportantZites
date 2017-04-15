@@ -111,6 +111,7 @@
 		<div class="container">
 		  <div class="nav-left">
 		    <a href="./" class="nav-item" style="font-weight: bold;">Important Zites</a>
+		    <a class="nav-item"><code id="zite_num" class="tag is-light">0</code></a>
 		  </div>
 
 		  <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
@@ -168,227 +169,23 @@
 							<th>Description</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr class="info">
-							<th><a href="#">Important Zites</a></th>
-							<td>Lists important zites by category <code class="category" style="font-style: italic;">INFO</code></td>
-						</tr>
-						<tr class="info">
-							<th><a href="/17Kom2G5qNDc6NaQwv445h1gFzxkY3ZtZe/">ZeroNet Docs</a></th>
-							<td>Documentation on ZeroNet and ZeroNet Dev <code class="category" style="font-style: italic;">INFO</code></td>
-						</tr>
-						<tr class="info">
-							<th><a href="/138R53t3ZW7KDfSfxVpWUsMXgwUnsDNXLP/">ZeroWiki</a></th>
-							<td>Wiki for the ZeroNet <code class="category" style="font-style: italic;">INFO</code></td>
-						</tr>
-						<tr class="info">
-							<th><a href="/1Dt7FR5aNLkqAjmosWh8cMWzJu633GYN6u/">ZeroCentral</a></th>
-							<td>List of ZeroNet Sites <code class="category" style="font-style: italic;">INFO</code></td>
-						</tr>
-						<tr class="info">
-							<th><a href="/0list.bit">0list</a></th>
-							<td>Another list of ZeroNet Sites <code class="category" style="font-style: italic;">INFO</code></td>
-						</tr>
-						<tr class="info">
-							<th><a href="/zeroleakz.bit">ZeroLeaks</a></th>
-							<td>Snowden surveillance archive and wikileaks torrents</td>
-						</tr>
-						<tr class="info">
-							<th><a href="/1RivERqttrjFqwp9YH1FviduBosQPtdBN">River of News</a></th>
-							<td>News articles from the New York Times, Al Jazeera and BBC <code class="category" style="font-style: italic;">INFO</code></td>
-						</tr>
-						<tr class="social">
-							<th><a href="/1J1c7eML6uMwDU4uiKbKRxoqxGP6WMFMvb/">ZeroNet Central</a></th>
-							<td>Reddit-like Social Network <code class="category" style="font-style: italic;">SOCIAL</code></td>
-						</tr>
-						<tr class="social">
-							<th><a href="/thunderwave.bit">Thunderwave</a></th>
-							<td>Chat with ability to send files and images <code class="category" style="font-style: italic;">SOCIAL</code></td>
-						</tr>
-						<tr class="social">
-							<th><a href="/Mail.ZeroNetwork.bit/">ZeroMail</a></th>
-							<td>End-to-End Encrypted Mailing <code class="category" style="font-style: italic;">SOCIAL</code></td>
-						</tr>
+					<tbody id="zites_list">
 						<!--<tr class="social">
 							<th><a href="/mail.zeroverse.bit/">ZeroVerse Mail</a></th>
 							<td>Mail for ZeroVerse <code class="category" style="font-style: italic;">SOCIAL</code></td>
 						</tr>--> <!-- Abandoned Project -->
-						<tr class="social">
-							<th><a href="/1K28kQFMquNzto2iQf4GGjr6oFUbC1NddE">ZeroPolls</a></th>
-							<td>Polls <code class="category" style="font-style: italic;">SOCIAL</code></td>
-						</tr>
-						<tr class="social">
-							<th><a href="/Talk.ZeroNetwork.bit/">ZeroTalk</a></th>
-							<td>Reddit-like Forum <code class="category" style="font-style: italic;">SOCIAL</code></td>
-						</tr>
-						<tr class="social">
-							<th><a href="/Me.ZeroNetwork.bit/">ZeroMe</a></th>
-							<td>Twitter-like social network <code class="category" style="font-style: italic;">SOCIAL</code></td>
-						</tr>
-						<tr class="social">
-							<th><a href="/1Gif7PqWTzVWDQ42Mo7np3zXmGAo3DXc7h">GIF Time</a></th>
-							<td>GIFs <code class="category" style="font-style: italic;">SOCIAL</code></td>
-						</tr>
-						<tr class="social">
-							<th><a href="/1FiSxj2yDPeGuuf6iBwRAXvEMQJATAZNt6">0Chan Imageboards</a></th>
-							<td>A decentralised P2P imageboard powered by Nullchan engine <code class="category" style="font-style: italic;">SOCIAL</code></td>
-						</tr>
-						<tr class="search">
-							<th><a href="/kaffiene.bit/">Kaffiene Search</a></th>
-							<td>Search Engine <code class="category" style="font-style: italic;">SEARCH</code></td>
-						</tr>
-						<tr class="search">
-							<th><a href="/snifferdog.bit/">Snifferdog</a></th>
-							<td>"This dog can find all!" <code class="category" style="font-style: italic;">SEARCH</code></td>
-						</tr>
-						<tr class="search">
-							<th><a href="/kidsearch.bit/">KidSearch</a></th>
-							<td>Kid and Teen-safe Search Engine <code class="category" style="font-style: italic;">SEARCH</code></td>
-						</tr>
-						<tr class="search">
-							<th><a href="/onesearch.bit">OneSearch</a></th>
-							<td>Search Engine <code class="category" style="font-style: italic;">SEARCH</code></td>
-						</tr>
-						<tr class="search">
-							<th><a href="/1f7FYxZWSZ5YG7Nd8sGsHcWEQgvdnVvQF/">Bwoi Search</a></th>
-							<td>Search Engine <code class="category" style="font-style: italic;">SEARCH</code></td>
-						</tr>
-						<tr class="videos">
-							<th><a href="/16pz3DbSRyz7D7e3qsxWMq98Z8VztJZN4j/">IPFS Videos</a></th>
-							<td>Video zite using IPFS <code class="category" style="font-style: italic;">VIDEOS</code></td>
-						</tr>
-						<tr class="videos">
-							<th><a href="/1aCq7GiJfUfGZ4GftjYaYbsEngPFzcxvN/">Kopy Kate</a></th>
-							<td>Watch, Download, and Upload videos <code class="category" style="font-style: italic;">VIDEOS</code></td>
-						</tr>
-						<tr class="videos">
-							<th><a href="/1FUQPLXHimgCvYHH7v3bJXspJ7bMBUXcEb/">ZeroTube</a></th>
-							<td>Watch, Download, and Upload videos <code class="category" style="font-style: italic;">VIDEOS</code></td>
-						</tr>
-						<tr class="videos">
-							<th><a href="/1BEJbnufyav7TK23ADTs2Qi2UJeKSGDzw6/">ZeroTV</a></th>
-							<td>Download TV-Show Episodes via torrents <code class="category" style="font-style: italic;">VIDEOS</code></td>
-						</tr>
-						<tr class="videos">
-							<th><a href="/0play.bit/">0Play</a></th>
-							<td>Download Movies via torrents <code class="category" style="font-style: italic;">VIDEOS</code></td>
-						</tr>
-						<tr class="music">
-							<th><a href="/1MusicXkuN2pk5hRdmroeyaCLDJtzTicpB">ZeroMusic</a></th>
-							<td>Upload and Play music <code class="category" style="font-style: italic;">MUSIC</code></td>
-						</tr>
-						<tr class="music">
-							<th><a href="/15F9LYs6c17NUXv3MxpJSGbpWxyHTEbzMk/">NinjaBeatz Music</a></th>
-							<td>Sharing service that offers a large high quality<br> music collection (Coming Soon) <code class="category" style="font-style: italic;">MUSIC</code></td>
-						</tr>
-						<tr class="games">
-							<th><a href="/1RETRoPXWgnP5K5v7ggwBHTo7eyumPvq1">RetroGames.bit</a></th>
-							<td>Retro Games <code class="category" style="font-style: italic;">GAMES</code></td>
-						</tr>
-						<tr class="books">
-							<th><a href="/1L4wfjqKCFXH6xSaTt1nMLMJeaW5GGeoQv">The Pirate Library</a></th>
-							<td>Download books <code class="category" style="font-style: italic;">BOOKS</code></td>
-						</tr>
-						<tr class="books">
-							<th><a href="/Antilibrary.bit/">Antilibrary</a></th>
-							<td>Download books <code class="category" style="font-style: italic;">BOOKS</code></td>
-						</tr>
 						<!--<tr class="books">
 							<th><a href="/1DszUR6XLMLztoPZ4q9v7Ym6916HrnUSqz">ZeroManga</a></th>
 							<td>Download mangas</td>
 						</tr>-->
-						<tr class="books">
-							<th><a href="/1DYwX4W1qfSaiihfN5gW6ahLp5332TawH5/?page=1&sort=updated&lang=en">Zeropub</a></th>
-							<td>Download books <code class="category" style="font-style: italic;">BOOKS</code></td>
-						</tr>
-						<tr class="books">
-							<th><a href="/tanakh.bit">Tanakh</a></th>
-							<td>Tanakh - Hebrew Bible <code class="category" style="font-style: italic;">BOOKS</code></td>
-						</tr>
-						<tr class="blog">
-							<th><a href="/Blog.ZeroNetwork.bit/">ZeroBlog</a></th>
-							<td>ZeroNet Blog <code class="category" style="font-style: italic;">BLOG</code></td>
-						</tr>
-						<tr class="blog">
-							<th><a href="/1CiDoBP8RiWziqiBGEd8tQMy66A6fmnw2V/">ZeroBlog Lab</a></th>
-							<td>ZeroNet Blog Lab <code class="category" style="font-style: italic;">BLOG</code></td>
-						</tr>
-						<tr class="blog">
-							<th><a href="/blog.0list.bit/">0list Blog</a></th>
-							<td>0list Blog <code class="category" style="font-style: italic;">BLOG</code></td>
-						</tr>
-						<tr class="blog">
-							<th><a href="/1JBXrjCabLEWXmKJ2pJ4XhxA4rwYAEazKw/">Krixano's Blog</a></th>
-							<td>Krixano's Blog <code class="category" style="font-style: italic;">BLOG</code></td>
-						</tr>
-						<tr class="programming">
-							<th><a href="/1Jtjb5CU9aod4jtz8hF5NPPqFKofRSsb4x/">Zeronet Tutorial List</a></th>
-							<td>A list of tutorials related to Zeronet <code class="category" style="font-style: italic;">PROGRAMMING</code></td>
-						</tr>
-						<tr class="programming">
-							<th><a href="/1LtvsjbtQ2tY7SCtCZzC4KhErqEK3bXD4n/">New 0Net Sites</a></th>
-							<td>A shared list of all new ZeroNet sites <code class="category" style="font-style: italic;">PROGRAMMING</code></td>
-						</tr>
-						<tr class="programming">
-							<th><a href="/1CiDoBP8RiWziqiBGEd8tQMy66A6fmnw2V/big/bundle/">ZeroMux Bundle</a></th>
-							<td>A reliable and compatible way of Sharing<br> big files over the ZeroNetwork <code class="category" style="font-style: italic;">PROGRAMMING</code></td>
-						</tr>
-						<tr class="programming">
-							<th><a href="/1CiDoBP8RiWziqiBGEd8tQMy66A6fmnw2V/big/docs/">ZeroMux Docs</a></th>
-							<td>A file downloading and video streaming tool<br>designed for ZeroNet <code class="category" style="font-style: italic;">PROGRAMMING</code></td>
-						</tr>
-						<tr class="programming">
-							<th><a href="/1AMh6MG4K59ki1dPXX1PrgzeeqkMmZ1YKm/">ZeroCDN</a></th>
-							<td>A CDN for the ZeroNet <code class="category" style="font-style: italic;">PROGRAMMING</code></td>
-						</tr>
-						<tr class="programming">
-							<th><a href="/1MgHVPCE1ve6QfKrgsqCURzRj72HrRWioz/">NullPaste</a></th>
-							<td>A decentralized pastebin by nullpo <code class="category" style="font-style: italic;">PROGRAMMING</code></td>
-						</tr>
-						<tr class="programming">
-							<th><a href="/1L8mV7DtGkPCem9x87g9rFPgiY4BQThJ5W/">ZeroFrame Crypto APIs</a></th>
-							<td>Examines how well ZeroFrame Crypto APIs perform under your configuration  <code class="category" style="font-style: italic;">PROGRAMMING</code></td>
-						</tr>
-						<tr class="programming">
-							<th><a href="/1F7b27kT38nMYZQg7tvDr33qWDZQgwnQpw">Git(Hub) Mirror</a></th>
-							<td>Mirrors of Git projects <code class="category" style="font-style: italic;">PROGRAMMING</code></td>
-						</tr>
-						<tr class="programming">
-							<th><a href="/1GaZYNPuLFN9KPz3nVAs2tojwiJjyGuA1Q">Snakez</a></th>
-							<td>A python framework to write HTML, CSS,<br> JavaScript, and PHP fast and easily <code class="category" style="font-style: italic;">PROGRAMMING</code></td>
-						</tr>
-						<tr class="programming">
-							<th><a href="/1BRpXzopWiKYK3aKQ2JHimy4Z1KHdNgELR/">Dev.net</a></th>
-							<td>The software developers social network <code class="category" style="font-style: italic;">PROGRAMMING</code></td>
-						</tr>
 						<!--<tr>
 							<th><a href="#">ZeroNews</a></th>
 							<td>One of the first News zites on ZeroNet</td>
 						</tr>-->
-						<tr class="other">
-							<th><a href="/0hub.bit">Get All Hub</a></th>
-							<td>List of Hubs for ZeroMe <code class="category" style="font-style: italic;">OTHER</code></td>
-						</tr>
-						<tr class="other">
-							<th><a href="/1yUji4qPD7GAog8XkP3EDMEfrL995S4Xd/">ZeroMaps</a></th>
-							<td>Map of Earth <code class="category" style="font-style: italic;">OTHER</code></td>
-						</tr>
-						<tr class="other">
-							<th><a href="/zeroid.bit/">ZeroID</a></th>
-							<td>User authorization provider and user search <code class="category" style="font-style: italic;">OTHER</code></td>
-						</tr>
 						<!--<tr class="other">
 							<th><a href="/1HPgDoReCFtE9qy71hnp55ksBVvV1gHJLQ">id@ZeroVerse</a></th>
 							<td>User authorization provider <code class="category" style="font-style: italic;">OTHER</code></td>
 						</tr>--> <!-- Abandoned Project -->
-						<tr class="other">
-							<th><a href="/1Name2NXVi1RDPDgf5617UoW7xA6YrhM9F/">ZeroName</a></th>
-							<td>Namecoin address registry <code class="category" style="font-style: italic;">OTHER</code></td>
-						</tr>
-						<tr class="other">
-							<th><a href="/domains4free.bit">Free Bit Domains</a></th>
-							<td>Free Bit Domains <code class="category" style="font-style: italic;">OTHER</code></td>
-						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -434,26 +231,33 @@
 
 	        onRequest(cmd, message) {
 		        if (cmd == "setSiteInfo") {
+		            this.site_info = message.params;  // Save site info data to allow access it later
+		            //console.log(message.params);
 		            if (message.params.cert_user_id)
 		                document.getElementById("select_user").innerHTML = message.params.cert_user_id
 		            else if (message.params.cert_user_id) {
 		                document.getElementById("select_user").innerHTML = "Select user";
-		            } else {
-		            	if (message.params.event[0] == "file_done") {
-		            		this.loadZites();
-		            	}
-		        	}
-		            this.site_info = message.params;  // Save site info data to allow access it later
+		            }
+		            if (message.params.event && message.params.event[0] == "file_done") {
+	            		this.loadZites();
+	            	}
 		        }
 		    }
 
 		    loadZites() {
-		    	this.cmd("dbQuery", ["SELECT * FROM zites ORDER BY category ASC"], (zites) => {
-		    		console.log(zites.length);
+		    	var zites_list = document.getElementById("zites_list");
+		    	var zites_list_jquery = $("#zites_list");
+		    	zites_list_jquery.velocity("fadeOut", { duration: 500 });
+		    	zites_list.innerHTML = "";
+		    	this.cmd("dbQuery", ["SELECT * FROM zites"], (zites) => {
+		    		//console.log(zites.length);
+		    		document.getElementById('zite_num').innerHTML = zites.length + " zites";
 		    		for (var i = 0; i < zites.length; i++) {
-		    			console.log(zites[i].address);
+		    			//console.log(zites[i].title);
+		    			zites_list.innerHTML += "<tr class='" + zites[i].category + "'><th><a href='/"+ zites[i].address + "'>" + zites[i].title + "</a></th><td>" + zites[i].description + " <code class='category' style='font-style: italic;'>" + zites[i].category.toUpperCase() + "</code></td></tr>";
 		    		}
 		    	});
+		    	zites_list_jquery.velocity("fadeIn", { duration: 500 });
 		    }
 		}
 

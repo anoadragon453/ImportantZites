@@ -23,16 +23,16 @@
    "size": 112
   },
   "data/data.json": {
-   "sha512": "3d430f7512c2523daa94395422722cb2e9c866cfc7eb18e592eded6571f82442",
-   "size": 688
+   "sha512": "eff1b82b84d0db8797bcf7798ce22989f4ce949d68206e81796dec642be80f7e",
+   "size": 8370
   },
   "dbschema.json": {
-   "sha512": "52b4f5535242f692b4dc4f7bf1dec028e4074c970d5d74c3017c686fc33e5e78",
-   "size": 1245
+   "sha512": "326ff8cb05261e10d6821f57b9f649484e0a46307b60c17973fa40e86bf30a88",
+   "size": 1287
   },
   "index.html": {
-   "sha512": "8a11b2c05632bc4a77772fbe56b94b6f46acf26eb493926c223156b951129e03",
-   "size": 21375
+   "sha512": "6c7ef30113c0b8431bc29e4db601e9c26e86cd3fbc6b55e50ee2863cc4cc0caf",
+   "size": 10884
   },
   "js/ZeroFrame.js": {
    "sha512": "090a43d18dcd1aa836b0d160631fe958f9fabd761af712e8eed6f7e010c0dd76",
@@ -51,8 +51,8 @@
    "size": 44794
   },
   "request.html": {
-   "sha512": "210cda817e3503f34bec858ab637e734766dca540f4ffbbfe2ce864124673088",
-   "size": 12077
+   "sha512": "ec1f4e3a5e0bf66146e8a5115fb116f26c58a08665982e2013918d4e1dbb7f44",
+   "size": 12173
   }
  },
  "ignore": "(data/.*db|data/users/.*/.*|admin|.git)",
@@ -63,15 +63,15 @@
   }
  },
  "inner_path": "content.json",
- "modified": 1492217038,
+ "modified": 1492223983,
  "postmessage_nonce_security": true,
  "sign": [
-  12797189414259066797943055226496164370092732377972978914653848618737932412714,
-  70860936009193976381045511208284843907238725825079392116364292663241255263478
+  30076515878190758841433739574516938735580340579979627125364566032423858376381,
+  110347142794847120427052517937372062162301078337285185952186441878388715240785
  ],
  "signers_sign": "G0Tvd8VL673RLDVNDGAfnJ60lSfxFCSWmX7nupzAFQp7I6vtoqWYKtaX5yJe4xQ0fFB+LomkGFGHTDJ6wEBqXhs=",
  "signs": {
-  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "G66Qj9DSb7ZIAXC+JNC+kuZL4cQ9G0hibjIEa+EU5905HjGRj+3I+/9zc6UdRypLYTnMF0tc2a5Olnxv1fJ/rkQ="
+  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "HIJhhCq2ONCFD28SmZQ3J4b1VhnWkxNTM2z+b/bA5pmnKi9GIiGmdxmSGkmx0X9DkCwGu+fwTSAXlK2Kjk1G2Wg="
  },
  "signs_required": 1,
  "title": "Important Zites",

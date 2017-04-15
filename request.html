@@ -60,7 +60,8 @@
 	<section class="section">
 		<div class="columns">
 			<div class="column is-8 is-offset-2">
-				<p>To request a zite be added, submit the link in the form below. Or you can send me a request by emailing me the link to the zite on ZeroMail via <a href="/Mail.ZeroNetwork.bit/?to=krixano">this link</a>. <em>Once a zite has been added, it will be removed from this requests list.</em></p>
+				<p>To request a zite be added or removed (in the case a zite is abandoned, etc.), submit the link in the form below. Or you can send me a request by emailing me the link to the zite on ZeroMail via <a href="/Mail.ZeroNetwork.bit/?to=krixano">this link</a>.
+				<br><em>Once a zite has been added/removed, the request will be removed.</em></p>
 				<h2 class="title is-4" style="margin-top: 20px;">Requests</h2>
 				<div class="columns">
 					<div class="column is-6">
@@ -167,17 +168,16 @@
 
 	        onRequest (cmd, message) {
 		        if (cmd == "setSiteInfo") {
+		            this.site_info = message.params  // Save site info data to allow access it later
 		            if (message.params.cert_user_id) {
 		                document.getElementById("select_user").innerHTML = message.params.cert_user_id
 		                this.loadMessages();
-		            } else {
+		            } else if (!message.params.cert_user_id) {
 		                document.getElementById("select_user").innerHTML = "Select user"
 		                this.loadMessages();
-		            }
-		            this.site_info = message.params  // Save site info data to allow access it later
-
-		            if (message.params.event[0] == "file_done")
+		            } else if (message.params.event && message.params.event[0] == "file_done") {
 		            	this.loadMessages();
+		            }
 		        }
 		    }
 

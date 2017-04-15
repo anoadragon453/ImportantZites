@@ -44,8 +44,8 @@
 				["category", "TEXT"],
 				["json_id", "INTEGER REFERENCES json (json_id)"]
 			],
-			"indexes": ["CREATE UNIQUE INDEX zite_key ON zites(json_id, address)"],
-			"schema_changed": 13
+			"indexes": ["CREATE UNIQUE INDEX zite_key ON zites(json_id, address)", "CREATE INDEX zite_id ON zites(address)"],
+			"schema_changed": 14
 		}
 	}
 }
