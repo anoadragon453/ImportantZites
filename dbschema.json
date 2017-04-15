@@ -64,7 +64,7 @@
                 ["json_id", "INTEGER REFERENCES json (json_id)"]
             ],
             "indexes": ["CREATE UNIQUE INDEX category_key ON categories(json_id, category_id)", "CREATE INDEX name ON categories(name)"],
-            "schema_changed": 12
+            "schema_changed": 13
         }
     }
 }
