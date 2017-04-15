@@ -20,6 +20,7 @@
         }
         
         #zite_num,
+        #cat_num,
         #zites_table {
             visibility: hidden;
         }
@@ -36,7 +37,7 @@
         <div class="container">
             <div class="nav-left">
                 <a href="./" class="nav-item" style="font-weight: bold;">Important Zites</a>
-                <span class="nav-item"><code id="zite_num" class="tag is-light">0</code></span>
+                <span class="nav-item"><code id="zite_num" class="tag is-light">0</code> <code id="cat_num" class="tag is-light">0</code></span>
             </div>
 
             <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
@@ -171,6 +172,7 @@
                 var zites_list = document.getElementById("zites_list");
                 var zites_table = document.getElementById("zites_table");
                 var zite_indicator = document.getElementById('zite_num');
+
                 TweenLite.set(zites_table, {
                     autoAlpha: 0
                 });
@@ -212,6 +214,10 @@
                 var cats_list = document.getElementById("categories_list");
                 var cats_indicator = document.getElementById('cat_num');
 
+                TweenLite.set(cats_indicator, {
+                    autoAlpha: 0
+                });
+
                 this.getCategoriesList(function(cats) {
                     cats_indicator.innerHTML = cats.length + " categories"
 
@@ -219,8 +225,13 @@
                         var cat = cats[x]
                         cats_list.innerHTML += '<li><a onclick="tabClick(' + cat.name + ', this); return false;">' + cat.name.toUpperCase() + '</a></li>'
                     }
+
                     if (typeof cb === "function")
                         cb()
+
+                    TweenLite.to(cats_indicator, 3, {
+                        autoAlpha: 2
+                    });
                 })
             }
         }
