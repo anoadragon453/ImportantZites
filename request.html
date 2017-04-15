@@ -273,16 +273,16 @@
 
 		    	this.cmd("dbQuery", ["SELECT address FROM zites"], (zites) => {
 		    		zite_indicator.innerHTML = zites.length + " zites";
+		    		Velocity(zite_indicator, "fadeIn", { duration: 500 });
 		    	});
 
-		    	Velocity(zite_indicator, "fadeIn", { duration: 500 });
 		    }
 
 		    hideRemovalReasonTextbox() {
-		 		$("#removal_reason").hide();
+		    	document.getElementById('removal_reason').style.display = "none";
 		 	}
 		 	showRemovalReasonTextbox() {
-		 		$("#removal_reason").show();
+		 		document.getElementById('removal_reason').style.display = "";
  			}
 		}
 

@@ -7,8 +7,8 @@
  "description": "Lists the most important zites by category.",
  "files": {
   "about.html": {
-   "sha512": "61f8ba0943d02b2d1ebc45c9dbc1ffc5ef2af3090f9efa4c7a2cb634a7512d09",
-   "size": 6185
+   "sha512": "bcea20278334b5462143f9d82cce67ca5cac59ce599007e1c1e7302f9b668e71",
+   "size": 6230
   },
   "css/bulma.css": {
    "sha512": "65bcef3adc230e45c18b650a15936704eb5c23fcdb7c304a3db675e9ca81918b",
@@ -31,16 +31,12 @@
    "size": 2088
   },
   "index.html": {
-   "sha512": "974009acf0538c67518c79e710bf71be4a949ab904f145e462453525e699d35d",
-   "size": 11084
+   "sha512": "46526dc128edc369879f79ed55e9b4a94fbb0efc90c5fa3633cb86b7ae8a05de",
+   "size": 12242
   },
   "js/ZeroFrame.js": {
    "sha512": "090a43d18dcd1aa836b0d160631fe958f9fabd761af712e8eed6f7e010c0dd76",
    "size": 2409
-  },
-  "js/jquery-3.2.1.min.js": {
-   "sha512": "dcff2b5c2b8625d3593a7531ff4ddcd633939cc9f7acfeb79c18a9e6038fdaa9",
-   "size": 86659
   },
   "js/navToggle.js": {
    "sha512": "f80335e8934871d82aed51de1a314c458d304893327957bec9c925a8872437bd",
@@ -51,8 +47,8 @@
    "size": 44794
   },
   "request.html": {
-   "sha512": "e21b32a45e4b97bdfaacce25a235a1c7e9825c5656bff1fd375103b13661a4b0",
-   "size": 12744
+   "sha512": "a50c9a32c8ab9f14f5b812ddef639202e9802b18cc8dbd2489c6d4ca897cda56",
+   "size": 12887
   }
  },
  "ignore": "(data/.*db|data/users/.*/.*|admin|.git)",
@@ -63,15 +59,15 @@
   }
  },
  "inner_path": "content.json",
- "modified": 1492268616,
+ "modified": 1492275000,
  "postmessage_nonce_security": true,
  "sign": [
-  4581970721099816203620015101403135349783243626187124691372188120383311291261,
-  47309424118106287062377491118554485758645288757246637499288737916537322875570
+  21398114984185904000257223536846592713168930153169869084443439549865762371501,
+  52386534260822454321941380333644795090918555601809494894382567919784435294260
  ],
  "signers_sign": "G0Tvd8VL673RLDVNDGAfnJ60lSfxFCSWmX7nupzAFQp7I6vtoqWYKtaX5yJe4xQ0fFB+LomkGFGHTDJ6wEBqXhs=",
  "signs": {
-  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "G1hYkxpfAEpSlKSBV7bnhxBTsKOEEPN1GNNnKc9Z/AsrB915sTal3dlUq7H/dsMGu4uDKqo9bG/+LEnYxBChKlg="
+  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "G04ybJxRicFZB40v8kq9bXWE6XnyXkyWvUm2T8drGACpMp8yd9ZAE/UPcMoyrPGnJXR+EA+qEjj3FtPyquKI3mk="
  },
  "signs_required": 1,
  "title": "Important Zites",
