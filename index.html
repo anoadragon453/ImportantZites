@@ -137,8 +137,9 @@
                 //this.addMessage("System", "Ready to call ZeroFrame API!")
                 this.cmd("siteInfo", {}, (site_info) => {
                     if (site_info.cert_user_id)
-                        document.getElementById("select_user").innerText = site_info.cert_user_id
-                    this.site_info = site_info
+                        document.getElementById("select_user").innerText = site_info.cert_user_id;
+
+                    this.site_info = site_info;
                     this.loadCategories(page.loadZites);
 
                     var allZites = document.querySelectorAll("#zites_list > tr");
@@ -149,7 +150,7 @@
                 this.cmd("certSelect", {
                     accepted_domains: ["zeroid.bit", "kaffie.bit"]
                 })
-                return false
+                return false;
             }
 
             onRequest(cmd, message) {
@@ -157,7 +158,7 @@
                     this.site_info = message.params; // Save site info data to allow access it later
                     console.log(message.params);
                     if (message.params.cert_user_id)
-                        document.getElementById("select_user").innerHTML = message.params.cert_user_id
+                        document.getElementById("select_user").innerHTML = message.params.cert_user_id;
                     else if (!message.params.cert_user_id) {
                         document.getElementById("select_user").innerHTML = "Select user";
                     }
@@ -185,7 +186,7 @@
                     zite_indicator.innerHTML = zites.length + " zites";
 
                     for (var x in zites) {
-                        var zite = zites[x]
+                        var zite = zites[x];
                         zites_list.innerHTML +=
                             "<tr class='cat-" + zite.category + "'><th><a href='/" + zite.address + "'>" +
                             zite.title + "</a></th><td>" + zite.description +
@@ -205,7 +206,7 @@
             getCategoriesList(cb) {
                 page.cmd("dbQuery", ["SELECT * FROM categories"], (cats) => {
                     if (typeof cb === "function")
-                        cb(cats)
+                        cb(cats);
                 })
             }
 
@@ -218,15 +219,17 @@
                 });
 
                 page.getCategoriesList(function(cats) {
-                    cats_indicator.innerHTML = cats.length + " categories"
+                    cats_indicator.innerHTML = cats.length + " categories";
 
                     for (var x in cats) {
-                        var cat = cats[x]
-                        cats_list.innerHTML += '<li><a onclick="tabClick("' + cat.name + '", this); return false;">' + cat.name.toUpperCase() + '</a></li>'
+                        var cat = cats[x];
+                        cats_list.innerHTML += '<li><a onclick="tabClick(\'' +
+                            cat.name + '\', this); return false;">' +
+                            cat.name.toUpperCase() + '</a></li>';;
                     }
 
                     if (typeof cb === "function")
-                        cb()
+                        cb();
 
                     TweenLite.to(cats_indicator, 3, {
                         autoAlpha: 2
@@ -235,7 +238,7 @@
             }
         }
 
-        page = new ZeroChat()
+        page = new ZeroChat();
 
         var previousId = "all";
         var previousActiveTab = document.getElementById('allTab');
@@ -248,12 +251,12 @@
                 // Show all divs except the previousId (because that one is already shown)
                 page.getCategoriesList(function(cats) {
                     for (var x in cats) {
-                        var cat = cats[x]
+                        var cat = cats[x];
 
                         if (previousId != cat.name) {
-                            var s = document.querySelectorAll('.cat-' + cat.name)
+                            var s = document.querySelectorAll('.cat-' + cat.name);
                             for (var x2 in s) {
-                                s[x2].style.display = ""
+                                s[x2].style.display = "";
                             }
                         }
                     }
@@ -273,12 +276,12 @@
             } else {
                 page.getCategoriesList(function(cats) {
                     for (var x in cats) {
-                        var cat = cats[x]
+                        var cat = cats[x];
 
                         if (id != cat.name) {
-                            var s = document.querySelectorAll('.cat-' + cat.name)
+                            var s = document.querySelectorAll('.cat-' + cat.name);
                             for (var x2 in s) {
-                                s[x2].style.display = "none"
+                                s[x2].style.display = "none";
                             }
                         }
                     }
