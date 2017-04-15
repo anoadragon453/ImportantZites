@@ -7,8 +7,8 @@
  "description": "Lists the most important zites by category.",
  "files": {
   "about.html": {
-   "sha512": "2a4547c64111380ee08502078d9cd8654e9889415a255dd1cdcf5a4c657e969c",
-   "size": 6340
+   "sha512": "5bbcf9155f31d7a196257d6a40f73c8175cb5ef741e90a6106c4cd81d81932ce",
+   "size": 6104
   },
   "css/bulma.css": {
    "sha512": "65bcef3adc230e45c18b650a15936704eb5c23fcdb7c304a3db675e9ca81918b",
@@ -31,8 +31,8 @@
    "size": 2088
   },
   "index.html": {
-   "sha512": "8160159a826205c818f19e201563e2b3f90a29931a80529084262504391af2f2",
-   "size": 13539
+   "sha512": "290cdba89fec1dd163df0fc26fbc659f0dbfe20e7e5f8fd106ae483e1cc2ece8",
+   "size": 13052
   },
   "js/ZeroFrame.js": {
    "sha512": "090a43d18dcd1aa836b0d160631fe958f9fabd761af712e8eed6f7e010c0dd76",
@@ -123,8 +123,8 @@
    "size": 44794
   },
   "request.html": {
-   "sha512": "1c16e257d55cf9b45c92605d9c7ce963796bc6e1f2fa71f6453601492805c90c",
-   "size": 13044
+   "sha512": "0c9f4523b01fdc9155d2f6f7f705592461038ae98b01bc40fc9bb4d51666fa60",
+   "size": 12410
   }
  },
  "ignore": "(data/.*db|data/users/.*/.*|admin|.git)",
@@ -135,15 +135,15 @@
   }
  },
  "inner_path": "content.json",
- "modified": 1492281309,
+ "modified": 1492281864,
  "postmessage_nonce_security": true,
  "sign": [
-  5165557080300869181729006415734155542140181195411170989068513821936047718762,
-  80160473052461623124365894176685790250249050639268850003872814329860879042562
+  40772043831313793314922007079439383708488182049335918367073843009075826269564,
+  12542728899498005335952778709521701239019321382702397471322959479104861499410
  ],
  "signers_sign": "G0Tvd8VL673RLDVNDGAfnJ60lSfxFCSWmX7nupzAFQp7I6vtoqWYKtaX5yJe4xQ0fFB+LomkGFGHTDJ6wEBqXhs=",
  "signs": {
-  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "G8juG4/qPR7ThwQBfcicnAsanwdWZotT70YvJrDsfWW0AyqiCOHzdFfsHR6SuJB5/kmJchO9Er9FrWAml7ThxEI="
+  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "HJZ2tS7p0gCkn63ilw4V+qj4N6IymRHnIKmmEnNdjIwCYh/v5BKPte76KPSueoFFHOFKkaV5H3rI8fGq5XO4MZY="
  },
  "signs_required": 1,
  "title": "Important Zites",

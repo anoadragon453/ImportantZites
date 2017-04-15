@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <title>Important Zites</title>
- <meta charset="utf-8">
- <meta http-equiv="content-type" content="text/html; charset=utf-8" />
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <meta name="keywords" content="zite,zites,important,krixano,list,category,search,filter">
- <base href="" target="_top" id="base">
- <script>base.href = document.location.href.replace("/media", "").replace("index.html", "").replace(/[&?]wrapper=False/, "").replace(/[&?]wrapper_nonce=[A-Za-z0-9]+/, "")</script>
+	<title>Important Zites</title>
+	<meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="zite,zites,important,krixano,list,category,search,filter">
+	<base href="" target="_top" id="base">
+	<script>base.href = document.location.href.replace("/media", "").replace("index.html", "").replace(/[&?]wrapper=False/, "").replace(/[&?]wrapper_nonce=[A-Za-z0-9]+/, "")</script>
 
- <link rel="stylesheet" href="css/bulma.css" />
- <link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/bulma.css" />
+	<link rel="stylesheet" href="css/main.css" />
 
-<style>
-	#zite_num {
-		visibility: hidden;
-	}
-</style>
+	<style>
+		#zite_num {
+			visibility: hidden;
+		}
+	</style>
 
- <script src="js/navToggle.js"></script>
+	<script src="js/navToggle.js"></script>
 </head>
 <body>
 	<nav class="nav has-shadow">
 		<div class="container">
-		  <div class="nav-left">
-		    <a href="./" class="nav-item" style="font-weight: bold;">Important Zites</a>
-		    <span class="nav-item"><code id="zite_num" class="tag is-light">0</code></span>
-		  </div>
+			<div class="nav-left">
+				<a href="./" class="nav-item" style="font-weight: bold;">Important Zites</a>
+				<span class="nav-item"><code id="zite_num" class="tag is-light">0</code></span>
+			</div>
 
-		  <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
-		  <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
-		  <span id="nav-toggle" class="nav-toggle">
-		    <span></span>
-		    <span></span>
-		    <span></span>
-		  </span>
+			<!-- This "nav-toggle" hamburger menu is only visible on mobile -->
+			<!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
+			<span id="nav-toggle" class="nav-toggle">
+				<span></span>
+				<span></span>
+				<span></span>
+			</span>
 
-		  <!-- This "nav-menu" is hidden on mobile -->
-		  <!-- Add the modifier "is-active" to display it on mobile -->
-		  <div id="nav-menu" class="nav-right nav-menu">
-		    <a href="./" class="nav-item">Home</a>
-		    <!--<a class="nav-item">Blog</a>-->
-		    <a href="request.html" class="nav-item">Requests</a>
-		    <a class="nav-item is-active">About</a>
-		    <span class="nav-item"><a href="#Select+user" id="select_user" class="button is-info" onclick='return page.selectUser()'>Select user</a></span>
-		  </div>
+			<!-- This "nav-menu" is hidden on mobile -->
+			<!-- Add the modifier "is-active" to display it on mobile -->
+			<div id="nav-menu" class="nav-right nav-menu">
+				<a href="./" class="nav-item">Home</a>
+				<!--<a class="nav-item">Blog</a>-->
+				<a href="request.html" class="nav-item">Requests</a>
+				<a class="nav-item is-active">About</a>
+				<span class="nav-item"><a href="#Select+user" id="select_user" class="button is-info" onclick='return page.selectUser()'>Select user</a></span>
+			</div>
 		</div>
 	</nav>
 
@@ -92,42 +92,42 @@
 
 	<script>
 		class ZeroChat extends ZeroFrame {
-		    onOpenWebsocket () {
-		        this.cmd("siteInfo", {}, (site_info) => {
-		            if (site_info.cert_user_id)
-		                document.getElementById("select_user").innerText = site_info.cert_user_id
-		            this.site_info = site_info
-		            this.loadZiteIndicator();
-		        })
-		    }
+			onOpenWebsocket () {
+				this.cmd("siteInfo", {}, (site_info) => {
+					if (site_info.cert_user_id)
+						document.getElementById("select_user").innerText = site_info.cert_user_id
+					this.site_info = site_info
+					this.loadZiteIndicator();
+				})
+			}
 
-		    selectUser () {
-	            this.cmd("certSelect", {accepted_domains: ["zeroid.bit", "kaffie.bit"]})
-	            return false
-	        }
+			selectUser () {
+				this.cmd("certSelect", {accepted_domains: ["zeroid.bit", "kaffie.bit"]})
+				return false
+			}
 
-	        onRequest (cmd, message) {
-		        if (cmd == "setSiteInfo") {
-		            this.site_info = message.params  // Save site info data to allow access it later
-		            if (message.params.cert_user_id){
-		                document.getElementById("select_user").innerHTML = message.params.cert_user_id
-		            } else if (!message.params.cert_user_id) {
-		                document.getElementById("select_user").innerHTML = "Select user"
-		            } else if (message.params.event && message.params.event[0] == "file_done") {
-		            	this.loadZiteIndicator();
-		            }
-		        }
-		    }
+			onRequest (cmd, message) {
+				if (cmd == "setSiteInfo") {
+					this.site_info = message.params  // Save site info data to allow access it later
+					if (message.params.cert_user_id){
+						document.getElementById("select_user").innerHTML = message.params.cert_user_id
+					} else if (!message.params.cert_user_id) {
+						document.getElementById("select_user").innerHTML = "Select user"
+					} else if (message.params.event && message.params.event[0] == "file_done") {
+						this.loadZiteIndicator();
+					}
+				}
+			}
 
-		    loadZiteIndicator() {
-		    	var zite_indicator = document.getElementById('zite_num');
-		    	//zite_indicator.style.display = "none";
-		    	this.cmd("dbQuery", ["SELECT address FROM zites"], (zites) => {
-		    		document.getElementById('zite_num').innerHTML = zites.length + " zites";
-		    		TweenLite.to(zite_indicator, 3, {autoAlpha: 2});
-		    		//Velocity(zite_indicator, "fadeIn", { duration: 500 });
-		    	});
-		    }
+			loadZiteIndicator() {
+				var zite_indicator = document.getElementById('zite_num');
+				//zite_indicator.style.display = "none";
+				this.cmd("dbQuery", ["SELECT address FROM zites"], (zites) => {
+					document.getElementById('zite_num').innerHTML = zites.length + " zites";
+					TweenLite.to(zite_indicator, 3, {autoAlpha: 2});
+					//Velocity(zite_indicator, "fadeIn", { duration: 500 });
+				});
+			}
 		}
 
 		page = new ZeroChat()
@@ -160,7 +160,7 @@
 	}
 	page = new Page()
 
-	</script>-->
+</script>-->
 
 </body>
 </html>
