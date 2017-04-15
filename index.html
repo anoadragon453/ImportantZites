@@ -67,7 +67,7 @@
         <div class="columns">
             <div class="column is-2 is-offset-1">
                 <aside class="menu">
-                    <input class="input" id="search" name="search" type="search" placeholder="Search" onkeypress="search();" />
+                    <input class="input" id="search" name="search" type="search" placeholder="Search" onkeydown="search();" onkeyup="search();" onchange="search();" />
                     <p class="menu-label">Categories</p>
                     <ul class="menu-list" id="categories_list">
                         <li><a id="allTab" class="is-active" onclick="tabClick('all', this); return false;">All</a></li>
@@ -247,17 +247,26 @@
         var previousActiveTab = document.getElementById('allTab');
 
         function search(s) {
-            var s = s || document.getElementById("search").value
+            var s = (s || document.getElementById("search").value).trim()
 
             if (s && allZites) {
+                var anystrue = false
                 for (var x in allZites) {
                     var y = allZites[x]
 
-                    y.style.display = ""
+                    if (!y || typeof y !== "object")
+                        continue
 
-                    var searchables = y.innerText.split("\t")
-                    searchables[2] = searchables[1].substr(0, searchables[1].lastIndexOf(" "))
-                    searchables[3] = searchables[1].substr(searchables[1].lastIndexOf(" ") + 1)
+                    if (y.innerText) {
+                        var searchables = y.innerText.split("\t")
+                        if (searchables && searchables[1]) {
+                            searchables[2] = searchables[1].substr(0, searchables[1].lastIndexOf(" "))
+                            searchables[3] = searchables[1].substr(searchables[1].lastIndexOf(" ") + 1)
+                        }
+                    }
+
+                    // if (previousId === searchables[3].toLowerCase() || previousId === "all")
+                    //     y.style.display = ""
 
                     var strue = false
                     for (var x2 in searchables) {
@@ -265,14 +274,31 @@
                             continue
 
                         var y2 = searchables[x2]
-                        if (y2.match(new RegExp(s, "gmi"))[0])
+                        if (y2.match(new RegExp(s, "gmi"))) {
                             strue = true
+                            anystrue = true
+                        }
                     }
+
+                    // console.log(y, strue, searchables)
 
                     if (!strue && s)
                         y.style.display = "none"
                     else
                         y.style.display = ""
+                }
+
+                // Show "No match"-Message
+                if (!anystrue)
+                    console.log("No match")
+            } else if (allZites) {
+                for (var x in allZites) {
+                    var y = allZites[x]
+
+                    if (!y || typeof y !== "object")
+                        continue
+
+                    y.style.display = ""
                 }
             }
 
