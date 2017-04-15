@@ -181,7 +181,7 @@
 
                 zites_list.innerHTML = "";
 
-                this.cmd("dbQuery", ["SELECT * FROM zites"], (zites) => {
+                page.cmd("dbQuery", ["SELECT * FROM zites"], (zites) => {
                     zite_indicator.innerHTML = zites.length + " zites";
 
                     for (var x in zites) {
@@ -203,7 +203,7 @@
             }
 
             getCategoriesList(cb) {
-                this.cmd("dbQuery", ["SELECT * FROM categories"], (cats) => {
+                page.cmd("dbQuery", ["SELECT * FROM categories"], (cats) => {
                     if (typeof cb === "function")
                         cb(cats)
                 })
