@@ -12,4 +12,5 @@ __pycache__/
 
 
 # Data dir
-data/*
+data/
+/content.json
