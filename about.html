@@ -13,6 +13,12 @@
  <link rel="stylesheet" href="css/bulma.css" />
  <link rel="stylesheet" href="css/main.css" />
 
+<style>
+	#zite_num {
+		visibility: hidden;
+	}
+</style>
+
  <script src="js/navToggle.js"></script>
 </head>
 <body>
@@ -20,7 +26,7 @@
 		<div class="container">
 		  <div class="nav-left">
 		    <a href="./" class="nav-item" style="font-weight: bold;">Important Zites</a>
-		    <span class="nav-item"><code id="zite_num" class="tag is-light" style="display: none;">0</code></span>
+		    <span class="nav-item"><code id="zite_num" class="tag is-light">0</code></span>
 		  </div>
 
 		  <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
@@ -81,8 +87,8 @@
 	</footer>
 
 	<script type="text/javascript" src="js/ZeroFrame.js"></script>
-	<!--<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>-->
-	<script type="text/javascript" src="js/velocity.min.js"></script>
+	<script type="text/javascript" src="js/gsap/TweenLite.min.js"></script>
+	<script type="text/javascript" src="js/gsap/plugins/CSSPlugin.min.js"></script>
 
 	<script>
 		class ZeroChat extends ZeroFrame {
@@ -115,10 +121,11 @@
 
 		    loadZiteIndicator() {
 		    	var zite_indicator = document.getElementById('zite_num');
-		    	zite_indicator.style.display = "none";
+		    	//zite_indicator.style.display = "none";
 		    	this.cmd("dbQuery", ["SELECT address FROM zites"], (zites) => {
 		    		document.getElementById('zite_num').innerHTML = zites.length + " zites";
-		    		Velocity(zite_indicator, "fadeIn", { duration: 500 });
+		    		TweenLite.to(zite_indicator, 3, {autoAlpha: 2});
+		    		//Velocity(zite_indicator, "fadeIn", { duration: 500 });
 		    	});
 		    }
 		}
