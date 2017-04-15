@@ -9,6 +9,9 @@
 		"users/.+/content.json": {
 			"to_json_table": ["cert_user_id"],
 			"file_name": "data.json"
+		},
+		"data.json": {
+			"to_table": ["zites"]
 		}
 	},
 	"tables": {
@@ -32,6 +35,17 @@
 			],
 			"indexes": ["CREATE UNIQUE INDEX message_key ON message(json_id, date_added)"],
 			"schema_changed": 11
+		},
+		"zites": {
+			"cols": [
+				["address", "TEXT"],
+				["title", "TEXT"],
+				["description", "TEXT"],
+				["category", "TEXT"],
+				["json_id", "INTEGER REFERENCES json (json_id)"]
+			],
+			"indexes": ["CREATE UNIQUE INDEX zite_key ON zites(json_id, address)"],
+			"schema_changed": 13
 		}
 	}
 }

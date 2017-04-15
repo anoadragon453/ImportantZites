@@ -22,13 +22,17 @@
    "sha512": "1b9e2e8a2a6fa27644eb1e86c97788656a338cd4a39d9083e5cf62760d50cd7e",
    "size": 112
   },
+  "data/data.json": {
+   "sha512": "3d430f7512c2523daa94395422722cb2e9c866cfc7eb18e592eded6571f82442",
+   "size": 688
+  },
   "dbschema.json": {
-   "sha512": "26d36744cef2f616a2133c58fd56578b718cac5027c520c68d5227e53104dd2e",
-   "size": 892
+   "sha512": "52b4f5535242f692b4dc4f7bf1dec028e4074c970d5d74c3017c686fc33e5e78",
+   "size": 1245
   },
   "index.html": {
-   "sha512": "78c8225a5d44a88676dee05c63ca510bdd3a1854185f11e87367139cba0500fc",
-   "size": 20495
+   "sha512": "8a11b2c05632bc4a77772fbe56b94b6f46acf26eb493926c223156b951129e03",
+   "size": 21375
   },
   "js/ZeroFrame.js": {
    "sha512": "090a43d18dcd1aa836b0d160631fe958f9fabd761af712e8eed6f7e010c0dd76",
@@ -51,7 +55,7 @@
    "size": 12077
   }
  },
- "ignore": "(data/.*|admin|.git)",
+ "ignore": "(data/.*db|data/users/.*/.*|admin|.git)",
  "includes": {
   "data/users/content.json": {
    "signers": [],
@@ -59,15 +63,15 @@
   }
  },
  "inner_path": "content.json",
- "modified": 1492197228,
+ "modified": 1492217038,
  "postmessage_nonce_security": true,
  "sign": [
-  14064644624137789090428153463104272582651181199102829639631670811092456392094,
-  59043629829148634783222470536226088333237389283042878398868480256874004628270
+  12797189414259066797943055226496164370092732377972978914653848618737932412714,
+  70860936009193976381045511208284843907238725825079392116364292663241255263478
  ],
  "signers_sign": "G0Tvd8VL673RLDVNDGAfnJ60lSfxFCSWmX7nupzAFQp7I6vtoqWYKtaX5yJe4xQ0fFB+LomkGFGHTDJ6wEBqXhs=",
  "signs": {
-  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "G+ow5+Yk9zOjq67aVCG1Za3UHV8F/a9sOkFYy8VU+VhAISl3nmAvcL9TtyJVAlNKuOoJcfPtoyp+YKnCkPft6OM="
+  "15Pf9VVuDT8NSWj1qUBh4V89yPmrmzRw6a": "G66Qj9DSb7ZIAXC+JNC+kuZL4cQ9G0hibjIEa+EU5905HjGRj+3I+/9zc6UdRypLYTnMF0tc2a5Olnxv1fJ/rkQ="
  },
  "signs_required": 1,
  "title": "Important Zites",

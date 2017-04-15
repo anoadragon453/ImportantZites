@@ -158,6 +158,9 @@
 				</aside>
 			</div>
 			<div class="column is-8">
+				<!--<div class="notification is-info" style="margin-right: 50px; margin-left: 70px;">
+					<p>New to ZeroNet? <a href="/138R53t3ZW7KDfSfxVpWUsMXgwUnsDNXLP/">Visit the Wiki</a></p>
+				</div>--> <!-- TODO -->
 				<table class="table is-narrow is-striped" style="margin-left: 10px; margin-right: 10px;">
 					<thead>
 						<tr>
@@ -314,6 +317,10 @@
 							<th><a href="/blog.0list.bit/">0list Blog</a></th>
 							<td>0list Blog <code class="category" style="font-style: italic;">BLOG</code></td>
 						</tr>
+						<tr class="blog">
+							<th><a href="/1JBXrjCabLEWXmKJ2pJ4XhxA4rwYAEazKw/">Krixano's Blog</a></th>
+							<td>Krixano's Blog <code class="category" style="font-style: italic;">BLOG</code></td>
+						</tr>
 						<tr class="programming">
 							<th><a href="/1Jtjb5CU9aod4jtz8hF5NPPqFKofRSsb4x/">Zeronet Tutorial List</a></th>
 							<td>A list of tutorials related to Zeronet <code class="category" style="font-style: italic;">PROGRAMMING</code></td>
@@ -409,29 +416,44 @@
 		        this.messages.innerHTML += "<li><b>" + username + "</b>: " + message_escaped + "</li>"
 		    }*/
 
-		    onOpenWebsocket () {
+		    onOpenWebsocket() {
 		        //this.messages = document.getElementById("messages")
 		        //this.addMessage("System", "Ready to call ZeroFrame API!")
 		        this.cmd("siteInfo", {}, (site_info) => {
 		            if (site_info.cert_user_id)
 		                document.getElementById("select_user").innerText = site_info.cert_user_id
 		            this.site_info = site_info
-		        })
+		            this.loadZites();
+		        });
 		    }
 
-		    selectUser () {
+		    selectUser() {
 	            this.cmd("certSelect", {accepted_domains: ["zeroid.bit", "kaffie.bit"]})
 	            return false
 	        }
 
-	        onRequest (cmd, message) {
+	        onRequest(cmd, message) {
 		        if (cmd == "setSiteInfo") {
 		            if (message.params.cert_user_id)
 		                document.getElementById("select_user").innerHTML = message.params.cert_user_id
-		            else
-		                document.getElementById("select_user").innerHTML = "Select user"
-		            this.site_info = message.params  // Save site info data to allow access it later
+		            else if (message.params.cert_user_id) {
+		                document.getElementById("select_user").innerHTML = "Select user";
+		            } else {
+		            	if (message.params.event[0] == "file_done") {
+		            		this.loadZites();
+		            	}
+		        	}
+		            this.site_info = message.params;  // Save site info data to allow access it later
 		        }
+		    }
+
+		    loadZites() {
+		    	this.cmd("dbQuery", ["SELECT * FROM zites ORDER BY category ASC"], (zites) => {
+		    		console.log(zites.length);
+		    		for (var i = 0; i < zites.length; i++) {
+		    			console.log(zites[i].address);
+		    		}
+		    	});
 		    }
 		}
 
