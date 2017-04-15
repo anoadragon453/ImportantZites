@@ -11,7 +11,16 @@
 			"file_name": "data.json"
 		},
 		"data.json": {
-			"to_table": ["zites"]
+			"to_table": [
+				{
+					"node": "categories",
+					"table": "categories"
+				},
+				{
+					"node": "zites",
+					"table": "zites"
+				}
+			]
 		}
 	},
 	"tables": {
@@ -27,25 +36,35 @@
 		},
 		"message": {
 			"cols": [
+				["message_id", "INTEGER PRIMARY KEY AUTOINCREMENT"],
 				["body", "TEXT"],
 				["request_type", "CHAR"],
 				["removal_reason", "TEXT"],
 				["date_added", "INTEGER"],
 				["json_id", "INTEGER REFERENCES json (json_id)"]
 			],
-			"indexes": ["CREATE UNIQUE INDEX message_key ON message(json_id, date_added)"],
-			"schema_changed": 11
+			"indexes": ["CREATE UNIQUE INDEX message_key ON message(json_id, message_id)"],
+			"schema_changed": 12
 		},
 		"zites": {
 			"cols": [
-				["address", "TEXT"],
+				["address", "TEXT PRIMARY KEY"],
 				["title", "TEXT"],
 				["description", "TEXT"],
 				["category", "TEXT"],
 				["json_id", "INTEGER REFERENCES json (json_id)"]
 			],
-			"indexes": ["CREATE UNIQUE INDEX zite_key ON zites(json_id, address)", "CREATE INDEX zite_id ON zites(address)"],
-			"schema_changed": 14
+			"indexes": ["CREATE UNIQUE INDEX zite_key ON zites(json_id, address)"],
+			"schema_changed": 15
+		},
+		"categories": {
+			"cols": [
+				["category_id", "INTEGER PRIMARY KEY AUTOINCREMENT"],
+				["name", "TEXT UNIQUE"],
+				["json_id", "INTEGER REFERENCES json (json_id)"]
+			],
+			"indexes": ["CREATE UNIQUE INDEX category_key ON categories(json_id, category_id)"],
+			"schema_changed": 10
 		}
 	}
 }

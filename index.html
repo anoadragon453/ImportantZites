@@ -235,7 +235,7 @@
 		            //console.log(message.params);
 		            if (message.params.cert_user_id)
 		                document.getElementById("select_user").innerHTML = message.params.cert_user_id
-		            else if (message.params.cert_user_id) {
+		            else if (!message.params.cert_user_id) {
 		                document.getElementById("select_user").innerHTML = "Select user";
 		            }
 		            if (message.params.event && message.params.event[0] == "file_done") {
