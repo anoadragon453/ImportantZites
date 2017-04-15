@@ -1,377 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title>Important Zites</title>
-	<meta charset="utf-8">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="keywords" content="zite,zites,important,krixano,list,category,search,filter">
-	<base href="" target="_top" id="base">
-	<script>base.href = document.location.href.replace("/media", "").replace("index.html", "").replace(/[&?]wrapper=False/, "").replace(/[&?]wrapper_nonce=[A-Za-z0-9]+/, "")</script>
+    <title>Important Zites</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="zite,zites,important,krixano,list,category,search,filter">
+    <base href="" target="_top" id="base">
+    <script>
+        base.href = document.location.href.replace("/media", "").replace("index.html", "").replace(/[&?]wrapper=False/, "").replace(/[&?]wrapper_nonce=[A-Za-z0-9]+/, "")
+    </script>
 
-	<style>
-		.table tbody th, .table thead tr > th:first-child {
-			text-align: center;
-		}
-		#zite_num, #zites_table {
-			visibility: hidden;
-		}
-	</style>
+    <style>
+        .table tbody th,
+        .table thead tr>th:first-child {
+            text-align: center;
+        }
+        
+        #zite_num,
+        #zites_table {
+            visibility: hidden;
+        }
+    </style>
 
-	<script src="js/navToggle.js"></script>
+    <script src="js/navToggle.js"></script>
 
-	<link rel="stylesheet" href="css/bulma.css" />
-	<link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/bulma.css" />
+    <link rel="stylesheet" href="css/main.css" />
 </head>
+
 <body>
-	<nav class="nav has-shadow">
-		<div class="container">
-			<div class="nav-left">
-				<a href="./" class="nav-item" style="font-weight: bold;">Important Zites</a>
-				<span class="nav-item"><code id="zite_num" class="tag is-light">0</code></span>
-			</div>
+    <nav class="nav has-shadow">
+        <div class="container">
+            <div class="nav-left">
+                <a href="./" class="nav-item" style="font-weight: bold;">Important Zites</a>
+                <span class="nav-item"><code id="zite_num" class="tag is-light">0</code></span>
+            </div>
 
-			<!-- This "nav-toggle" hamburger menu is only visible on mobile -->
-			<!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
-			<span id="nav-toggle" class="nav-toggle">
+            <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
+            <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
+            <span id="nav-toggle" class="nav-toggle">
 				<span></span>
-				<span></span>
-				<span></span>
-			</span>
+            <span></span>
+            <span></span>
+            </span>
 
-			<!-- This "nav-menu" is hidden on mobile -->
-			<!-- Add the modifier "is-active" to display it on mobile -->
-			<div id="nav-menu" class="nav-right nav-menu">
-				<a href="./" class="nav-item is-active">Home</a>
-				<!--<a class="nav-item">Blog</a>-->
-				<a href="request.html" class="nav-item">Requests</a>
-				<a href="about.html" class="nav-item">About</a>
-				<span class="nav-item"><a href="#Select+user" id="select_user" class="button is-info" onclick='return page.selectUser()'>Select user</a></span>
-			</div>
-		</div>
-	</nav>
+            <!-- This "nav-menu" is hidden on mobile -->
+            <!-- Add the modifier "is-active" to display it on mobile -->
+            <div id="nav-menu" class="nav-right nav-menu">
+                <a href="./" class="nav-item is-active">Home</a>
+                <!--<a class="nav-item">Blog</a>-->
+                <a href="request.html" class="nav-item">Requests</a>
+                <a href="about.html" class="nav-item">About</a>
+                <span class="nav-item"><a href="#Select+user" id="select_user" class="button is-info" onclick='return page.selectUser()'>Select user</a></span>
+            </div>
+        </div>
+    </nav>
 
-	<section class="section">
-		<!--<div class="tabs is-centered">
+    <section class="section">
+        <!--<div class="tabs is-centered">
 	</div>-->
 
-	<div class="columns">
-		<div class="column is-2 is-offset-1">
-			<aside class="menu">
-				<p class="menu-label">Categories</p>
-				<ul class="menu-list">
-					<li><a id="allTab" class="is-active" onclick="tabClick('all', this); return false;">All</a></li>
-					<li><a onclick="tabClick('info', this); return false;">Info</a></li>
-					<li><a onclick="tabClick('social', this); return false;">Social</a></li>
-					<li><a onclick="tabClick('search', this); return false;">Search</a></li>
-					<li><a onclick="tabClick('videos', this); return false;">Videos</a></li>
-					<li><a onclick="tabClick('music', this); return false;">Music</a></li>
-					<li><a onclick="tabClick('games', this); return false;">Games</a></li>
-					<li><a onclick="tabClick('books', this); return false;">Books</a></li>
-					<li><a onclick="tabClick('blog', this); return false;">Blog</a></li>
-					<!--<li><a>News</a></li>-->
-					<li><a onclick="tabClick('programming', this); return false;">Programming</a></li>
-					<li><a onclick="tabClick('other', this); return false;">Other</a></li>
-				</ul>
-			</aside>
-		</div>
-		<div class="column is-8">
-				<!--<div class="notification is-info" style="margin-right: 50px; margin-left: 70px;">
+        <div class="columns">
+            <div class="column is-2 is-offset-1">
+                <aside class="menu">
+                    <p class="menu-label">Categories</p>
+                    <ul class="menu-list" id="categories_list">
+                        <li><a id="allTab" class="is-active" onclick="tabClick('all', this); return false;">All</a></li>
+                        <!--<li><a onclick="tabClick('info', this); return false;">Info</a></li>-->
+                    </ul>
+                </aside>
+            </div>
+            <div class="column is-8">
+                <!--<div class="notification is-info" style="margin-right: 50px; margin-left: 70px;">
 					<p>New to ZeroNet? <a href="/138R53t3ZW7KDfSfxVpWUsMXgwUnsDNXLP/">Visit the Wiki</a></p>
-				</div>--> <!-- TODO -->
-				<table id="zites_table" class="table is-narrow is-striped" style="margin-left: 10px; margin-right: 10px;">
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Description</th>
-						</tr>
-					</thead>
-					<tbody id="zites_list">
-						<!--<tr class="social">
+				</div>-->
+                <!-- TODO -->
+                <table id="zites_table" class="table is-narrow is-striped" style="margin-left: 10px; margin-right: 10px;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="zites_list">
+                        <!--<tr class="social">
 							<th><a href="/mail.zeroverse.bit/">ZeroVerse Mail</a></th>
 							<td>Mail for ZeroVerse <code class="category" style="font-style: italic;">SOCIAL</code></td>
-						</tr>--> <!-- Abandoned Project -->
-						<!--<tr class="books">
+						</tr>-->
+                        <!-- Abandoned Project -->
+                        <!--<tr class="books">
 							<th><a href="/1DszUR6XLMLztoPZ4q9v7Ym6916HrnUSqz">ZeroManga</a></th>
 							<td>Download mangas</td>
 						</tr>-->
-						<!--<tr>
+                        <!--<tr>
 							<th><a href="#">ZeroNews</a></th>
 							<td>One of the first News zites on ZeroNet</td>
 						</tr>-->
-						<!--<tr class="other">
+                        <!--<tr class="other">
 							<th><a href="/1HPgDoReCFtE9qy71hnp55ksBVvV1gHJLQ">id@ZeroVerse</a></th>
 							<td>User authorization provider <code class="category" style="font-style: italic;">OTHER</code></td>
-						</tr>--> <!-- Abandoned Project -->
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</section>
+						</tr>-->
+                        <!-- Abandoned Project -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 
-	<footer class="footer">
-		<div class="container">
-			<span style="text-align: center">
+    <footer class="footer">
+        <div class="container">
+            <span style="text-align: center">
 				<small>NOTE: This zite is still a work-in-progress.</small><br>
 				<small>Zite created on April 12th, 2017 by <a href="/Me.ZeroNetwork.bit/?Profile/12h51ug6CcntU2aiBjhP8Ns2e5VypbWWtv/12gAes6NzDS9E2q6Q1UXrpUdbPS6nvuBPu/krixano@zeroid.bit">krixano@zeroid.bit</a> (Christian Seibold)</small><br>
 				<small><a href="https://github.com/krixano/ImportantZites">Github Link</a></small>
 			</span>
-		</div>
-	</footer>
+        </div>
+    </footer>
 
-	<script type="text/javascript" src="js/ZeroFrame.js"></script>
-	<script type="text/javascript" src="js/gsap/TweenLite.min.js"></script>
-	<script type="text/javascript" src="js/gsap/plugins/CSSPlugin.min.js"></script>
+    <script type="text/javascript" src="js/ZeroFrame.js"></script>
+    <script type="text/javascript" src="js/gsap/TweenLite.min.js"></script>
+    <script type="text/javascript" src="js/gsap/plugins/CSSPlugin.min.js"></script>
 
-	<script>
-		class ZeroChat extends ZeroFrame {
-			/*addMessage (username, message) {
-				var message_escaped = message.replace(/</g, "&lt;").replace(/>/g, "&gt;")  // Escape html tags in the message
-				this.messages.innerHTML += "<li><b>" + username + "</b>: " + message_escaped + "</li>"
-			}*/
+    <script>
+        class ZeroChat extends ZeroFrame {
+            /*addMessage (username, message) {
+            	var message_escaped = message.replace(/</g, "&lt;").replace(/>/g, "&gt;")  // Escape html tags in the message
+            	this.messages.innerHTML += "<li><b>" + username + "</b>: " + message_escaped + "</li>"
+            }*/
 
-			onOpenWebsocket() {
-				//this.messages = document.getElementById("messages")
-				//this.addMessage("System", "Ready to call ZeroFrame API!")
-				this.cmd("siteInfo", {}, (site_info) => {
-					if (site_info.cert_user_id)
-						document.getElementById("select_user").innerText = site_info.cert_user_id
-					this.site_info = site_info
-					this.loadZites();
+            onOpenWebsocket() {
+                //this.messages = document.getElementById("messages")
+                //this.addMessage("System", "Ready to call ZeroFrame API!")
+                this.cmd("siteInfo", {}, (site_info) => {
+                    if (site_info.cert_user_id)
+                        document.getElementById("select_user").innerText = site_info.cert_user_id
+                    this.site_info = site_info
+                    this.loadCategories(page.loadZites);
 
-					var allZites = document.querySelectorAll("#zites_list > tr");
-				});
-			}
+                    var allZites = document.querySelectorAll("#zites_list > tr");
+                });
+            }
 
-			selectUser() {
-				this.cmd("certSelect", {accepted_domains: ["zeroid.bit", "kaffie.bit"]})
-				return false
-			}
+            selectUser() {
+                this.cmd("certSelect", {
+                    accepted_domains: ["zeroid.bit", "kaffie.bit"]
+                })
+                return false
+            }
 
-			onRequest(cmd, message) {
-				if (cmd == "setSiteInfo") {
-					this.site_info = message.params;  // Save site info data to allow access it later
-					console.log(message.params);
-					if (message.params.cert_user_id)
-						document.getElementById("select_user").innerHTML = message.params.cert_user_id
-					else if (!message.params.cert_user_id) {
-						document.getElementById("select_user").innerHTML = "Select user";
-					}
-					if (message.params.event && message.params.event[0] == "file_done") {
-						this.loadZites();
-					}
-				}
-			}
+            onRequest(cmd, message) {
+                if (cmd == "setSiteInfo") {
+                    this.site_info = message.params; // Save site info data to allow access it later
+                    console.log(message.params);
+                    if (message.params.cert_user_id)
+                        document.getElementById("select_user").innerHTML = message.params.cert_user_id
+                    else if (!message.params.cert_user_id) {
+                        document.getElementById("select_user").innerHTML = "Select user";
+                    }
+                    if (message.params.event && message.params.event[0] == "file_done") {
+                        this.loadZites();
+                    }
+                }
+            }
 
-			loadZites() {
-				var zites_list = document.getElementById("zites_list");
-				var zites_table = document.getElementById("zites_table");
-				var zite_indicator = document.getElementById('zite_num');
-				TweenLite.set(zites_table, {autoAlpha: 0});
-				TweenLite.set(zite_indicator, {autoAlpha: 0});
+            loadZites() {
+                var zites_list = document.getElementById("zites_list");
+                var zites_table = document.getElementById("zites_table");
+                var zite_indicator = document.getElementById('zite_num');
+                TweenLite.set(zites_table, {
+                    autoAlpha: 0
+                });
+                TweenLite.set(zite_indicator, {
+                    autoAlpha: 0
+                });
 
-				zites_list.innerHTML = "";
-				
-				this.cmd("dbQuery", ["SELECT * FROM zites"], (zites) => {
-					zite_indicator.innerHTML = zites.length + " zites";
+                zites_list.innerHTML = "";
 
-					for (var i = 0; i < zites.length; i++) {
-						zites_list.innerHTML += "<tr class='" + zites[i].category + "'><th><a href='/"+ zites[i].address + "'>" + zites[i].title + "</a></th><td>" + zites[i].description + " <code class='category' style='font-style: italic;'>" + zites[i].category.toUpperCase() + "</code></td></tr>";
-					}
-					
-					TweenLite.to(zites_table, 3, {autoAlpha: 2});
-					TweenLite.to(zite_indicator, 3, {autoAlpha: 2});
-				});
-			}
-		}
+                this.cmd("dbQuery", ["SELECT * FROM zites"], (zites) => {
+                    zite_indicator.innerHTML = zites.length + " zites";
 
-		page = new ZeroChat()
+                    for (var i = 0; i < zites.length; i++) {
+                        zites_list.innerHTML += "<tr class='cat-" + zites[i].category + "'><th><a href='/" + zites[i].address + "'>" + zites[i].title + "</a></th><td>" + zites[i].description + " <code class='category' style='font-style: italic;'>" + zites[i].category.toUpperCase() + "</code></td></tr>";
+                    }
 
-		var previousId = "all";
-		var previousActiveTab = document.getElementById('allTab');
+                    TweenLite.to(zites_table, 3, {
+                        autoAlpha: 2
+                    });
+                    TweenLite.to(zite_indicator, 3, {
+                        autoAlpha: 2
+                    });
+                });
+            }
 
-		function tabClick(id, tabElem) {
-			TweenLite.set(document.getElementById('zites_table'), {autoAlpha: 0});
-			if (id == "all") {
-				// Show all divs except the previousId (because that one is already shown)
-				if (previousId != "info") {
-					var s_info = document.querySelectorAll('.info');
-					for (var i = 0; i < s_info.length; i++) {
-						s_info[i].style.display = "";
-					}
-				}
-				if (previousId != "social") {
-					var s_social = document.querySelectorAll('.social');
-					for (var i = 0; i < s_social.length; i++) {
-						s_social[i].style.display = "";
-					}
-				}
-				if (previousId != "videos") {
-					var s_videos = document.querySelectorAll('.videos');
-					for (var i = 0; i < s_videos.length; i++) {
-						s_videos[i].style.display = "";
-					}
-				}
-				if (previousId != "music") {
-					var s_music = document.querySelectorAll('.music');
-					for (var i = 0; i < s_music.length; i++) {
-						s_music[i].style.display = "";
-					}
-				}
-				if (previousId != "games") {
-					var s_games = document.querySelectorAll('.games');
-					for (var i = 0; i < s_games.length; i++) {
-						s_games[i].style.display = "";
-					}
-				}
-				if (previousId != "books") {
-					var s_books = document.querySelectorAll('.books');
-					for (var i = 0; i < s_books.length; i++) {
-						s_books[i].style.display = "";
-					}
-				}
-				if (previousId != "search") {
-					var s_search = document.querySelectorAll('.search');
-					for (var i = 0; i < s_search.length; i++) {
-						s_search[i].style.display = "";
-					}
-				}
-				if (previousId != "blog") {
-					var s_blog = document.querySelectorAll('.blog');
-					for (var i = 0; i < s_blog.length; i++) {
-						s_blog[i].style.display = "";
-					}
-				}
-				if (previousId != "programming") {
-					var s_programming = document.querySelectorAll('.programming');
-					for (var i = 0; i < s_programming.length; i++) {
-						s_programming[i].style.display = "";
-					}
-				}
-				if (previousId != "other") {
-					var s_other = document.querySelectorAll('.other');
-					for (var i = 0; i < s_other.length; i++) {
-						s_other[i].style.display = "";
-					}
-				}
-				var s_category = document.querySelectorAll('.category');
-				for (var i = 0; i < s_category.length; i++) {
-					s_category[i].style.display = "";
-				}
-			} else {
-				if (id != "info") {
-					var s_info = document.querySelectorAll('.info');
-					for (var i = 0; i < s_info.length; i++) {
-						s_info[i].style.display = "none";
-					}
-				}
-				if (id != "social") {
-					var s_social = document.querySelectorAll('.social');
-					for (var i = 0; i < s_social.length; i++) {
-						s_social[i].style.display = "none";
-					}
-				}
-				if (id != "videos") {
-					var s_videos = document.querySelectorAll('.videos');
-					for (var i = 0; i < s_videos.length; i++) {
-						s_videos[i].style.display = "none";
-					}
-				}
-				if (id != "music") {
-					var s_music = document.querySelectorAll('.music');
-					for (var i = 0; i < s_music.length; i++) {
-						s_music[i].style.display = "none";
-					}
-				}
-				if (id != "games") {
-					var s_games = document.querySelectorAll('.games');
-					for (var i = 0; i < s_games.length; i++) {
-						s_games[i].style.display = "none";
-					}
-				}
-				if (id != "books") {
-					var s_books = document.querySelectorAll('.books');
-					for (var i = 0; i < s_books.length; i++) {
-						s_books[i].style.display = "none";
-					}
-				}
-				if (id != "search") {
-					var s_search = document.querySelectorAll('.search');
-					for (var i = 0; i < s_search.length; i++) {
-						s_search[i].style.display = "none";
-					}
-				}
-				if (id != "blog") {
-					var s_blog = document.querySelectorAll('.blog');
-					for (var i = 0; i < s_blog.length; i++) {
-						s_blog[i].style.display = "none";
-					}
-				}
-				if (id != "programming") {
-					var s_programming = document.querySelectorAll('.programming');
-					for (var i = 0; i < s_programming.length; i++) {
-						s_programming[i].style.display = "none";
-					}
-				}
-				if (id != "other") {
-					var s_other = document.querySelectorAll('.other');
-					for (var i = 0; i < s_other.length; i++) {
-						s_other[i].style.display = "none";
-					}
-				}
-				if (previousId != id && previousId != "all") {
-					var selector = document.querySelectorAll('.' + id);
-					for (var i = 0; i < selector.length; i++) {
-						selector[i].style.display = "";
-					}
-				}
-				var s_category = document.querySelectorAll('.category');
-				for (var i = 0; i < s_category.length; i++) {
-					s_category[i].style.display = "none";
-				}
-			}
+            getCategoriesList(cb) {
+                this.cmd("dbQuery", ["SELECT * FROM categories"], (cats) => {
+                    if (typeof cb === "function")
+                        cb(cats)
+                })
+            }
 
-			TweenLite.to(document.getElementById('zites_table'), 1.0, {autoAlpha: 2});
+            loadCategories(cb) {
+                var cats_list = document.getElementById("categories_list");
+                var cats_indicator = document.getElementById('cat_num');
 
-			previousId = id;
+                this.getCategoriesList(function(cats) {
+                    cats_indicator.innerHTML = cats.length + " categories"
 
-			toggleClass(tabElem, "is-active");
-			toggleClass(previousActiveTab, "is-active");
+                    for (var x in cats) {
+                        var cat = cats[x]
+                        cats_list.innerHTML += '<li><a onclick="tabClick(' + cat.name + ', this); return false;">' + cat.name.toUpperCase() + '</a></li>'
+                    }
+                    if (typeof cb === "function")
+                        cb()
+                })
+            }
+        }
 
-			previousActiveTab = tabElem;
-			return false;
-		}
-	</script>
+        page = new ZeroChat()
 
-	<!--<script>
+        var previousId = "all";
+        var previousActiveTab = document.getElementById('allTab');
 
-	class Page extends ZeroFrame {
-		setSiteInfo(site_info) {
-			var out = document.getElementById("out")
-			out.innerHTML =
-				"Page address: " + site_info.address +
-				"<br>- Peers: " + site_info.peers +
-				"<br>- Size: " + site_info.settings.size +
-				"<br>- Modified: " + (new Date(site_info.content.modified*1000))
-		}
+        function tabClick(id, tabElem) {
+            TweenLite.set(document.getElementById('zites_table'), {
+                autoAlpha: 0
+            });
+            if (id == "all") {
+                // Show all divs except the previousId (because that one is already shown)
+                page.getCategoriesList(function(cats) {
+                    for (var x in cats) {
+                        var cat = cats[x]
 
-		onOpenWebsocket() {
-			this.cmd("siteInfo", [], function(site_info) {
-				page.setSiteInfo(site_info)
-			})
-		}
+                        if (previousId != cat.name) {
+                            var s = document.querySelectorAll('.cat-' + cat.name)
+                            for (var x2 in s) {
+                                s[x2].style.display = ""
+                            }
+                        }
+                    }
+                })
 
-		onRequest(cmd, message) {
-			if (cmd == "setSiteInfo")
-				this.setSiteInfo(message.params)
-			else
-				this.log("Unknown incoming message:", cmd)
-		}
-	}
-	page = new Page()
+                // if (previousId != "info") {
+                //     var s_info = document.querySelectorAll('.info');
+                //     for (var i = 0; i < s_info.length; i++) {
+                //         s_info[i].style.display = "";
+                //     }
+                // }
+            } else {
+                page.getCategoriesList(function(cats) {
+                    for (var x in cats) {
+                        var cat = cats[x]
 
-</script>-->
+                        if (id != cat.name) {
+                            var s = document.querySelectorAll('.cat-' + cat.name)
+                            for (var x2 in s) {
+                                s[x2].style.display = "none"
+                            }
+                        }
+                    }
+                })
+
+                // if (id != "info") {
+                //     var s_info = document.querySelectorAll('.info');
+                //     for (var i = 0; i < s_info.length; i++) {
+                //         s_info[i].style.display = "none";
+                //     }
+                // }
+
+                if (previousId != id && previousId != "all") {
+                    var selector = document.querySelectorAll('.' + id);
+                    for (var i = 0; i < selector.length; i++) {
+                        selector[i].style.display = "";
+                    }
+                }
+                var s_category = document.querySelectorAll('.category');
+                for (var i = 0; i < s_category.length; i++) {
+                    s_category[i].style.display = "none";
+                }
+            }
+
+            TweenLite.to(document.getElementById('zites_table'), 1.0, {
+                autoAlpha: 2
+            });
+
+            previousId = id;
+
+            toggleClass(tabElem, "is-active");
+            toggleClass(previousActiveTab, "is-active");
+
+            previousActiveTab = tabElem;
+            return false;
+        }
+    </script>
 
 </body>
+
 </html>
