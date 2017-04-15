@@ -222,7 +222,7 @@
 
                     for (var x in cats) {
                         var cat = cats[x]
-                        cats_list.innerHTML += '<li><a onclick="tabClick(' + cat.name + ', this); return false;">' + cat.name.toUpperCase() + '</a></li>'
+                        cats_list.innerHTML += '<li><a onclick="tabClick("' + cat.name + '", this); return false;">' + cat.name.toUpperCase() + '</a></li>'
                     }
 
                     if (typeof cb === "function")
@@ -257,6 +257,11 @@
                             }
                         }
                     }
+
+                    var s_category = document.querySelectorAll('.category');
+                    for (var i = 0; i < s_category.length; i++) {
+                        s_category[i].style.display = "";
+                    }
                 })
 
                 // if (previousId != "info") {
@@ -277,6 +282,17 @@
                             }
                         }
                     }
+
+                    if (previousId != id && previousId != "all") {
+                        var selector = document.querySelectorAll('.' + id);
+                        for (var i = 0; i < selector.length; i++) {
+                            selector[i].style.display = "";
+                        }
+                    }
+                    var s_category = document.querySelectorAll('.category');
+                    for (var i = 0; i < s_category.length; i++) {
+                        s_category[i].style.display = "none";
+                    }
                 })
 
                 // if (id != "info") {
@@ -285,17 +301,6 @@
                 //         s_info[i].style.display = "none";
                 //     }
                 // }
-
-                if (previousId != id && previousId != "all") {
-                    var selector = document.querySelectorAll('.' + id);
-                    for (var i = 0; i < selector.length; i++) {
-                        selector[i].style.display = "";
-                    }
-                }
-                var s_category = document.querySelectorAll('.category');
-                for (var i = 0; i < s_category.length; i++) {
-                    s_category[i].style.display = "none";
-                }
             }
 
             TweenLite.to(document.getElementById('zites_table'), 1.0, {
