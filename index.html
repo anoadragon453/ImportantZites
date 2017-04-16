@@ -248,15 +248,21 @@
         page = new ZeroChat();
 
         var previousId;
+        var currentId;
         var previousActiveTab;
 
         function search(s) {
+            if (currentId == "all") {
+                var ziteList = allZites;
+            } else {
+                var ziteList = document.querySelectorAll(".cat-" + currentId);
+            }
             var s = (s || document.getElementById("search").value).trim()
 
-            if (s && allZites) {
+            if (s && ziteList) {
                 var anystrue = false
-                for (var x in allZites) {
-                    var y = allZites[x]
+                for (var x in ziteList) {
+                    var y = ziteList[x]
 
                     if (!y || typeof y !== "object")
                         continue
@@ -295,9 +301,9 @@
                 // Show "No match"-Message
                 if (!anystrue)
                     console.log("No match")
-            } else if (allZites) {
-                for (var x in allZites) {
-                    var y = allZites[x]
+            } else if (ziteList) {
+                for (var x in ziteList) {
+                    var y = ziteList[x]
 
                     if (!y || typeof y !== "object")
                         continue
@@ -317,6 +323,7 @@
             if (previousId == id) {
                 return;
             }
+            currentId = id;
             TweenLite.set(document.getElementById('zites_table'), {
                 autoAlpha: 0
             });
@@ -394,7 +401,9 @@
                     previousId = id;
 
                     toggleClass(tabElem, "is-active");
-                    toggleClass(previousActiveTab, "is-active");
+                    if (previousActiveTab) {
+                        toggleClass(previousActiveTab, "is-active");
+                    }
 
                     previousActiveTab = tabElem;
                 })
