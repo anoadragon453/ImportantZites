@@ -335,7 +335,7 @@
                 }
             }
 
-            if (zite)
+            if (zite) {
                 var link = zite.firstChild.firstChild.href;
                 console.log("Opening " + link + " in new tab.");
                 page.cmd("wrapperOpenWindow", [link]);
