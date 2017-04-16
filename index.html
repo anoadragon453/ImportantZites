@@ -225,7 +225,7 @@
                         var cat = cats[x];
                         cats_list.innerHTML += '<li><a onclick="tabClick(\'' +
                             cat.name + '\', this); return false;">' +
-                            cat.name.toUpperCase() + '</a></li>';;
+                            cat.name[0].toUpperCase() + cat.name.substring(1) + '</a></li>';
                     }
 
                     if (typeof cb === "function")
