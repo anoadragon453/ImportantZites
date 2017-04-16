@@ -247,8 +247,8 @@
 
         page = new ZeroChat();
 
-        var previousId = "all";
-        var previousActiveTab = document.getElementById('allTab');
+        var previousId;
+        var previousActiveTab;
 
         function search(s) {
             var s = (s || document.getElementById("search").value).trim()
@@ -313,6 +313,10 @@
         }
 
         function tabClick(id, tabElem) {
+            // Don't do anything, including animations, when clicking on a tab that's already selected.
+            if (previousId == id) {
+                return;
+            }
             TweenLite.set(document.getElementById('zites_table'), {
                 autoAlpha: 0
             });
@@ -344,7 +348,9 @@
                     previousId = id;
 
                     toggleClass(tabElem, "is-active");
-                    toggleClass(previousActiveTab, "is-active");
+                    if (previousActiveTab) {
+                        toggleClass(previousActiveTab, "is-active");
+                    }
 
                     previousActiveTab = tabElem;
                 })
