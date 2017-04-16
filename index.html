@@ -67,7 +67,7 @@
         <div class="columns">
             <div class="column is-2 is-offset-1">
                 <aside class="menu">
-                    <input class="input" id="search" name="search" type="search" placeholder="Search" onkeyup="search();" onchange="search();" />
+                    <input class="input" id="search" name="search" type="search" placeholder="Search" onkeyup="search();" onchange="search();" onkeypress="if (event.keyCode == 13) loadFirstZite()" />
                     <p class="menu-label">Categories</p>
                     <ul class="menu-list" id="categories_list">
                         <li><a id="allTab" class="is-active" onclick="tabClick('all', this); return false;">All</a></li>
@@ -316,6 +316,28 @@
             // zite.title + "</a></th><td>" + zite.description +
             // " <code class='category' style='font-style: italic;'>" +
             // zite.category.toUpperCase() + "</code></td></tr>";
+        }
+
+        function loadFirstZite() {
+            var ziteList;
+            if (currentCategory == "all") {
+                ziteList = allZites;
+            } else {
+                ziteList = document.querySelectorAll(".cat-" + currentCategory);
+            }
+            var zite;
+
+            // Go through all zites in list until one is visible, then set it to the zite variable
+            for (var i = 0; i < ziteList.length; i++) {
+                if (ziteList[i].style.display != "none") {
+                    zite = ziteList[i];
+                    break;
+                }
+            }
+
+            var link = zite.firstChild.firstChild.href;
+            console.log("Opening " + link + " in new tab.");
+            page.cmd("wrapperOpenWindow", [link]);
         }
 
         function tabClick(id, tabElem) {
