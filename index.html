@@ -127,6 +127,7 @@
     <script type="text/javascript" src="js/gsap/plugins/CSSPlugin.min.js"></script>
 
     <script>
+        var allZites;
         class ZeroChat extends ZeroFrame {
             /*addMessage (username, message) {
             	var message_escaped = message.replace(/</g, "&lt;").replace(/>/g, "&gt;")  // Escape html tags in the message
@@ -138,11 +139,20 @@
                 //this.addMessage("System", "Ready to call ZeroFrame API!")
                 this.cmd("siteInfo", {}, (site_info) => {
                     if (site_info.cert_user_id)
+<<<<<<< HEAD
                         document.getElementById("select_user").innerText = site_info.cert_user_id
                     this.site_info = site_info
                     this.loadCategories(function() {
                         page.loadZites(function() {
                             var allZites = document.querySelectorAll("#zites_list > tr");
+=======
+                        document.getElementById("select_user").innerText = site_info.cert_user_id;
+
+                    this.site_info = site_info;
+                    this.loadCategories(function() {
+                        page.loadZites(function() {
+                            allZites = document.querySelectorAll("#zites_list > tr");
+>>>>>>> refs/remotes/origin/master
                         })
                     });
                 });
@@ -152,7 +162,7 @@
                 this.cmd("certSelect", {
                     accepted_domains: ["zeroid.bit", "kaffie.bit"]
                 })
-                return false
+                return false;
             }
 
             onRequest(cmd, message) {
@@ -160,7 +170,7 @@
                     this.site_info = message.params; // Save site info data to allow access it later
                     console.log(message.params);
                     if (message.params.cert_user_id)
-                        document.getElementById("select_user").innerHTML = message.params.cert_user_id
+                        document.getElementById("select_user").innerHTML = message.params.cert_user_id;
                     else if (!message.params.cert_user_id) {
                         document.getElementById("select_user").innerHTML = "Select user";
                     }
@@ -188,7 +198,7 @@
                     zite_indicator.innerHTML = zites.length + " zites";
 
                     for (var x in zites) {
-                        var zite = zites[x]
+                        var zite = zites[x];
                         zites_list.innerHTML +=
                             "<tr class='cat-" + zite.category + "'><th><a href='/" + zite.address + "'>" +
                             zite.title + "</a></th><td>" + zite.description +
@@ -197,7 +207,11 @@
                     }
 
                     if (typeof cb === "function")
+<<<<<<< HEAD
                         cb()
+=======
+                        cb();
+>>>>>>> refs/remotes/origin/master
 
                     TweenLite.to(zites_table, 3, {
                         autoAlpha: 2
@@ -211,7 +225,7 @@
             getCategoriesList(cb) {
                 page.cmd("dbQuery", ["SELECT * FROM categories"], (cats) => {
                     if (typeof cb === "function")
-                        cb(cats)
+                        cb(cats);
                 })
             }
 
@@ -224,15 +238,17 @@
                 });
 
                 page.getCategoriesList(function(cats) {
-                    cats_indicator.innerHTML = cats.length + " categories"
+                    cats_indicator.innerHTML = cats.length + " categories";
 
                     for (var x in cats) {
-                        var cat = cats[x]
-                        cats_list.innerHTML += '<li><a onclick="tabClick("' + cat.name + '", this); return false;">' + cat.name.toUpperCase() + '</a></li>'
+                        var cat = cats[x];
+                        cats_list.innerHTML += '<li><a onclick="tabClick(\'' +
+                            cat.name + '\', this); return false;">' +
+                            cat.name[0].toUpperCase() + cat.name.substring(1) + '</a></li>';
                     }
 
                     if (typeof cb === "function")
-                        cb()
+                        cb();
 
                     TweenLite.to(cats_indicator, 3, {
                         autoAlpha: 2
@@ -241,7 +257,7 @@
             }
         }
 
-        page = new ZeroChat()
+        page = new ZeroChat();
 
         var previousId = "all";
         var previousActiveTab = document.getElementById('allTab');
@@ -316,12 +332,12 @@
                 // Show all divs except the previousId (because that one is already shown)
                 page.getCategoriesList(function(cats) {
                     for (var x in cats) {
-                        var cat = cats[x]
+                        var cat = cats[x];
 
                         if (previousId != cat.name) {
-                            var s = document.querySelectorAll('.cat-' + cat.name)
-                            for (var x2 in s) {
-                                s[x2].style.display = ""
+                            var s = document.querySelectorAll('.cat-' + cat.name);
+                            for (var x2 = 0; x2 < s.length; x2++) {
+                                s[x2].style.display = "";
                             }
                         }
                     }
@@ -330,6 +346,19 @@
                     for (var i = 0; i < s_category.length; i++) {
                         s_category[i].style.display = "";
                     }
+
+                    // NOTE(krixano): Database Query runs asynchronously, which means putting this outside of this callback function
+                    // would immediately run this code, and therefore change previousId before everything above is finished!
+                    TweenLite.to(document.getElementById('zites_table'), 1.0, {
+                        autoAlpha: 2
+                    });
+
+                    previousId = id;
+
+                    toggleClass(tabElem, "is-active");
+                    toggleClass(previousActiveTab, "is-active");
+
+                    previousActiveTab = tabElem;
                 })
 
                 // if (previousId != "info") {
@@ -341,18 +370,18 @@
             } else {
                 page.getCategoriesList(function(cats) {
                     for (var x in cats) {
-                        var cat = cats[x]
+                        var cat = cats[x];
 
                         if (id != cat.name) {
-                            var s = document.querySelectorAll('.cat-' + cat.name)
-                            for (var x2 in s) {
-                                s[x2].style.display = "none"
+                            var s = document.querySelectorAll('.cat-' + cat.name);
+                            for (var x2 = 0; x2 < s.length; x2++) {
+                                s[x2].style.display = "none";
                             }
                         }
                     }
 
                     if (previousId != id && previousId != "all") {
-                        var selector = document.querySelectorAll('.' + id);
+                        var selector = document.querySelectorAll('.cat-' + id);
                         for (var i = 0; i < selector.length; i++) {
                             selector[i].style.display = "";
                         }
@@ -361,6 +390,19 @@
                     for (var i = 0; i < s_category.length; i++) {
                         s_category[i].style.display = "none";
                     }
+
+                    // NOTE(krixano): Database Query runs asynchronously, which means putting this outside of this callback function
+                    // would immediately run this code, and therefore change previousId before everything above is finished!
+                    TweenLite.to(document.getElementById('zites_table'), 1.0, {
+                        autoAlpha: 2
+                    });
+
+                    previousId = id;
+
+                    toggleClass(tabElem, "is-active");
+                    toggleClass(previousActiveTab, "is-active");
+
+                    previousActiveTab = tabElem;
                 })
 
                 // if (id != "info") {
@@ -371,16 +413,6 @@
                 // }
             }
 
-            TweenLite.to(document.getElementById('zites_table'), 1.0, {
-                autoAlpha: 2
-            });
-
-            previousId = id;
-
-            toggleClass(tabElem, "is-active");
-            toggleClass(previousActiveTab, "is-active");
-
-            previousActiveTab = tabElem;
             return false;
         }
     </script>
