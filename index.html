@@ -247,15 +247,15 @@
 
         page = new ZeroChat();
 
-        var previousId;
-        var currentId;
+        var previousCategory;
+        var currentCategory;
         var previousActiveTab;
 
         function search(s) {
-            if (currentId == "all") {
+            if (currentCategory == "all") {
                 var ziteList = allZites;
             } else {
-                var ziteList = document.querySelectorAll(".cat-" + currentId);
+                var ziteList = document.querySelectorAll(".cat-" + currentCategory);
             }
             var s = (s || document.getElementById("search").value).trim()
 
@@ -275,7 +275,7 @@
                         }
                     }
 
-                    // if (previousId === searchables[3].toLowerCase() || previousId === "all")
+                    // if (previousCategory === searchables[3].toLowerCase() || previousCategory === "all")
                     //     y.style.display = ""
 
                     var strue = false
@@ -320,20 +320,20 @@
 
         function tabClick(id, tabElem) {
             // Don't do anything, including animations, when clicking on a tab that's already selected.
-            if (previousId == id) {
+            if (previousCategory == id) {
                 return;
             }
-            currentId = id;
+            currentCategory = id;
             TweenLite.set(document.getElementById('zites_table'), {
                 autoAlpha: 0
             });
             if (id == "all") {
-                // Show all divs except the previousId (because that one is already shown)
+                // Show all divs except the previousCategory (because that one is already shown)
                 page.getCategoriesList(function(cats) {
                     for (var x in cats) {
                         var cat = cats[x];
 
-                        if (previousId != cat.name) {
+                        if (previousCategory != cat.name) {
                             var s = document.querySelectorAll('.cat-' + cat.name);
                             for (var x2 = 0; x2 < s.length; x2++) {
                                 s[x2].style.display = "";
@@ -347,12 +347,12 @@
                     }
 
                     // NOTE(krixano): Database Query runs asynchronously, which means putting this outside of this callback function
-                    // would immediately run this code, and therefore change previousId before everything above is finished!
+                    // would immediately run this code, and therefore change previousCategory before everything above is finished!
                     TweenLite.to(document.getElementById('zites_table'), 1.0, {
                         autoAlpha: 2
                     });
 
-                    previousId = id;
+                    previousCategory = id;
 
                     toggleClass(tabElem, "is-active");
                     if (previousActiveTab) {
@@ -362,7 +362,7 @@
                     previousActiveTab = tabElem;
                 })
 
-                // if (previousId != "info") {
+                // if (previousCategory != "info") {
                 //     var s_info = document.querySelectorAll('.info');
                 //     for (var i = 0; i < s_info.length; i++) {
                 //         s_info[i].style.display = "";
@@ -381,7 +381,7 @@
                         }
                     }
 
-                    if (previousId != id && previousId != "all") {
+                    if (previousCategory != id && previousCategory != "all") {
                         var selector = document.querySelectorAll('.cat-' + id);
                         for (var i = 0; i < selector.length; i++) {
                             selector[i].style.display = "";
@@ -393,12 +393,12 @@
                     }
 
                     // NOTE(krixano): Database Query runs asynchronously, which means putting this outside of this callback function
-                    // would immediately run this code, and therefore change previousId before everything above is finished!
+                    // would immediately run this code, and therefore change previousCategory before everything above is finished!
                     TweenLite.to(document.getElementById('zites_table'), 1.0, {
                         autoAlpha: 2
                     });
 
-                    previousId = id;
+                    previousCategory = id;
 
                     toggleClass(tabElem, "is-active");
                     if (previousActiveTab) {
