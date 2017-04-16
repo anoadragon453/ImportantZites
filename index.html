@@ -335,9 +335,11 @@
                 }
             }
 
-            var link = zite.firstChild.firstChild.href;
-            console.log("Opening " + link + " in new tab.");
-            page.cmd("wrapperOpenWindow", [link]);
+            if (zite)
+                var link = zite.firstChild.firstChild.href;
+                console.log("Opening " + link + " in new tab.");
+                page.cmd("wrapperOpenWindow", [link]);
+            }
         }
 
         function tabClick(id, tabElem) {
