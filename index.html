@@ -384,6 +384,11 @@
                     }
 
                     previousActiveTab = tabElem;
+
+                    // Redo search results
+                    if (document.getElementById("search").value.trim() != "") {
+                        search();
+                    }
                 })
 
                 // if (previousCategory != "info") {
@@ -430,6 +435,11 @@
                     }
 
                     previousActiveTab = tabElem;
+
+                    // Redo search results
+                    if (document.getElementById("search").value.trim() != "") {
+                        search();
+                    }
                 })
 
                 // if (id != "info") {
