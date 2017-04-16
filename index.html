@@ -62,6 +62,7 @@
         <div class="columns">
             <div class="column is-2 is-offset-1">
                 <aside class="menu">
+                    <input class="input" id="search" name="search" type="search" placeholder="Search" onkeyup="search();" onchange="search();" onkeypress="if (event.keyCode == 13) loadFirstZite()" />
                     <p class="menu-label">Categories</p>
                     <ul class="menu-list" id="categories_list">
                         <li><a id="allTab" onclick="tabClick('all', this); return false;">All</a></li>
@@ -242,20 +243,117 @@
 
         page = new ZeroChat();
 
-        var previousId = "all";
-        var previousActiveTab = document.getElementById('allTab');
+        var previousCategory;
+        var currentCategory;
+        var previousActiveTab;
+
+        function search(s) {
+            if (currentCategory == "all") {
+                var ziteList = allZites;
+            } else {
+                var ziteList = document.querySelectorAll(".cat-" + currentCategory);
+            }
+            var s = (s || document.getElementById("search").value).trim()
+
+            if (s && ziteList) {
+                var anystrue = false
+                for (var x in ziteList) {
+                    var y = ziteList[x]
+
+                    if (!y || typeof y !== "object")
+                        continue
+
+                    if (y.innerText) {
+                        var searchables = y.innerText.split("\t")
+                        if (searchables && searchables[1]) {
+                            searchables[2] = searchables[1].substr(0, searchables[1].lastIndexOf(" "))
+                            searchables[3] = searchables[1].substr(searchables[1].lastIndexOf(" ") + 1)
+                        }
+                    }
+
+                    // if (previousCategory === searchables[3].toLowerCase() || previousCategory === "all")
+                    //     y.style.display = ""
+
+                    var strue = false
+                    for (var x2 in searchables) {
+                        if (x2 === 1)
+                            continue
+
+                        var y2 = searchables[x2]
+                        if (y2.match(new RegExp(s, "gmi"))) {
+                            strue = true
+                            anystrue = true
+                        }
+                    }
+
+                    // console.log(y, strue, searchables)
+
+                    if (!strue && s)
+                        y.style.display = "none"
+                    else
+                        y.style.display = ""
+                }
+
+                // Show "No match"-Message
+                if (!anystrue)
+                    console.log("No match")
+            } else if (ziteList) {
+                for (var x in ziteList) {
+                    var y = ziteList[x]
+
+                    if (!y || typeof y !== "object")
+                        continue
+
+                    y.style.display = ""
+                }
+            }
+
+            // "<tr class='cat-" + zite.category + "'><th><a href='/" + zite.address + "'>" +
+            // zite.title + "</a></th><td>" + zite.description +
+            // " <code class='category' style='font-style: italic;'>" +
+            // zite.category.toUpperCase() + "</code></td></tr>";
+        }
+
+        function loadFirstZite() {
+            var ziteList;
+            if (currentCategory == "all") {
+                ziteList = allZites;
+            } else {
+                ziteList = document.querySelectorAll(".cat-" + currentCategory);
+            }
+            var zite;
+
+            // Go through all zites in list until one is visible, then set it to the zite variable
+            for (var i = 0; i < ziteList.length; i++) {
+                if (ziteList[i].style.display != "none") {
+                    zite = ziteList[i];
+                    break;
+                }
+            }
+
+            if (zite) {
+                var link = zite.firstChild.firstChild.href;
+                console.log("Opening " + link + " in new tab.");
+                page.cmd("wrapperOpenWindow", [link]);
+            }
+        }
 
         function tabClick(id, tabElem) {
+            // Don't do anything, including animations, when clicking on a tab that's already selected.
+            if (previousCategory == id) {
+                return;
+            }
+            currentCategory = id;
             TweenLite.set(document.getElementById('zites_table'), {
                 autoAlpha: 0
             });
             if (id == "all") {
-                // Show all divs except the previousId (because that one is already shown)
+                // Show all divs except the previousCategory (because that one is already shown)
                 page.getCategoriesList(function(cats) {
                     for (var x in cats) {
                         var cat = cats[x];
 
-                        if (previousId != cat.name) {
+                        if (previousCategory != cat.name) {
                             var s = document.querySelectorAll('.cat-' + cat.name);
                             for (var x2 = 0; x2 < s.length; x2++) {
                                 s[x2].style.display = "";
@@ -269,20 +367,27 @@
                     }
 
                     // NOTE(krixano): Database Query runs asynchronously, which means putting this outside of this callback function
-                    // would immediately run this code, and therefore change previousId before everything above is finished!
+                    // would immediately run this code, and therefore change previousCategory before everything above is finished!
                     TweenLite.to(document.getElementById('zites_table'), 1.0, {
                         autoAlpha: 2
                     });
 
-                    previousId = id;
+                    previousCategory = id;
 
                     toggleClass(tabElem, "is-active");
-                    toggleClass(previousActiveTab, "is-active");
+                    if (previousActiveTab) {
+                        toggleClass(previousActiveTab, "is-active");
+                    }
 
                     previousActiveTab = tabElem;
+
+                    // Redo search results
+                    if (document.getElementById("search").value.trim() != "") {
+                        search();
+                    }
                 })
 
-                // if (previousId != "info") {
+                // if (previousCategory != "info") {
                 //     var s_info = document.querySelectorAll('.info');
                 //     for (var i = 0; i < s_info.length; i++) {
                 //         s_info[i].style.display = "";
@@ -301,7 +406,7 @@
                         }
                     }
 
-                    if (previousId != id && previousId != "all") {
+                    if (previousCategory != id && previousCategory != "all") {
                         var selector = document.querySelectorAll('.cat-' + id);
                         for (var i = 0; i < selector.length; i++) {
                             selector[i].style.display = "";
@@ -313,17 +418,24 @@
                     }
 
                     // NOTE(krixano): Database Query runs asynchronously, which means putting this outside of this callback function
-                    // would immediately run this code, and therefore change previousId before everything above is finished!
+                    // would immediately run this code, and therefore change previousCategory before everything above is finished!
                     TweenLite.to(document.getElementById('zites_table'), 1.0, {
                         autoAlpha: 2
                     });
 
-                    previousId = id;
+                    previousCategory = id;
 
                     toggleClass(tabElem, "is-active");
-                    toggleClass(previousActiveTab, "is-active");
+                    if (previousActiveTab) {
+                        toggleClass(previousActiveTab, "is-active");
+                    }
 
                     previousActiveTab = tabElem;
+
+                    // Redo search results
+                    if (document.getElementById("search").value.trim() != "") {
+                        search();
+                    }
                 })
 
                 // if (id != "info") {
