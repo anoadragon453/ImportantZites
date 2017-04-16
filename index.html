@@ -127,6 +127,7 @@
 
     <script>
         var allZites;
+        var categoriesList;
         class ZeroChat extends ZeroFrame {
             /*addMessage (username, message) {
             	var message_escaped = message.replace(/</g, "&lt;").replace(/>/g, "&gt;")  // Escape html tags in the message
@@ -210,10 +211,16 @@
             }
 
             getCategoriesList(cb) {
-                page.cmd("dbQuery", ["SELECT * FROM categories"], (cats) => {
+                if (categoriesList) {
                     if (typeof cb === "function")
-                        cb(cats);
-                })
+                        cb(categoriesList);
+                } else {
+                    page.cmd("dbQuery", ["SELECT * FROM categories"], (cats) => {
+                        categoriesList = cats;
+                        if (typeof cb === "function")
+                            cb(cats);
+                    })
+                }
             }
 
             loadCategories(cb) {
