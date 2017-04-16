@@ -69,7 +69,7 @@
                 <aside class="menu">
                     <p class="menu-label">Categories</p>
                     <ul class="menu-list" id="categories_list">
-                        <li><a id="allTab" class="is-active" onclick="tabClick('all', this); return false;">All</a></li>
+                        <li><a id="allTab" onclick="tabClick('all', this); return false;">All</a></li>
                         <!--<li><a onclick="tabClick('info', this); return false;">Info</a></li>-->
                     </ul>
                 </aside>
@@ -138,6 +138,7 @@
                     this.loadCategories(function() {
                         page.loadZites(function() {
                             allZites = document.querySelectorAll("#zites_list > tr");
+                            tabClick('all', document.getElementById('allTab'));
                         })
                     });
                 });
@@ -153,7 +154,6 @@
             onRequest(cmd, message) {
                 if (cmd == "setSiteInfo") {
                     this.site_info = message.params; // Save site info data to allow access it later
-                    console.log(message.params);
                     if (message.params.cert_user_id)
                         document.getElementById("select_user").innerHTML = message.params.cert_user_id;
                     else if (!message.params.cert_user_id) {
