@@ -139,20 +139,12 @@
                 //this.addMessage("System", "Ready to call ZeroFrame API!")
                 this.cmd("siteInfo", {}, (site_info) => {
                     if (site_info.cert_user_id)
-<<<<<<< HEAD
-                        document.getElementById("select_user").innerText = site_info.cert_user_id
-                    this.site_info = site_info
-                    this.loadCategories(function() {
-                        page.loadZites(function() {
-                            var allZites = document.querySelectorAll("#zites_list > tr");
-=======
                         document.getElementById("select_user").innerText = site_info.cert_user_id;
 
                     this.site_info = site_info;
                     this.loadCategories(function() {
                         page.loadZites(function() {
                             allZites = document.querySelectorAll("#zites_list > tr");
->>>>>>> refs/remotes/origin/master
                         })
                     });
                 });
@@ -207,11 +199,7 @@
                     }
 
                     if (typeof cb === "function")
-<<<<<<< HEAD
-                        cb()
-=======
                         cb();
->>>>>>> refs/remotes/origin/master
 
                     TweenLite.to(zites_table, 3, {
                         autoAlpha: 2
