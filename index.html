@@ -265,6 +265,19 @@
                     for (var i = 0; i < s_category.length; i++) {
                         s_category[i].style.display = "";
                     }
+
+                    // NOTE(krixano): Database Query runs asynchronously, which means putting this outside of this callback function
+                    // would immediately run this code, and therefore change previousId before everything above is finished!
+                    TweenLite.to(document.getElementById('zites_table'), 1.0, {
+                        autoAlpha: 2
+                    });
+
+                    previousId = id;
+
+                    toggleClass(tabElem, "is-active");
+                    toggleClass(previousActiveTab, "is-active");
+
+                    previousActiveTab = tabElem;
                 })
 
                 // if (previousId != "info") {
@@ -287,7 +300,7 @@
                     }
 
                     if (previousId != id && previousId != "all") {
-                        var selector = document.querySelectorAll('.' + id);
+                        var selector = document.querySelectorAll('.cat-' + id);
                         for (var i = 0; i < selector.length; i++) {
                             selector[i].style.display = "";
                         }
@@ -296,6 +309,19 @@
                     for (var i = 0; i < s_category.length; i++) {
                         s_category[i].style.display = "none";
                     }
+
+                    // NOTE(krixano): Database Query runs asynchronously, which means putting this outside of this callback function
+                    // would immediately run this code, and therefore change previousId before everything above is finished!
+                    TweenLite.to(document.getElementById('zites_table'), 1.0, {
+                        autoAlpha: 2
+                    });
+
+                    previousId = id;
+
+                    toggleClass(tabElem, "is-active");
+                    toggleClass(previousActiveTab, "is-active");
+
+                    previousActiveTab = tabElem;
                 })
 
                 // if (id != "info") {
@@ -306,16 +332,6 @@
                 // }
             }
 
-            TweenLite.to(document.getElementById('zites_table'), 1.0, {
-                autoAlpha: 2
-            });
-
-            previousId = id;
-
-            toggleClass(tabElem, "is-active");
-            toggleClass(previousActiveTab, "is-active");
-
-            previousActiveTab = tabElem;
             return false;
         }
     </script>
