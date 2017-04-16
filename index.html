@@ -27,7 +27,6 @@
     </style>
 
     <script src="js/navToggle.js"></script>
-
     <link rel="stylesheet" href="css/bulma.css" />
     <link rel="stylesheet" href="css/main.css" />
 </head>
@@ -52,7 +51,6 @@
             <!-- Add the modifier "is-active" to display it on mobile -->
             <div id="nav-menu" class="nav-right nav-menu">
                 <a href="./" class="nav-item is-active">Home</a>
-                <!--<a class="nav-item">Blog</a>-->
                 <a href="request.html" class="nav-item">Requests</a>
                 <a href="about.html" class="nav-item">About</a>
                 <span class="nav-item"><a href="#Select+user" id="select_user" class="button is-info" onclick='return page.selectUser()'>Select user</a></span>
@@ -61,9 +59,6 @@
     </nav>
 
     <section class="section">
-        <!--<div class="tabs is-centered">
-	</div>-->
-
         <div class="columns">
             <div class="column is-2 is-offset-1">
                 <aside class="menu">
@@ -153,7 +148,8 @@
 
             onRequest(cmd, message) {
                 if (cmd == "setSiteInfo") {
-                    this.site_info = message.params; // Save site info data to allow access it later
+                    // Save site info data to allow access it later
+                    this.site_info = message.params;
                     if (message.params.cert_user_id)
                         document.getElementById("select_user").innerHTML = message.params.cert_user_id;
                     else if (!message.params.cert_user_id) {
