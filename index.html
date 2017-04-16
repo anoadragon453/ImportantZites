@@ -129,14 +129,7 @@
         var allZites;
         var categoriesList;
         class ZeroChat extends ZeroFrame {
-            /*addMessage (username, message) {
-            	var message_escaped = message.replace(/</g, "&lt;").replace(/>/g, "&gt;")  // Escape html tags in the message
-            	this.messages.innerHTML += "<li><b>" + username + "</b>: " + message_escaped + "</li>"
-            }*/
-
             onOpenWebsocket() {
-                //this.messages = document.getElementById("messages")
-                //this.addMessage("System", "Ready to call ZeroFrame API!")
                 this.cmd("siteInfo", {}, (site_info) => {
                     if (site_info.cert_user_id)
                         document.getElementById("select_user").innerText = site_info.cert_user_id;
