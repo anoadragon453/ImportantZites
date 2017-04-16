@@ -126,6 +126,7 @@
     <script type="text/javascript" src="js/gsap/plugins/CSSPlugin.min.js"></script>
 
     <script>
+        var allZites;
         class ZeroChat extends ZeroFrame {
             /*addMessage (username, message) {
             	var message_escaped = message.replace(/</g, "&lt;").replace(/>/g, "&gt;")  // Escape html tags in the message
@@ -140,9 +141,11 @@
                         document.getElementById("select_user").innerText = site_info.cert_user_id;
 
                     this.site_info = site_info;
-                    this.loadCategories(page.loadZites);
-
-                    var allZites = document.querySelectorAll("#zites_list > tr");
+                    this.loadCategories(function() {
+                        page.loadZites(function() {
+                            allZites = document.querySelectorAll("#zites_list > tr");
+                        })
+                    });
                 });
             }
 
@@ -168,7 +171,7 @@
                 }
             }
 
-            loadZites() {
+            loadZites(cb) {
                 var zites_list = document.getElementById("zites_list");
                 var zites_table = document.getElementById("zites_table");
                 var zite_indicator = document.getElementById('zite_num');
@@ -193,6 +196,9 @@
                             " <code class='category' style='font-style: italic;'>" +
                             zite.category.toUpperCase() + "</code></td></tr>";
                     }
+
+                    if (typeof cb === "function")
+                        cb();
 
                     TweenLite.to(zites_table, 3, {
                         autoAlpha: 2
