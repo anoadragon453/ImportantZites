@@ -161,6 +161,7 @@
                     }
                     if (message.params.event && message.params.event[0] == "file_done") {
                         this.loadZites();
+                        allZites = document.querySelectorAll("#zites_list > tr");
                     }
                 }
             }

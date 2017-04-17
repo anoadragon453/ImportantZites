@@ -151,7 +151,8 @@
 			addMessage (username, message, title, request_type, removal_reason, isByCurrentUser) {
 				var message_escaped = message.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;");  // Escape html tags in the message
 				var message_url = message.replace(/http:\/\/127\.0\.0\.1:43110/, "").replace(/127\.0\.0\.1:43110/, "").replace(/http:\/\/localhost:43110/, "").replace(/localhost:43110/, "");
-				
+				var status = "Under Consideration";
+
 				if (!title) {
 					title = message_escaped;
 				}
@@ -167,17 +168,19 @@
 					request_type_text = "Add";
 				}
 
-				var removal_reason_text = "";
+				var addonText = "<p style='margin: 0;'><small>";
 				if (removal_reason) {
-					removal_reason_text = "<p>" + removal_reason + "</p>";
+					addonText += "Reason: " + removal_reason + "<br>";
 				}
+				addonText += "<em>Status: " + status + "</em>";
+				addonText += "</small></p>"
 
 				if (isByCurrentUser == true) {
-					//this.currentUserMessages.innerHTML += "<li><h2 class='title is-5'>" + username + "</h2><em>" + request_type_text + " <a href='" + message_url + "'>" + message_escaped + "</a> " + removal_reason_text + "</em></li><hr>";
-					this.currentUserMessages.innerHTML += "<li class='box'><h2 class='title is-5'>" + request_type_text + " <a href='" + message_url + "'>" + title + "</a> " + "<br><small><em>" + username + "</em></small></h2>" + removal_reason_text + "</li>";
+					//this.currentUserMessages.innerHTML += "<li><h2 class='title is-5'>" + username + "</h2><em>" + request_type_text + " <a href='" + message_url + "'>" + message_escaped + "</a> " + addonText + "</em></li><hr>";
+					this.currentUserMessages.innerHTML += "<li class='box'><h2 class='title is-5' style='margin-bottom: 10px;'>" + request_type_text + " <a href='" + message_url + "'>" + title + "</a><br><small><em>" + username + "</em></small></h2>" + addonText + "</li>";
 				} else {
-					//this.messages_container.innerHTML += "<li><b>" + username + ":</b> <em>" + request_type_text +" <a href='" + message_url + "'>" + message_escaped + "</a> " + removal_reason_text + "</em></li>";
-					this.messages_container.innerHTML += "<li class='box'><h2 class='title is-5'>" + request_type_text + " <a href='" + message_url + "'>" + message_escaped + "</a> " + "<br><small><em>" + username + "</em></small></h2>" + removal_reason_text + "</li>";
+					//this.messages_container.innerHTML += "<li><b>" + username + ":</b> <em>" + request_type_text +" <a href='" + message_url + "'>" + message_escaped + "</a> " + addonText + "</em></li>";
+					this.messages_container.innerHTML += "<li class='box'><h2 class='title is-5' style='margin-bottom: 10px;'>" + request_type_text + " <a href='" + message_url + "'>" + message_escaped + "</a> " + "<br><small><em>" + username + "</em></small></h2>" + addonText + "</li>";
 				}
 				//var html = "<li><b>" + username + ":</b> <em><a href='" + message + "'>" + message_escaped + "</a></em></li>";
 				//$(html).hide().appendTo("#messages").fadeIn();
