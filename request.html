@@ -122,7 +122,7 @@
 					</div>
 				</div>
 				<div style="margin-bottom: 15px;"><h3 class="title is-4" style="font-style: bold; display: inline;">Your Requests</h3>
-				<small><em><a style="margin-left: 10px; font-style: bold;" onclick="toggleRequestForm(); return false;">Add Request</a></em></small></div>
+				<small><em><a id="addRequestLink" style="margin-left: 10px; font-style: bold; display: none;" onclick="toggleRequestForm(); return false;">Add Request</a></em></small></div>
 				<ul id="current_user_messages">
 				</ul>
 				<h3 class="title is-4" style="margin-bottom: 15px; margin-top: 20px;">Others' Requests</h3>
@@ -186,10 +186,11 @@
 			onOpenWebsocket () {
 				this.messages_container = document.getElementById("messages");
 				this.currentUserMessages = document.getElementById("current_user_messages");
-				//this.addMessage("System", "Ready to call ZeroFrame API!");
+
 				this.cmd("siteInfo", {}, (site_info) => {
 					if (site_info.cert_user_id) {
 						document.getElementById("select_user").innerText = site_info.cert_user_id;
+						document.getElementById('addRequestLink').style.display = "";
 					}
 					this.site_info = site_info;
 					this.loadMessages();
@@ -207,9 +208,11 @@
 					this.site_info = message.params  // Save site info data to allow access it later
 					if (message.params.cert_user_id) {
 						document.getElementById("select_user").innerHTML = message.params.cert_user_id
+						document.getElementById('addRequestLink').style.display = "";
 						this.loadMessages();
 					} else if (!message.params.cert_user_id) {
 						document.getElementById("select_user").innerHTML = "Select user"
+						document.getElementById('addRequestLink').style.display = "none";
 						this.loadMessages();
 					} else if (message.params.event && message.params.event[0] == "file_done") {
 						this.loadMessages();
