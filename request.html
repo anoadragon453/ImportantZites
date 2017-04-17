@@ -17,19 +17,16 @@
 
 	<style>
 		#messages li {
-			margin-bottom: 5px;
-		}
-		#messages li > b {
-			margin-right: 2px;
+			margin-bottom: 10px;
 		}
 		#current_user_messages li {
-			margin-bottom: 5px;
+			margin-bottom: 10px;
 		}
-		#current_user_messages li > b {
-			margin-right: 2px;
-		}
-		#zite_num {
+		#requestForm, #zite_num {
 			visibility: hidden;
+		}
+		html, body, section {
+			background: #f8f8f8 !important;
 		}
 	</style>
 </head>
@@ -64,70 +61,101 @@
 	<section class="section">
 		<div class="columns">
 			<div class="column is-8 is-offset-2">
-				<p>To request a zite be added or removed (in the case a zite is abandoned, etc.), submit the link in the form below. Or you can send me a request by emailing me the link to the zite on ZeroMail via <a href="/Mail.ZeroNetwork.bit/?to=krixano">this link</a>.
-					<br><em>Once a zite has been added/removed, the request will be removed.</em></p>
-					<h2 class="title is-4" style="margin-top: 20px;">Requests</h2>
-					<div class="columns">
-						<div class="column is-6">
-							<form onsubmit="return page.sendMessage()">
-								<div class="field">
-									<p class="control">
-										<input type="url" id="message" name="message" class="input" onkeypress="if (event.keyCode == 13) page.sendMessage()" placeholder="Zite Link" required>
-									</p>
-								</div>
-								<div class="field">
-									<p class="control">
-										<input type="text" id="removal_reason" name="removal_reason" class="input" onkeypress="if (event.keyCode == 13) page.sendMessage()" placeholder="Reason For Removal" style="display: none;">
-									</p>
-								</div>
-								<div class="field">
-									<p class="control">
-										<label class="radio">
-											<input type="radio" name="request_type" value="a" checked onclick="page.hideRemovalReasonTextbox()">
-											Add
-										</label>
-										<label class="radio">
-											<input type="radio" name="request_type" value="r" onclick="page.showRemovalReasonTextbox()">
-											Remove
-										</label>
-									</p>
-								</div>
-								<div class="field">
-									<button class="button is-success">Submit!</button>
-								</div>
-							</form>
-						</div>
+				<!--<h2 class="title is-2">Requests</h2>-->
+				<p>
+					To request a zite be added or removed (in the case a zite is abandoned, etc.), submit the link in the form below. Or you can send me a request by emailing me the link to the zite on ZeroMail via <a href="/Mail.ZeroNetwork.bit/?to=krixano">this link</a>.
+					<br><em>Once a zite has been added/removed, the request will be removed.</em>
+				</p>
+				<div class="columns">
+					<div class="column is-6">
+						<form id="requestForm" onsubmit="return page.sendMessage()" class="modal">
+							<div class="modal-background" onclick="toggleRequestForm();"></div>
+							<div class="modal-card">
+								<header class="modal-card-head">
+									<p class="modal-card-title">Add Request</p>
+									<a class="delete" onclick="toggleRequestForm(); return false;"></a>
+								</header>
+								<section class="modal-card-body">
+									<div class="field">
+										<p class="control">
+											<input type="text" id="title" name="title" class="input" placeholder="Title" required>
+										</p>
+									</div>
+									<div class="field">
+										<p class="control">
+											<input type="url" id="message" name="message" class="input" onkeypress="if (event.keyCode == 13) page.sendMessage()" placeholder="Link" required>
+										</p>
+									</div>
+									<!--<div class="field">
+										<p class="control">
+											<input type="url" id="description" name="description" class="input" placeholder="Description" required>
+										</p>
+									</div>--> <!-- TODO -->
+									<div class="field">
+										<p class="control">
+											<input type="text" id="removal_reason" name="removal_reason" class="input" onkeypress="if (event.keyCode == 13) page.sendMessage()" placeholder="Reason For Removal" style="display: none;">
+										</p>
+									</div>
+									<div class="field">
+										<p class="control">
+											<label class="radio">
+												<input type="radio" name="request_type" value="a" checked onclick="page.hideRemovalReasonTextbox()">
+												Add
+											</label>
+											<label class="radio">
+												<input type="radio" name="request_type" value="r" onclick="page.showRemovalReasonTextbox()">
+												Remove
+											</label>
+											<!--<label class="radio">
+												<input type="radio" name="request_type" value="u" onclick="page.hideRemovalReasonTextbox()">
+												Update
+											</label>--> <!-- TODO -->
+										</p>
+									</div>
+								</section>
+								<footer class="modal-card-foot">
+									<button class="button is-success">Submit</button>
+									<a class="button is-link" onclick="toggleRequestForm(); return false;">Cancel</a>
+								</footer>
+							</div>
+						</form>
 					</div>
-					<h3 class="title is-6" style="margin-bottom: 5px; font-style: bold;">Your Requests</h3>
-					<ul id="current_user_messages">
-					</ul>
-					<h3 class="title is-6" style="margin-bottom: 5px; margin-top: 15px;">Others' Requests</h3>
-					<ul id="messages">
-					</ul>
 				</div>
+				<div style="margin-bottom: 15px;"><h3 class="title is-4" style="font-style: bold; display: inline;">Your Requests</h3>
+				<small><em><a style="margin-left: 10px; font-style: bold;" onclick="toggleRequestForm(); return false;">Add Request</a></em></small></div>
+				<ul id="current_user_messages">
+				</ul>
+				<h3 class="title is-4" style="margin-bottom: 15px; margin-top: 20px;">Others' Requests</h3>
+				<ul id="messages">
+				</ul>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<footer class="footer">
-			<div class="container">
-				<span style="text-align: center">
-					<small>NOTE: This zite is still a work-in-progress.</small><br>
-					<small>Zite created on April 12th, 2017 by <a href="/Me.ZeroNetwork.bit/?Profile/12h51ug6CcntU2aiBjhP8Ns2e5VypbWWtv/12gAes6NzDS9E2q6Q1UXrpUdbPS6nvuBPu/krixano@zeroid.bit">krixano@zeroid.bit</a> (Christian Seibold)</small><br>
-					<small><a href="https://github.com/krixano/ImportantZites">Github Link</a></small>
-				</span>
-			</div>
-		</footer>
+	<footer class="footer">
+		<div class="container">
+			<span style="text-align: center">
+				<small>NOTE: This zite is still a work-in-progress.</small><br>
+				<small>Zite created on April 12th, 2017 by <a href="/Me.ZeroNetwork.bit/?Profile/12h51ug6CcntU2aiBjhP8Ns2e5VypbWWtv/12gAes6NzDS9E2q6Q1UXrpUdbPS6nvuBPu/krixano@zeroid.bit">krixano@zeroid.bit</a> (Christian Seibold)</small><br>
+				<small><a href="https://github.com/krixano/ImportantZites">Github Link</a></small>
+			</span>
+		</div>
+	</footer>
 
-		<script type="text/javascript" src="js/ZeroFrame.js"></script>
-		<script type="text/javascript" src="js/gsap/TweenLite.min.js"></script>
-		<script type="text/javascript" src="js/gsap/plugins/CSSPlugin.min.js"></script>
+	<script type="text/javascript" src="js/ZeroFrame.js"></script>
+	<script type="text/javascript" src="js/gsap/TweenLite.min.js"></script>
+	<script type="text/javascript" src="js/gsap/plugins/CSSPlugin.min.js"></script>
 
-		<script>
-			class ZeroChat extends ZeroFrame {
-				addMessage (username, message, request_type, removal_reason, isByCurrentUser) {
+	<script>
+		class ZeroChat extends ZeroFrame {
+			addMessage (username, message, title, request_type, removal_reason, isByCurrentUser) {
 				var message_escaped = message.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/&/g, "&amp;");  // Escape html tags in the message
 				var message_url = message.replace(/http:\/\/127\.0\.0\.1:43110/, "").replace(/127\.0\.0\.1:43110/, "").replace(/http:\/\/localhost:43110/, "").replace(/localhost:43110/, "");
 				
+				if (!title) {
+					title = message_escaped;
+				}
+
 				var request_type_text = "";
 				if (request_type) {
 					if (request_type == 'a') {
@@ -141,13 +169,15 @@
 
 				var removal_reason_text = "";
 				if (removal_reason) {
-					removal_reason_text = "(" + removal_reason + ")";
+					removal_reason_text = "<p>" + removal_reason + "</p>";
 				}
 
 				if (isByCurrentUser == true) {
-					this.currentUserMessages.innerHTML += "<li><b>" + username + ":</b> <em>" + request_type_text + " <a href='" + message_url + "'>" + message_escaped + "</a> " + removal_reason_text + "</em></li>"
+					//this.currentUserMessages.innerHTML += "<li><h2 class='title is-5'>" + username + "</h2><em>" + request_type_text + " <a href='" + message_url + "'>" + message_escaped + "</a> " + removal_reason_text + "</em></li><hr>";
+					this.currentUserMessages.innerHTML += "<li class='box'><h2 class='title is-5'>" + request_type_text + " <a href='" + message_url + "'>" + title + "</a> " + "<br><small><em>" + username + "</em></small></h2>" + removal_reason_text + "</li>";
 				} else {
-					this.messages_container.innerHTML += "<li><b>" + username + ":</b> <em>" + request_type_text +" <a href='" + message_url + "'>" + message_escaped + "</a> " + removal_reason_text + "</em></li>"
+					//this.messages_container.innerHTML += "<li><b>" + username + ":</b> <em>" + request_type_text +" <a href='" + message_url + "'>" + message_escaped + "</a> " + removal_reason_text + "</em></li>";
+					this.messages_container.innerHTML += "<li class='box'><h2 class='title is-5'>" + request_type_text + " <a href='" + message_url + "'>" + message_escaped + "</a> " + "<br><small><em>" + username + "</em></small></h2>" + removal_reason_text + "</li>";
 				}
 				//var html = "<li><b>" + username + ":</b> <em><a href='" + message + "'>" + message_escaped + "</a></em></li>";
 				//$(html).hide().appendTo("#messages").fadeIn();
@@ -217,6 +247,7 @@
 					// Add the new message to data
 					data.message.push({
 						"body": document.getElementById("message").value,
+						"title": document.getElementById('title').value,
 						"request_type": request_type,
 						"removal_reason": request_type == 'r' ? document.getElementById("removal_reason").value : "",
 						"date_added": Date.now()
@@ -240,6 +271,8 @@
 						} else {
 							this.cmd("wrapperNotification", ["error", "File write error: #{res}"]);
 						}
+
+						toggleRequestForm();
 					});
 				});
 
@@ -258,9 +291,9 @@
 
 					for (var i = 0; i < messages.length; i++) {
 						if (messages[i].cert_user_id == this.site_info.cert_user_id) {
-							this.addMessage(messages[i].cert_user_id, messages[i].body, messages[i].request_type, messages[i].removal_reason, true);
+							this.addMessage(messages[i].cert_user_id, messages[i].body, messages[i].title, messages[i].request_type, messages[i].removal_reason, true);
 						} else {
-							this.addMessage(messages[i].cert_user_id, messages[i].body, messages[i].request_type, messages[i].removal_reason, false);
+							this.addMessage(messages[i].cert_user_id, messages[i].body, messages[i].title, messages[i].request_type, messages[i].removal_reason, false);
 						}
 					}
 					if (!this.site_info.cert_user_id) {
@@ -292,6 +325,21 @@
 		}
 
 		page = new ZeroChat()
+
+		function toggleRequestForm() {
+			var form = document.getElementById('requestForm');
+			var wasActive = hasClass(form, "is-active");
+			toggleClass(form, "is-active");
+
+			TweenLite.set(form, {
+                autoAlpha: 0
+            });
+			if (wasActive == false) {
+				TweenLite.to(form, 0.3, {
+	                autoAlpha: 2
+	            });
+			}
+		}
 	</script>
 
 	<!--<script>

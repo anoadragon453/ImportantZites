@@ -36,14 +36,17 @@
         "message": {
             "cols": [
                 ["message_id", "INTEGER PRIMARY KEY AUTOINCREMENT"],
+                ["title", "TEXT"],
                 ["body", "TEXT NOT NULL"],
+                ["category", "TEXT"],
+                ["tags", "TEXT"],
                 ["request_type", "CHAR"],
                 ["removal_reason", "TEXT"],
                 ["date_added", "INTEGER NOT NULL"],
                 ["json_id", "INTEGER REFERENCES json (json_id)"]
             ],
             "indexes": ["CREATE UNIQUE INDEX message_key ON message(json_id, message_id)", "CREATE INDEX midx1 ON message(request_type)"],
-            "schema_changed": 14
+            "schema_changed": 17
         },
         "zites": {
             "cols": [
@@ -52,10 +55,11 @@
                 ["title", "TEXT NOT NULL"],
                 ["description", "TEXT"],
                 ["category", "TEXT NOT NULL"],
+                ["tags", "TEXT"],
                 ["json_id", "INTEGER REFERENCES json (json_id)"]
             ],
             "indexes": ["CREATE UNIQUE INDEX zite_key ON zites(json_id, address)", "CREATE INDEX zidx1 ON zites(category, address)", "CREATE INDEX zite_address ON zites(address)", "CREATE INDEX zite_title ON zites(title)"],
-            "schema_changed": 20
+            "schema_changed": 21
         },
         "categories": {
             "cols": [
