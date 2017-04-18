@@ -42,11 +42,12 @@
                 ["tags", "TEXT"],
                 ["request_type", "CHAR"],
                 ["removal_reason", "TEXT"],
+                ["status", "TEXT"],
                 ["date_added", "INTEGER NOT NULL"],
                 ["json_id", "INTEGER REFERENCES json (json_id)"]
             ],
             "indexes": ["CREATE UNIQUE INDEX message_key ON message(json_id, message_id)", "CREATE INDEX midx1 ON message(request_type)"],
-            "schema_changed": 17
+            "schema_changed": 18
         },
         "zites": {
             "cols": [
